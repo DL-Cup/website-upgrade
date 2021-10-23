@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import axios from './axios';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 
 function App() {
+  // let { id } = useParams();
+  const [TableInfo, setTableInfo] = useState([]);
+
+  useEffect(
+      ()=>{
+          async function fetchTable(){
+              const request = await axios.get('table');
+              console.log(request);
+              setTableInfo(request.data);
+              return request;
+          }
+          fetchTable();
+      },
+  //  [id ]
+  );
+  {console.log(TableInfo)}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <h4>yo</h4>
+      {TableInfo.map((i)=>(
+          
+          <h3>{i.team}</h3>
+      )
+          )}
+         
+          </div>
   );
 }
 
