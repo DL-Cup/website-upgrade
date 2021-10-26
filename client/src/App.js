@@ -21,15 +21,69 @@ function App() {
   {console.log(TableInfo)}
 
   return (
-      <div>
-          <h4>yo</h4>
-      {TableInfo.map((i)=>(
-          
-          <h3>{i.team}</h3>
-      )
+      
+    <main>
+    <div class="grid-container">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Last 5</th>
+              <th id="Pts" title="Total Points">Points</th>
+              <th id="Pl" title="Games Played">Played</th>
+              <th id="W">Won</th>
+              <th id="D">Drawn</th>
+              <th id="L">Lost</th>
+              <th><abbr title="Goals for">GF</abbr></th>
+              <th><abbr title="Goals against">GA</abbr></th>
+              <th><abbr title="Goal Difference">GD</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            {TableInfo.map((i)=>(
+                <tr>
+              <td id={i.team}><span>{i.team}</span><i class="fas fa-minus"></i></td>
+              <td>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+              </td>
+              <td>{i.points}</td>
+              <td>{i.played}</td>
+              <td>*</td>
+              <td>*</td>
+              <td>*</td>
+              <td>*</td>
+              <td>*</td>
+              <td>*</td>
+              </tr>
+              )
           )}
+           
+            
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+     
+
          
-          </div>
+       
+      </div>
+  
+
+
+  
+      
+       
+    
+          </main>
+         
+         
   );
 }
 

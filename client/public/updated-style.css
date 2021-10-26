@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --cool-color: #6b28cf;
+  --primary-color: #411f73;
+  --secondary-color: #f5f5f5;
+  --accent-color: #dc143c;
+}
+
+body {
+  background: rgba(228, 126, 146, 0.7);
+  background-image: url("./epic_waves.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+header > div > h1 {
+  font-family: "Otomanopee One", sans-serif;
+  font-size: 4rem;
+  margin: 0;
+  color: white;
+}
+
+/* nav {
+  background: var(--secondary-color);
+  padding-left: 3rem;
+}
+
+nav > a {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px 10px;
+  font-family: sans-serif;
+  margin-right: 16px;
+} */
+
+main > div {
+  height: 85vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 3fr minmax(350px, 1fr);
+  grid-gap: 2rem;
+  background: white;
+  padding: 1.8rem 3rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2rem;
+  overflow-y: scroll;
+  padding-top: 0.5rem;
+}
+
+.stats > div {
+  /* transform: skewY(-5deg); */
+  min-height: 450px;
+  /* background: var(--primary-color); */
+  background: url("./assets/images/oriental-tiles.png");
+  position: relative;
+  padding: 15px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 0 0 8px 8px;
+  /* overflow-y: auto; */
+}
+
+.stats > .most-cleansheets {
+  justify-content: stretch;
+}
+
+.stats > div::before {
+  content: "";
+  height: 8px;
+  background: linear-gradient(
+    40deg,
+    #dc143c,
+    #e22f72,
+    #c071c7,
+    #8d9fed,
+    #78b0f6,
+    #5ffbf1
+  );
+  background-size: 400%;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 8px 8px 0 0;
+  animation: glimmer 20s infinite alternate;
+}
+
+@keyframes glimmer {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 100%;
+  }
+}
+
+.stats > div > h1 {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  padding: 15px 10px;
+  margin: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.stats > div > div {
+  display: flex;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: sans-serif;
+  margin-top: 8px;
+  padding: 0.4rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.big-btn {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  padding: 0.8rem 0;
+  margin-top: 0.5rem;
+  border: none;
+  border-bottom: 5px solid var(--cool-color);
+  border-radius: 0 0 8px 8px;
+  font-family: sans-serif;
+  transition: all 1s linear;
+  position: relative;
+}
+
+.big-btn:active {
+  top: 5px;
+  border-bottom: none;
+}
+
+.stats > div > div > span {
+  font-size: 1.2rem;
+}
+
+.stats > div > div .details span {
+  padding: 0.8rem;
+  display: inline-block;
+  color: var(--secondary-color);
+  background-color: var(--cool-color);
+}
+
+.stats > div > div .details span:nth-child(2) {
+  background-color: var(--accent-color);
+}
+/* .stats .more-coming-soon {
+  display: none;
+} */
+
+/* #########################
+  About Section
+  #########################
+*/
+
+.about {
+  background: url(./assets/images/oriental-tiles.png);
+}
+
+/* #########################
+  fixtures Section
+  #########################
+*/
+
+.fixtures {
+  background: white;
+}
+
+footer {
+  font-size: 1.2rem;
+  color: white;
+  padding: 1rem 3rem 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  text-align: right;
+  background: hsla(264, 58%, 29%, 0.5);
+  letter-spacing: 8px;
+}
