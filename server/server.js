@@ -20,7 +20,7 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 //these are called middlewares that handle our requests (the logic is actually somwhere else) 
-app.use(express.json());
+
 app.use('/table', tableRoute);
 
 app.listen(3000, ()=>{

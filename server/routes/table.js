@@ -1,3 +1,4 @@
+const { request } = require('express');
 const express = require('express');
 const {
     TableModel
@@ -6,7 +7,7 @@ const router = express.Router();
 
 const headers = {
     "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE"
 }
 
 router.get('/', async (req, res) => {
@@ -25,8 +26,8 @@ router.get('/', async (req, res) => {
 
 router.delete('/:team', async (req, res) => {
     try {
-        const removedTeam = await Table.remove({
-            _id: req.params.team
+        const removedTeam = await TableModel.remove({
+            team: req.params.team
         }, {
             $set: {}
         });
@@ -36,5 +37,29 @@ router.delete('/:team', async (req, res) => {
     }
 
 });
+
+router.post('/', async (req, res) => {
+    const newTeam = new TableModel({
+        team: req.body.team,
+        played: req.body.played,
+        points: req.body.points,
+        win: req.body.win,
+        draw: req.body.draw,
+        loss: req.body.loss,
+        goalForward: req.body.goalForward,
+        goalAgainst: req.body.goalAgainst,
+        goalDifference: req.body.goalDifference,
+    })
+    try {
+        const postedTeam = await newTeam.save();
+        res.send(postedTeam);
+    } catch (err) {
+        
+    }
+});
+
+router.patch('/:team', async (req, res) => {
+
+})
 
 module.exports = router;
