@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pclr: navy;
+  --sclr: aliceblue;
+}
+
+.fixtures {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  height: max-content;
+  width: max-content;
+}
+
+.match {
+  margin-bottom: 1rem;
+}
+
+.scoreline {
+  display: flex;
+  font-size: 1.5rem;
+  background: var(--sclr);
+  color: var(--pclr);
+
+  margin-bottom: 0.8rem;
+}
+
+.scoreline div {
+  padding: 0.5rem 2rem;
+}
+
+.score {
+  background: var(--pclr);
+  color: var(--sclr);
+}
+
+.team {
+  width: 300px;
+  text-align: center;
+}
+
+.schedule {
+  text-align: center;
+}
+
+details > summary {
+  list-style: none;
+}
+
+.scorers {
+  display: flex;
+  justify-content: space-around;
+}
