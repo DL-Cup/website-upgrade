@@ -1,16 +1,26 @@
 const Express = require("express");
+const CORS = require("cors");
+
+const mongoose = require("mongoose");
+const GameWeek = require("./models/fixtures");
+
 const app = Express();
 
-const { readFileSync } = require("fs");
-const path = require("path");
+try {
+  main();
 
-app.get("/fixtures", (req, res) => {
-  let data = readFileSync(
-    path.resolve(__dirname, "fixtures-mock-data.json"),
-    "utf8"
-  );
+  async function main() {
+    await mongoose.connect("mongodb://localhost:27017/dlcup");
+  }
+} catch (err) {
+  console.log(err);
+}
 
-  res.json(data);
+app.use(CORS());
+
+app.get("/fixtures", async (req, res) => {
+  const result = await GameWeek.find({});
+  res.status(200).json(result);
 });
 
 app.listen(5000, () => {
