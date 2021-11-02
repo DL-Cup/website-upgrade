@@ -5,33 +5,87 @@ import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-
 
 export default function Table(props){
 
-    let { id } = useParams();
-    const [TableInfo, setTableInfo] = useState([]);
+     // let { id } = useParams();
+  const [TableInfo, setTableInfo] = useState([]);
 
-    useEffect(
-        ()=>{
-            async function fetchTable(){
-                const request = await axios.get('table');
-                console.log(request);
-                setTableInfo(request.data);
-                return request;
-            }
-            fetchTable();
-        },
-     [id ]
-    );
-    {console.log(TableInfo)}
+  useEffect(
+      ()=>{
+          async function fetchTable(){
+              const request = await axios.get('table');
+              console.log(request);
+              setTableInfo(request.data);
+              return request;
+          }
+          fetchTable();
+      },
+  //  [id ]
+  );
+  {console.log(TableInfo)}
 
-    return (
-        <div>
-            <h4>yo</h4>
-        {TableInfo.map((i)=>(
+  return (
+      
+    <main>
+    <div class="grid-container">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Last 5</th>
+              <th id="Pts" title="Total Points">Points</th>
+              <th id="Pl" title="Games Played">Played</th>
+              <th id="W">Won</th>
+              <th id="D">Drawn</th>
+              <th id="L">Lost</th>
+              <th><abbr title="Goals for">GF</abbr></th>
+              <th><abbr title="Goals against">GA</abbr></th>
+              <th><abbr title="Goal Difference">GD</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
             
-            <h3>{i.team}</h3>
-        )
-            )}
+            {TableInfo.map((i)=>(
+                <tr>
+              <td id={i.team}><span>{i.team}</span><i class="fas fa-minus"></i></td>
+              <td>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i>
+              </td>
+              <td>{i.points}</td>
+              <td>{i.played}</td>
+              <td>{i.win}</td>
+              <td>{i.draw}</td>
+              <td>{i.loss}</td>
+              <td>{i.goalForward}</td>
+              <td>{i.goalAgainst}</td>
+              <td>{i.goalDifference}</td>
+              </tr>
+              )
+          )}
            
-            </div>
-    );
+            
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+     
+
+         
+       
+      </div>
+  
+
+
+  
+      
+       
+    
+          </main>
+         
+         
+  );
 }
 
