@@ -54,12 +54,12 @@ function App() {
               </td>
               <td>{i.points}</td>
               <td>{i.played}</td>
-              <td>*</td>
-              <td>*</td>
-              <td>*</td>
-              <td>*</td>
-              <td>*</td>
-              <td>*</td>
+              <td>{i.win}</td>
+              <td>{i.draw}</td>
+              <td>{i.loss}</td>
+              <td>{i.goalForward}</td>
+              <td>{i.goalAgainst}</td>
+              <td>{i.goalDifference}</td>
               </tr>
               )
           )}

@@ -12,7 +12,7 @@ const tableSchema = mongoose.Schema({
     goalAgainst: Number,
     goalDifference: {
         type: Number,
-        value: goalForward - goalAgainst,
+        value: 0,
     }
 });
 

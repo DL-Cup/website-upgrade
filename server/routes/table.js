@@ -13,7 +13,7 @@ const headers = {
 router.get('/', async (req, res) => {
     // res.header(headers);
     try {
-        const theTable = await TableModel.find();
+        const theTable = await TableModel.find().sort({points: -1});
         console.log(theTable);
         res.send(theTable);
     } catch (err) {
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 
 router.delete('/:team', async (req, res) => {
     try {
-        const removedTeam = await TableModel.remove({
+        const removedTeam = await TableModel.deleteOne({
             team: req.params.team
         }, {
             $set: {}
@@ -59,7 +59,16 @@ router.post('/', async (req, res) => {
 });
 
 router.patch('/:team', async (req, res) => {
+    try {
+        const updatedTeam = await TableModel.updateOne({
+            team: req.params.team
+        }, {
+            $set: req.body
+        });
+        res.json(updatedTeam);
+    } catch (error) {
 
+    }
 })
 
 module.exports = router;
