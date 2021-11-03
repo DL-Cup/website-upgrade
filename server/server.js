@@ -1,30 +1,36 @@
-const config = require('config');
-const express = require('express');
-const tableRoute = require('./routes/table.js');
-const teamsRoute = require('./routes/teams');
-const mongoose =  require('mongoose');
-require('dotenv/config'); //go to the .env file and change the database address for mongoose to work
+const express = require("express");
+const CORS = require("cors");
+const mongoose = require("mongoose");
+require("dotenv/config"); //go to the .env file and change the database address for mongoose to work
 
+// Routes
+const tableRoutes = require("./routes/table");
+const teamsRoutes = require("./routes/teams");
+const fixtureRoutes = require("./routes/fixtures");
 
-
-//connect to the database
+// Connect to the database
 mongoose.connect(
-    process.env.DB_CONNECTION, // this part is machine dependent as the local host varies from device to device
-    { useNewUrlParser: true , useUnifiedTopology: true, useFindAndModify: false},
-    ()=>{console.log("connected to db");}
+  process.env.DB_CONNECTION, // this part is machine dependent as the local host varies from device to device
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("connected to db");
+  }
 );
-//start our exress server
+
+// Start exress server
 const app = express();
-//tell our server we are going to handle json format requests and resposes
+
+// Tell server we are going to handle json format requests and resposes
 app.use(express.json());
-//this package must be used to solve the CORS problem
-const cors = require("cors");
-app.use(cors());
-//these are called middlewares that handle our requests (the logic is actually somwhere else) 
 
-app.use('/table', tableRoute);
-app.use('/teams', teamsRoute);
+// This package must be used to solve the CORS problem
+app.use(CORS());
 
-app.listen(5000, ()=>{
-    console.log(`Server Running on Port: http://localhost:5000`);
+// These are called middlewares that handle our requests (the logic is actually somwhere else)
+app.use("/table", tableRoutes);
+app.use("/fixtures", fixtureRoutes);
+app.use("/teams", teamsRoutes);
+
+app.listen(5000, () => {
+  console.log(`Server Running on Port: http://localhost:5000`);
 });
