@@ -18,8 +18,8 @@ try {
 
 app.use(CORS());
 
-app.get("/fixtures", async (req, res) => {
-  const result = await GameWeek.find({});
+app.get("/fixtures/:id", async (req, res) => {
+  const result = await GameWeek.find({ GWID: req.params?.id });
   res.status(200).json(result);
 });
 

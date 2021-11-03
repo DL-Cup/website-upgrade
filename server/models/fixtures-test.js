@@ -18,7 +18,7 @@ async function main() {
   const GameWeek = mongoose.model("fixtures", fixturesSchema);
   const Match = mongoose.model("Match", matchesSchema);
 
-  const matches = [
+  const matchesGW1 = [
     new Match({
       teams: ["Leicester City", "Arsenal"],
       schedule: new Date("October 30, 2021 14:30"),
@@ -39,11 +39,40 @@ async function main() {
     }),
   ];
 
-  const GW = new GameWeek({
+  const GW1 = new GameWeek({
     GWID: "1",
-    matches: matches,
+    matches: matchesGW1,
   });
 
-  GW.save();
+  GW1.save();
+  /// Gameweek 2
+
+  const matchesGW2 = [
+    new Match({
+      teams: ["Burnley", "Brentford"],
+      schedule: new Date("October 30, 2021 19:30"),
+      score: "3-1",
+      scorers: ["Wood", "Lowton", "Cornet", "Ghoddos"],
+    }),
+    new Match({
+      teams: ["Aston Villa", "West Ham United"],
+      schedule: new Date("October 31, 2021 19:30"),
+      score: "1-4",
+      scorers: ["Watkins", "Johnson", "Rice", "Fornals", "Bowen"],
+    }),
+    new Match({
+      teams: ["Newcastle United", "Chelsea"],
+      schedule: new Date("October 30, 2021 17:00"),
+      score: "0-3",
+      scorers: ["James", "James", "Jorginho"],
+    }),
+  ];
+
+  const GW2 = new GameWeek({
+    GWID: "2",
+    matches: matchesGW2,
+  });
+
+  GW2.save();
 }
 main().catch((err) => console.log(err));
