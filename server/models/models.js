@@ -16,8 +16,15 @@ const tableSchema = mongoose.Schema({
     }
 });
 
+const teamSchema = mongoose.Schema({
+    team: String,
+    cleanSheet: Number,
+    players: Array
+})
+
 const TableModel = mongoose.model('table', tableSchema);
+const TeamModel = mongoose.model('teams', tableSchema);
 
 module.exports = {
-    TableModel
+    TableModel, TeamModel
 }
