@@ -1,0 +1,141 @@
+[{
+  "_id": {
+    "$oid": "617e5d3a2b23630e6e229cd8"
+  },
+  "team": "Civil",
+  "played": 5,
+  "points": 9,
+  "win": 2,
+  "draw": 0,
+  "loss": 3,
+  "goalForward": 11,
+  "goalAgainst": 15,
+  "goalDifference": -4,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e5fb334f9f511b7394541"
+  },
+  "team": "Biomed",
+  "played": 6,
+  "points": 12,
+  "win": 4,
+  "draw": 0,
+  "loss": 2,
+  "goalForward": 23,
+  "goalAgainst": 10,
+  "goalDifference": 13,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e602134f9f511b7394543"
+  },
+  "team": "Electrical C",
+  "played": 5,
+  "points": 10,
+  "win": 3,
+  "draw": 1,
+  "loss": 1,
+  "goalForward": 13,
+  "goalAgainst": 8,
+  "goalDifference": 5,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e604d34f9f511b7394545"
+  },
+  "team": "Chemical",
+  "played": 6,
+  "points": 10,
+  "win": 3,
+  "draw": 1,
+  "loss": 2,
+  "goalForward": 16,
+  "goalAgainst": 16,
+  "goalDifference": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e609434f9f511b7394547"
+  },
+  "team": "Software",
+  "played": 5,
+  "points": 9,
+  "win": 3,
+  "draw": 0,
+  "loss": 2,
+  "goalForward": 17,
+  "goalAgainst": 7,
+  "goalDifference": 10,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e60db34f9f511b7394549"
+  },
+  "team": "Mechanical",
+  "played": 5,
+  "points": 8,
+  "win": 2,
+  "draw": 2,
+  "loss": 1,
+  "goalForward": 11,
+  "goalAgainst": 7,
+  "goalDifference": 4,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e615834f9f511b739454b"
+  },
+  "team": "Electrical B1",
+  "played": 5,
+  "points": 3,
+  "win": 1,
+  "draw": 0,
+  "loss": 4,
+  "goalForward": 15,
+  "goalAgainst": 28,
+  "goalDifference": -13,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e619434f9f511b739454d"
+  },
+  "team": "Electrical B2",
+  "played": 4,
+  "points": 0,
+  "win": 0,
+  "draw": 0,
+  "loss": 4,
+  "goalForward": 2,
+  "goalAgainst": 17,
+  "goalDifference": -15,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e61be34f9f511b739454f"
+  },
+  "team": "Electrical A",
+  "played": 4,
+  "points": 0,
+  "win": 0,
+  "draw": 0,
+  "loss": 4,
+  "goalForward": 5,
+  "goalAgainst": 21,
+  "goalDifference": -16,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "617e61fd34f9f511b7394552"
+  },
+  "team": "IT",
+  "played": 5,
+  "points": 15,
+  "win": 5,
+  "draw": 0,
+  "loss": 0,
+  "goalForward": 23,
+  "goalAgainst": 7,
+  "goalDifference": -16,
+  "__v": 0
+}]

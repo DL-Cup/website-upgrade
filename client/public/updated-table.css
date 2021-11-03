@@ -1,0 +1,195 @@
+.table-container {
+  overflow-x: auto;
+  position: relative;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+}
+
+abbr {
+  cursor: default;
+}
+
+thead {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+thead th:nth-child(1),
+tbody td:nth-child(1) {
+  padding-left: 4rem;
+  text-align: left;
+  min-width: 225px;
+  position: sticky;
+  left: 0;
+}
+
+thead th:nth-child(1) {
+  background: white;
+}
+
+tbody td:nth-child(1) {
+  background: var(--cool-color);
+  /* background: url("./oriental-tiles.png"); */
+
+  color: var(--secondary-color);
+  /* animation: cool 12s linear infinite; */
+}
+
+@keyframes cool {
+  0% {
+    background-position-y: 100%;
+  }
+  100% {
+    background-position-y: 0;
+  }
+}
+
+thead th:nth-child(2),
+tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+/* Not supported on some browsers */
+/* :is(thead th, tbody td):nth-child(1) {
+padding-left: 5rem;
+text-align: left;
+min-width: 225px;
+}
+
+:is(thead th, tbody td):nth-child(2) {
+white-space: nowrap;
+} */
+
+th,
+td {
+  padding: 14px 1vw;
+}
+
+tbody {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Rankings */
+
+td:before {
+  position: absolute;
+  left: 2rem;
+}
+
+tbody tr {
+  margin-top: 1rem;
+  border-bottom: solid thin white;
+}
+
+td:nth-child(1) {
+  position: relative;
+}
+
+td:after {
+  content: "";
+  width: 2%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+tr:nth-child(1) td:nth-child(1):after {
+  background-color: #ffdf01;
+}
+
+tr:nth-child(2) td:nth-child(1):after,
+tr:nth-child(3) td:nth-child(1):after,
+tr:nth-child(4) td:nth-child(1):after,
+tr:nth-child(5) td:nth-child(1):after {
+  background-color: #c0c0c0;
+}
+
+/* :is(tr:nth-child(2),
+tr:nth-child(3),
+tr:nth-child(4),
+tr:nth-child(5)) td:nth-child(1):after {
+background-color: silver;
+} */
+
+tr:nth-child(1) td:nth-child(1):before {
+  content: "1";
+}
+
+tr:nth-child(2) td:nth-child(1):before {
+  content: "2";
+}
+
+tr:nth-child(3) td:nth-child(1):before {
+  content: "3";
+}
+
+tr:nth-child(4) td:nth-child(1):before {
+  content: "4";
+}
+
+tr:nth-child(5) td:nth-child(1):before {
+  content: "5";
+}
+
+tr:nth-child(6) td:nth-child(1):before {
+  content: "6";
+}
+
+tr:nth-child(7) td:nth-child(1):before {
+  content: "7";
+}
+
+tr:nth-child(8) td:nth-child(1):before {
+  content: "8";
+}
+
+tr:nth-child(9) td:nth-child(1):before {
+  content: "9";
+}
+
+tr:nth-child(10) td:nth-child(1):before {
+  content: "10";
+}
+
+/* Font awesome icon styles */
+.fas {
+  font-size: 1.5rem;
+}
+
+.fa-check-circle {
+  color: hsl(120, 100%, 60%);
+}
+
+.fa-times-circle {
+  color: hsl(320, 100%, 55%);
+}
+
+.fa-minus-circle {
+  color: hsl(249, 10%, 80%);
+}
+
+.fa-caret-up,
+.fa-caret-down,
+.fa-minus {
+  margin-left: 15px;
+}
+
+.fa-caret-up {
+  color: lime;
+}
+
+.fa-caret-down {
+  color: crimson;
+}
+
+.fa-minus {
+  font-size: 15px;
+}
