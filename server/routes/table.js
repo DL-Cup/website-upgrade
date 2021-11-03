@@ -3,10 +3,10 @@ const express = require("express");
 const { TableModel } = require("../models/models.js");
 const router = express.Router();
 
-const headers = {
-  "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
-};
+// const headers = {
+//   "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+//   "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+// };
 
 router.get("/", async (req, res) => {
   // res.header(headers);

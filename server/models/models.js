@@ -1,22 +1,7 @@
-const mongoose = require("mongoose");
-
-const tableSchema = mongoose.Schema({
-  team: String,
-  played: Number,
-  points: Number,
-  win: Number,
-  draw: Number,
-  loss: Number,
-  goalForward: Number,
-  goalAgainst: Number,
-  goalDifference: {
-    type: Number,
-    value: 0,
-  },
-});
-
-const TableModel = mongoose.model("table", tableSchema);
+const TableModel = require("./table");
+const GameWeek = require("./fixtures");
 
 module.exports = {
   TableModel,
+  GameWeek,
 };
