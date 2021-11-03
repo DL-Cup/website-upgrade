@@ -4,7 +4,7 @@
   },
   "team": "Civil",
   "played": 5,
-  "points": 9,
+  "points": 6,
   "win": 2,
   "draw": 0,
   "loss": 3,
@@ -136,6 +136,6 @@
   "loss": 0,
   "goalForward": 23,
   "goalAgainst": 7,
-  "goalDifference": -16,
+  "goalDifference": 16,
   "__v": 0
 }]

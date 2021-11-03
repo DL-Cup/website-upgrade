@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from '../../axios';
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 
 
 export default function Table(props){

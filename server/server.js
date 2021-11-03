@@ -1,6 +1,7 @@
 const config = require('config');
 const express = require('express');
 const tableRoute = require('./routes/table.js');
+const teamsRoute = require('./routes/teams');
 const mongoose =  require('mongoose');
 require('dotenv/config'); //go to the .env file and change the database address for mongoose to work
 
@@ -22,6 +23,7 @@ app.use(cors());
 //these are called middlewares that handle our requests (the logic is actually somwhere else) 
 
 app.use('/table', tableRoute);
+app.use('/teams', teamsRoute);
 
 app.listen(5000, ()=>{
     console.log(`Server Running on Port: http://localhost:5000`);
