@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import "../../css/fixtures.css";
+
 const DisplayFixtures = () => {
   const [fixtures, setFixtures] = useState([]);
 
@@ -9,10 +11,13 @@ const DisplayFixtures = () => {
       try {
         const res = await axios.get("http://localhost:5000/fixtures/2");
         setFixtures(res.data[0]);
+
+        return;
       } catch (err) {
         console.log(err);
       }
     }
+
     fetchData();
   }, []);
 
@@ -22,7 +27,7 @@ const DisplayFixtures = () => {
         <h1>Gameweek {fixtures.GWID}</h1>
       </div>
       {fixtures["matches"]?.map((match) => {
-        return <Details match={match} />;
+        return <Details key={match.matchID} match={match} />;
       })}
     </section>
   );
@@ -42,21 +47,25 @@ function Matches({ match }) {
 }
 
 function Scorers({ match }) {
+  console.log(match);
+
+  // return <h1>help</h1>;
+
   return (
     <div className="scorers">
       <div className="left">
-        {/* Splice method will mutate the array so we'll be left with 
+        {/* Splice method will mutate the array so we'll be left with
                  the second group of scorers on the .right side */}
         <ul>
-          {match.scorers.splice(0, match.score[0]).map((scorer) => {
-            return <li>{scorer}</li>;
+          {match.scorers.splice(0, match.score[0]).map((scorer, index) => {
+            return <li key={index}>{scorer}</li>;
           })}
         </ul>
       </div>
       <div className="right">
         <ul>
-          {match.scorers.map((scorer) => {
-            return <li>{scorer}</li>;
+          {match.scorers.map((scorer, index) => {
+            return <li key={index}>{scorer}</li>;
           })}
         </ul>
       </div>

@@ -18,9 +18,6 @@ export default function Table(props) {
     }
     //  [id ]
   );
-  {
-    console.log(TableInfo);
-  }
 
   return (
     <main>
