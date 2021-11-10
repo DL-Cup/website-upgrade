@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "../../css/fixtures.css"
 
 import "../../css/fixtures.css";
 
