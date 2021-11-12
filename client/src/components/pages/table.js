@@ -21,8 +21,8 @@ export default function Table(props) {
 
   return (
     <main>
-      <div class="grid-container">
-        <div class="table-container">
+      <div className="grid-container">
+        <div className="table-container">
           <table>
             <thead>
               <tr>
@@ -53,14 +53,14 @@ export default function Table(props) {
                 <tr>
                   <td id={i.team}>
                     <span>{i.team}</span>
-                    <i class="fas fa-minus"></i>
+                    <i className="fas fa-minus"></i>
                   </td>
                   <td>
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-check-circle"></i>
-                    <i class="fas fa-check-circle"></i>
+                    <i className="fas fa-check-circle"></i>
+                    <i className="fas fa-check-circle"></i>
+                    <i className="fas fa-check-circle"></i>
+                    <i className="fas fa-check-circle"></i>
+                    <i className="fas fa-check-circle"></i>
                   </td>
                   <td>{i.points}</td>
                   <td>{i.played}</td>
