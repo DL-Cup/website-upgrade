@@ -8,12 +8,8 @@
 }
 
 .fixtures {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-
-  height: max-content;
-  width: max-content;
+  background: white;
+  padding: 2rem;
 }
 
 .match {

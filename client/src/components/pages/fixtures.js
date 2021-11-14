@@ -1,14 +1,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import "../../css/fixtures.css";
+import "../css/fixtures.css";
 
 const DisplayFixtures = () => {
+  const [gameweekID, setGameweekID] = useState(1);
   const [fixtures, setFixtures] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("http://localhost:5000/fixtures/2");
+        const res = await axios.get(
+          `http://localhost:5000/fixtures/${gameweekID}`
+        );
         setFixtures(res.data[0]);
 
         return;
@@ -18,17 +21,32 @@ const DisplayFixtures = () => {
     }
 
     fetchData();
-  }, []);
+  }, [gameweekID]);
 
   return (
-    <section className="fixtures">
-      <div className="gameweek">
-        <h1>Gameweek {fixtures.GWID}</h1>
-      </div>
-      {fixtures["matches"]?.map((match) => {
-        return <Details key={match.matchID} match={match} />;
-      })}
-    </section>
+    <>
+      <select
+        onChange={(e) => {
+          setGameweekID(e.target.value);
+        }}
+      >
+        {[...Array(9)].map((item, index) => {
+          return (
+            <option key={index + 1} value={index + 1}>
+              Gameweek {index + 1}
+            </option>
+          );
+        })}
+      </select>
+      <section className="fixtures">
+        <div className="gameweek">
+          <h1>Gameweek {fixtures.GWID}</h1>
+        </div>
+        {fixtures["matches"]?.map((match) => {
+          return <Details key={match.matchID} match={match} />;
+        })}
+      </section>
+    </>
   );
 };
 
@@ -46,10 +64,6 @@ function Matches({ match }) {
 }
 
 function Scorers({ match }) {
-  console.log(match);
-
-  // return <h1>help</h1>;
-
   return (
     <div className="scorers">
       <div className="left">
