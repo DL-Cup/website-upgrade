@@ -1,3 +1,62 @@
-.router-link {
-  display: block;
+nav {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav a {
+  text-decoration: none;
+  user-select: none;
+
+  color: inherit;
+}
+
+nav div:not(.selected) {
+  transform: rotate(180deg);
+  display: flex;
+}
+
+nav div:not(.selected) a {
+  padding: 0 2rem;
+  writing-mode: vertical-lr;
+
+  margin-top: 2rem;
+}
+
+nav div {
+  cursor: pointer;
+  order: 1;
+
+  font-size: 1.5rem;
+  transition: flex-grow 300ms, background 1s;
+  color: #f3f2e7;
+}
+
+nav div:first-child {
+  background: #003327;
+}
+nav div:nth-child(2) {
+  background: #1b503e;
+}
+nav div:nth-child(3) {
+  background: #77ac9d;
+}
+nav div:last-child {
+  background: #bfdfd0;
+  color: #2d2a16;
+}
+
+nav .selected {
+  position: relative;
+
+  flex-grow: 1;
+  order: 0;
+
+  font-size: 4rem;
+  font-weight: bold;
+  cursor: default;
+
+  padding: 1rem 0 0 2rem;
 }

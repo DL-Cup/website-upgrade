@@ -6,7 +6,9 @@
 table {
   border-collapse: collapse;
   font-family: "Montserrat", sans-serif;
-  width: 100%;
+  width: 80%;
+
+  background: white;
 }
 
 abbr {
@@ -14,8 +16,6 @@ abbr {
 }
 
 thead {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
   text-align: center;
 }
 
@@ -26,27 +26,6 @@ tbody td:nth-child(1) {
   min-width: 225px;
   position: sticky;
   left: 0;
-}
-
-thead th:nth-child(1) {
-  background: white;
-}
-
-tbody td:nth-child(1) {
-  background: var(--cool-color);
-  /* background: url("./oriental-tiles.png"); */
-
-  color: var(--secondary-color);
-  /* animation: cool 12s linear infinite; */
-}
-
-@keyframes cool {
-  0% {
-    background-position-y: 100%;
-  }
-  100% {
-    background-position-y: 0;
-  }
 }
 
 thead th:nth-child(2),
@@ -157,39 +136,4 @@ tr:nth-child(9) td:nth-child(1):before {
 
 tr:nth-child(10) td:nth-child(1):before {
   content: "10";
-}
-
-/* Font awesome icon styles */
-.fas {
-  font-size: 1.5rem;
-}
-
-.fa-check-circle {
-  color: hsl(120, 100%, 60%);
-}
-
-.fa-times-circle {
-  color: hsl(320, 100%, 55%);
-}
-
-.fa-minus-circle {
-  color: hsl(249, 10%, 80%);
-}
-
-.fa-caret-up,
-.fa-caret-down,
-.fa-minus {
-  margin-left: 15px;
-}
-
-.fa-caret-up {
-  color: lime;
-}
-
-.fa-caret-down {
-  color: crimson;
-}
-
-.fa-minus {
-  font-size: 15px;
 }

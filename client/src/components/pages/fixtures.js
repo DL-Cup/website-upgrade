@@ -31,9 +31,12 @@ const DisplayFixtures = () => {
         }}
       >
         {[...Array(9)].map((item, index) => {
-          return <option value={index + 1}>Gameweek {index + 1}</option>;
+          return (
+            <option key={index + 1} value={index + 1}>
+              Gameweek {index + 1}
+            </option>
+          );
         })}
-        <opiton></opiton>
       </select>
       <section className="fixtures">
         <div className="gameweek">
@@ -61,10 +64,6 @@ function Matches({ match }) {
 }
 
 function Scorers({ match }) {
-  console.log(match);
-
-  // return <h1>help</h1>;
-
   return (
     <div className="scorers">
       <div className="left">

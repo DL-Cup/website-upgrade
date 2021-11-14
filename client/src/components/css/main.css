@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+main {
+  top: calc(10vh + 4rem);
+  left: 2rem;
+
+  position: absolute;
+}

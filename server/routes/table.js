@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
   // res.header(headers);
   try {
     const theTable = await TableModel.find().sort({ points: -1 });
-    console.log(theTable);
     res.send(theTable);
   } catch (err) {
     res.send({
