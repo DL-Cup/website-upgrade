@@ -35,10 +35,14 @@ nav div {
 }
 
 nav div:first-child {
-  background: #003327;
+  /* background: #131817; */
+  background-image: url("../images/field.jpg");
+  background-size: cover;
 }
 nav div:nth-child(2) {
-  background: #1b503e;
+  /* background: #1b503e; */
+  background-image: url("../images/pitch.jpg");
+  background-size: cover;
 }
 nav div:nth-child(3) {
   background: #77ac9d;
