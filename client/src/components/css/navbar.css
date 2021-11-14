@@ -41,8 +41,9 @@ nav div:first-child {
 }
 nav div:nth-child(2) {
   /* background: #1b503e; */
-  background-image: url("../images/pitch.jpg");
+  background-image: url("../images/field.jpg");
   background-size: cover;
+  backface-visibility: hidden;
 }
 nav div:nth-child(3) {
   background: #77ac9d;

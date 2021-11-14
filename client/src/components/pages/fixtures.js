@@ -25,14 +25,14 @@ const DisplayFixtures = () => {
 
   return (
     <>
-      <select
+      <select className="wrapper-dropdown"
         onChange={(e) => {
           setGameweekID(e.target.value);
         }}
       >
         {[...Array(9)].map((item, index) => {
           return (
-            <option key={index + 1} value={index + 1}>
+            <option className="dropdown" key={index + 1} value={index + 1}>
               Gameweek {index + 1}
             </option>
           );
@@ -40,7 +40,7 @@ const DisplayFixtures = () => {
       </select>
       <section className="fixtures">
         <div className="gameweek">
-          <h1>Gameweek {fixtures.GWID}</h1>
+          <h1 className="text">Gameweek {fixtures.GWID}</h1>
         </div>
         {fixtures["matches"]?.map((match) => {
           return <Details key={match.matchID} match={match} />;

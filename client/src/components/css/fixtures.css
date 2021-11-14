@@ -8,8 +8,9 @@
 }
 
 .fixtures {
-  background: white;
+  background: none;
   padding: 2rem;
+  border: none;
 }
 
 .match {
@@ -41,6 +42,7 @@
 
 .schedule {
   text-align: center;
+  color: var(--sclr);
 }
 
 details > summary {
@@ -50,4 +52,34 @@ details > summary {
 .scorers {
   display: flex;
   justify-content: space-around;
+}
+
+.text {
+  color: var(--sclr);
+}
+
+.wrapper-dropdown {
+  /* Size and position */
+  position: relative; /* Enable absolute positioning for children and pseudo elements */
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+
+  /* Styles */
+  background: var(--sclr);
+  color: rgb(0, 0, 0);
+  outline: none;
+  cursor: pointer;
+
+  /* Font settings */
+  font-weight: bold;
+  font-size: medium;
+  
+}
+
+.wrapper-dropdown .dropdown {
+	  display: block;
+    text-decoration: none;
+    color: rgb(56, 50, 50);
+    padding: 10px 20px;
 }
