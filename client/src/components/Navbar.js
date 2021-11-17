@@ -18,7 +18,6 @@ function Navbar() {
       }
 
       options.forEach((item) => item.classList.remove("selected"));
-
       e.currentTarget.classList.add("selected");
 
       return;

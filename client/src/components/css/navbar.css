@@ -35,9 +35,9 @@ nav div {
 }
 
 nav div:first-child {
-  /* background: #131817; */
-  background-image: url("../images/field.jpg");
-  background-size: cover;
+  background: #003327;
+  /* background-image: url("../images/field.jpg");
+  background-size: cover; */
 }
 nav div:nth-child(2) {
   /* background: #1b503e; */
