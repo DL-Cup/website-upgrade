@@ -1,0 +1,13 @@
+.tablehead {
+    color: rgb(51, 53, 56);
+    border: black;
+}
+
+.tablestats {
+    box-shadow: black;
+    background-image: url("../images/cleats.jpg");
+}
+
+.tablerow td {
+    background-color: white;
+}

@@ -1,5 +1,6 @@
 import Table from "./components/pages/table";
 import Fixtures from "./components/pages/fixtures";
+import Stats from "./components/pages/stats";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Table} />
             <Route path="/fixtures" exact component={Fixtures} />
+            <Route path="/stats" exact component={Stats} />
           </Switch>
         </main>
       </Router>
