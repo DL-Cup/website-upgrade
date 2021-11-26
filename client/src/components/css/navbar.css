@@ -19,10 +19,8 @@ nav div:not(.selected) {
 }
 
 nav div:not(.selected) a {
-  padding: 0 2rem;
+  padding: 2rem 1rem;
   writing-mode: vertical-lr;
-
-  margin-top: 2rem;
 }
 
 nav div {

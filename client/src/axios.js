@@ -1,10 +1,11 @@
-import axios from 'axios';
-const baseUrl = 'http://localhost:5000';
+import axios from "axios";
+
+const baseUrl = "http://localhost:5000";
 const instance = axios.create({
   baseURL: baseUrl,
   headers: {
-    Accept: 'application/json',
-  }
+    Accept: "application/json",
+  },
 });
 
 export default instance;

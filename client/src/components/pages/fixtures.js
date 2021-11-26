@@ -12,7 +12,7 @@ const DisplayFixtures = () => {
         const res = await axios.get(
           `http://localhost:5000/fixtures/${gameweekID}`
         );
-        setFixtures(res.data[0]);
+        setFixtures(res.data);
 
         return;
       } catch (err) {
@@ -40,9 +40,9 @@ const DisplayFixtures = () => {
       </select>
       <section className="fixtures">
         <div className="gameweek">
-          <h1>Gameweek {fixtures.GWID}</h1>
+          <h1>Gameweek {gameweekID}</h1>
         </div>
-        {fixtures["matches"]?.map((match) => {
+        {fixtures.map((match) => {
           return <Details key={match.matchID} match={match} />;
         })}
       </section>

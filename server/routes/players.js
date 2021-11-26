@@ -1,11 +1,11 @@
 const express = require("express");
 
+const { Player } = require("../models/models");
 const router = express.Router();
-const Match = require("../models/matches");
 
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const result = await Match.find({ GWID: req.params?.id });
+    const result = await Player.find().sort({ goals: -1 });
     res.status(200).send(result);
   } catch (err) {
     console.error(err);

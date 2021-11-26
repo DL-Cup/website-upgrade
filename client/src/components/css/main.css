@@ -6,8 +6,13 @@
 }
 
 main {
-  top: calc(10vh + 4rem);
+  top: calc(10vh + 2rem);
   left: 2rem;
+  width: calc(100vw - 250px);
 
   position: absolute;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }

@@ -1,9 +1,9 @@
-const TableModel = require("./table");
-const GameWeek = require("./fixtures");
-const TeamModel = require("./teams");
+const Team = require("./teams");
+const Player = require("./players");
+const Match = require("./matches");
 
 module.exports = {
-  TableModel,
-  GameWeek,
-  TeamModel,
+  Team,
+  Player,
+  Match,
 };

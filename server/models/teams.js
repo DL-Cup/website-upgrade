@@ -1,11 +1,21 @@
 const mongoose = require("mongoose");
 
 const teamSchema = mongoose.Schema({
-  teamId: { type: Number, required: true },
-  team: { type: String, required: true },
-  players: { type: Array, required: true },
+  teamID: { type: Number, required: true },
+  teamName: { type: String, required: true },
+  teamNameAbbr: { type: String, required: true },
+  played: { type: Number, default: 0 },
+  points: { type: Number, default: 0 },
+  wins: { type: Number, default: 0 },
+  draws: { type: Number, default: 0 },
+  losses: { type: Number, default: 0 },
+  goalsFor: { type: Number, default: 0 },
+  goalsAgainst: { type: Number, default: 0 },
+  goalDifference: { type: Number, default: 0 },
+  lastFive: { type: String },
+  cleansheets: { type: Number, default: 0 },
 });
 
-const TeamModel = mongoose.model("teams", teamSchema);
+const Team = mongoose.model("Teams", teamSchema);
 
-module.exports = TeamModel;
+module.exports = Team;

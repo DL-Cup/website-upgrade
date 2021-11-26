@@ -1,0 +1,104 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.team-info {
+  background: #c5bfdf;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.recent-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 2rem;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+hr {
+  width: 46%;
+  height: 2px;
+  background: red;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.match {
+  display: flex;
+  align-items: center;
+}
+.match span {
+  background: white;
+  width: 75px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+.match .score {
+  background: #160033;
+  color: #eae7f3;
+  width: 50px;
+  padding-inline: 0;
+}
+
+.remaining-fixtures {
+  background: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.remaining-fixtures th {
+  font-weight: normal;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.remaining-fixtures .leaguePos {
+  width: 7ch;
+}
+.remaining-fixtures td {
+  padding-block: 0.5rem;
+}
+.remaining-fixtures td:first-child {
+  font-weight: bold;
+}
+.remaining-fixtures td:last-child {
+  text-align: center;
+}
+.remaining-fixtures th:last-child,
+.remaining-fixtures td:last-child {
+  padding-left: 20px;
+}
+.league-stats {
+  display: flex;
+  gap: 2rem;
+  overflow: auto;
+  padding: 0 0.2rem;
+}
+
+.league-stats > div {
+  background: white;
+  padding: 1rem 1rem 2rem 1rem;
+}
+
+.stats-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 300px;
+  padding: 0.5rem 1rem 0.5rem 0;
+}
+
+.ls__heading {
+  margin-bottom: 1rem;
+}
+
+.ls__right {
+  margin-left: auto;
+}

@@ -1,139 +1,119 @@
-.table-container {
-  overflow-x: auto;
-  position: relative;
+.grid-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 1rem;
 }
 
-table {
-  border-collapse: collapse;
-  font-family: "Montserrat", sans-serif;
-  width: 80%;
+.table-container {
+  overflow: auto;
+}
 
+.table-container table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+.table-container tbody {
   background: white;
 }
 
-abbr {
-  cursor: default;
+.table-container .outline {
+  outline: 2px solid #101093;
+  outline-offset: -5px;
+  background-position-x: 50%;
+  background-size: 99% calc(100% - 10px);
 }
 
-thead {
-  text-align: center;
+.outline td:nth-child(2) {
+  font-weight: bold;
 }
 
-thead th:nth-child(1),
-tbody td:nth-child(1) {
-  padding-left: 4rem;
+.table-container tbody tr {
+  transition: outline, outline-offset, 100ms, background-position-x,
+    300ms ease-in, font-weight 600ms ease-in;
+  background: linear-gradient(90deg, #c5bfdf, #c5bfdf);
+  background-size: 200%;
+  background-position: -99.5% 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.table-container thead {
+  outline: 1px solid black;
+  padding: 10rem;
+  color: #eae7f3;
+}
+
+.table-container th {
+  font-weight: normal;
+}
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
   text-align: left;
-  min-width: 225px;
-  position: sticky;
-  left: 0;
-}
-
-thead th:nth-child(2),
-tbody td:nth-child(2) {
   white-space: nowrap;
 }
 
-/* Not supported on some browsers */
-/* :is(thead th, tbody td):nth-child(1) {
-padding-left: 5rem;
-text-align: left;
-min-width: 225px;
+.table-container td:nth-child(2) {
+  font-size: 2rem;
+  width: 250px;
 }
 
-:is(thead th, tbody td):nth-child(2) {
-white-space: nowrap;
-} */
-
-th,
-td {
-  padding: 14px 1vw;
+.table-container tr:nth-child(n + 1):nth-child(-n + 5) td:first-child {
+  padding: 1.2rem;
+  background: #160033;
+  color: #eae7f3;
 }
 
-tbody {
-  color: var(--primary-color);
+.table-container td {
+  font-size: 1.2rem;
+}
+
+.table-container td,
+.table-container th {
+  text-align: right;
+  padding: 10px;
+}
+
+.table-container th:nth-child(8),
+.table-container th:last-child,
+.table-container td:nth-child(8),
+.table-container td:last-child,
+.table-container th:first-child,
+.table-container td:first-child {
   text-align: center;
+  white-space: nowrap;
 }
 
-/* Rankings */
-
-td:before {
-  position: absolute;
-  left: 2rem;
+.table-container tbody tr:first-child td:first-child {
+  background: gold !important;
+  color: #160033 !important;
 }
 
-tbody tr {
-  margin-top: 1rem;
-  border-bottom: solid thin white;
+.table-container tr {
+  padding: 2rem !important;
 }
 
-td:nth-child(1) {
-  position: relative;
+.span-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.span-flex span {
+  width: 1.2rem;
+  height: 1.2rem;
+  box-shadow: 1px 1px #8b77ac;
 }
 
-td:after {
-  content: "";
-  width: 2%;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
+.W {
+  background: #38e038;
 }
 
-tr:nth-child(1) td:nth-child(1):after {
-  background-color: #ffdf01;
+.L {
+  background: #ff506a;
 }
 
-tr:nth-child(2) td:nth-child(1):after,
-tr:nth-child(3) td:nth-child(1):after,
-tr:nth-child(4) td:nth-child(1):after,
-tr:nth-child(5) td:nth-child(1):after {
-  background-color: #c0c0c0;
-}
-
-/* :is(tr:nth-child(2),
-tr:nth-child(3),
-tr:nth-child(4),
-tr:nth-child(5)) td:nth-child(1):after {
-background-color: silver;
-} */
-
-tr:nth-child(1) td:nth-child(1):before {
-  content: "1";
-}
-
-tr:nth-child(2) td:nth-child(1):before {
-  content: "2";
-}
-
-tr:nth-child(3) td:nth-child(1):before {
-  content: "3";
-}
-
-tr:nth-child(4) td:nth-child(1):before {
-  content: "4";
-}
-
-tr:nth-child(5) td:nth-child(1):before {
-  content: "5";
-}
-
-tr:nth-child(6) td:nth-child(1):before {
-  content: "6";
-}
-
-tr:nth-child(7) td:nth-child(1):before {
-  content: "7";
-}
-
-tr:nth-child(8) td:nth-child(1):before {
-  content: "8";
-}
-
-tr:nth-child(9) td:nth-child(1):before {
-  content: "9";
-}
-
-tr:nth-child(10) td:nth-child(1):before {
-  content: "10";
+.D {
+  background: darkgray;
 }
