@@ -16,3 +16,9 @@ main {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 497px;
+  grid-gap: 1rem;
+}

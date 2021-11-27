@@ -8,4 +8,8 @@ function getPlayers() {
   return axios.get("players").then((res) => res.data);
 }
 
-export { getTable, getPlayers };
+function getFixtures(teamName) {
+  return axios.get(`fixtures/team/${teamName}`).then((res) => res.data);
+}
+
+export { getTable, getPlayers, getFixtures };

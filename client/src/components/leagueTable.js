@@ -1,17 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getTable } from "./services/services";
+import { SelectionContext } from "./services/selectionContext";
 
 import "./css/table.css";
 
-function Table() {
+function Table({ SelectedTeamContext }) {
   const [TableInfo, setTableInfo] = useState([]);
+  const { setSelectedTeam } = useContext(SelectionContext);
 
   useEffect(() => {
     getTable().then((res) => setTableInfo(res));
   }, []);
 
   useEffect(() => {
-    let tableRows = document.querySelectorAll(".table-container tbody tr");
+    let lead = document.querySelector(".outline");
+    setSelectedTeam(lead?.id);
+
+    console.log("running");
+  });
+
+  useEffect(() => {
+    const tableRows = document.querySelectorAll(".table-container tbody tr");
 
     tableRows.forEach((row) => {
       row.addEventListener("click", handleRowClick);
@@ -24,6 +33,7 @@ function Table() {
 
       tableRows.forEach((item) => item.classList.remove("outline"));
       e.currentTarget.classList.add("outline");
+      setSelectedTeam(e.currentTarget.id);
 
       return;
     }
@@ -63,7 +73,11 @@ function Table() {
               },
               index
             ) => (
-              <tr key={teamName} className={index === 0 ? "outline" : ""}>
+              <tr
+                key={teamName}
+                id={teamName}
+                className={index === 0 ? "outline" : ""}
+              >
                 <td>{index + 1}</td>
                 <td>{teamName}</td>
                 <td>{played}</td>
