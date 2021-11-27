@@ -8,7 +8,7 @@ function Stats() {
   return (
     <div className="stats">
       <div className="team-info">
-        <RecentResuls />
+        <TeamFixturesAndResults />
       </div>
       <div className="league-stats">
         <TopScorer />
@@ -18,43 +18,82 @@ function Stats() {
   );
 }
 
-function RecentResuls() {
+function TeamFixturesAndResults() {
   // make leading team selected team by default
-  const [TeamInfo, setTeamInfo] = useState();
+  const [TeamResults, setTeamResults] = useState();
+  const [TableInfo, setTableInfo] = useState();
   const { selectedTeam } = useContext(SelectionContext);
 
   useEffect(() => {
-    getFixtures(selectedTeam).then((res) => setTeamInfo(res));
+    getFixtures(selectedTeam).then((res) => setTeamResults(res));
+  }, [selectedTeam]);
+
+  useEffect(() => {
+    getTable().then((res) => setTableInfo(res));
+  }, []);
+
+  const leaguePositions = {};
+
+  TableInfo?.forEach(({ teamName }, index) => {
+    leaguePositions[teamName] = index + 1;
+  });
+
+  let TeamsPlayed = [];
+
+  TeamResults?.forEach(({ teams }) => {
+    let [team1, team2] = teams;
+    team1 === selectedTeam ? TeamsPlayed.push(team2) : TeamsPlayed.push(team1);
   });
 
   return (
-    <div className="recent-results">
-      <h4>Recent results</h4>
-      <hr />
-      <>
-        {TeamInfo?.slice(0, 5).map(({ teams, score }) => {
-          let [, , team1, team2] = teams;
+    <>
+      <div className="recent-results">
+        <h4>Recent results</h4>
+        <hr />
+        <>
+          {TeamResults?.slice(0, 5).map(({ teams, score, matchID }) => {
+            let [, , team1, team2] = teams;
 
-          return (
-            <div class="match">
-              <span>{team1}</span>
-              <span class="score">{score}</span>
-              <span>{team2}</span>
-            </div>
-          );
-        })}
-      </>
-    </div>
-  );
-}
-
-function RemainingFixtures() {
-  return (
-    <div className="remaining-fixtures">
-      <h4>Remaining results</h4>
-      <hr />
-      <>{}</>
-    </div>
+            return (
+              <div className="match" key={matchID}>
+                <span>{team1}</span>
+                <span className="score">{score}</span>
+                <span>{team2}</span>
+              </div>
+            );
+          })}
+        </>
+      </div>
+      <div className="remaining-fixtures">
+        <h4>Remaining results</h4>
+        <hr />
+        <table>
+          <colgroup>
+            <col />
+            <col className="leaguePos" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th></th>
+              <th>League Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(leaguePositions)?.map((team) => {
+              if (TeamsPlayed.includes(team) || team === selectedTeam) {
+                return null;
+              } else
+                return (
+                  <tr>
+                    <td>{team}</td>
+                    <td>{leaguePositions[team]}</td>
+                  </tr>
+                );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 

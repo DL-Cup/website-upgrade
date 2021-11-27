@@ -12,11 +12,10 @@ function Table({ SelectedTeamContext }) {
     getTable().then((res) => setTableInfo(res));
   }, []);
 
+  // Sets default recent results list to show results of the team on top of the league
   useEffect(() => {
     let lead = document.querySelector(".outline");
     setSelectedTeam(lead?.id);
-
-    console.log("running");
   });
 
   useEffect(() => {
@@ -33,6 +32,8 @@ function Table({ SelectedTeamContext }) {
 
       tableRows.forEach((item) => item.classList.remove("outline"));
       e.currentTarget.classList.add("outline");
+
+      //Changes recent results section to selected team
       setSelectedTeam(e.currentTarget.id);
 
       return;

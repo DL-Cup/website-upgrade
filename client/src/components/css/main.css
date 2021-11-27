@@ -19,6 +19,6 @@ main {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 497px;
+  grid-template-columns: 1fr 500px;
   grid-gap: 1rem;
 }
