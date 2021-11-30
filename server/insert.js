@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv/config");
-const { TableModel } = require("./models/models");
+const { Team } = require("./models/models");
 
 mongoose.connect(
   process.env.DB_CONNECTION, // this part is machine dependent as the local host varies from device to device
@@ -11,7 +11,7 @@ mongoose.connect(
 );
 
 async function createTable() {
-  const team1 = new TableModel({
+  const team1 = new Team({
     team: "Biomed",
     played: 5,
     points: 9,
@@ -21,7 +21,7 @@ async function createTable() {
 }
 
 async function deleteTeam() {
-  const res = await TableModel.deleteOne({ team: "software" });
+  const res = await Team.deleteOne({ team: "software" });
   console.log(res);
 }
 

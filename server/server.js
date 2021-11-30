@@ -5,8 +5,8 @@ require("dotenv/config"); //go to the .env file and change the database address 
 
 // Routes
 const tableRoutes = require("./routes/table");
-const teamsRoutes = require("./routes/teams");
 const fixtureRoutes = require("./routes/fixtures");
+const playerRoutes = require("./routes/players");
 
 // Connect to the database
 mongoose.connect(
@@ -23,13 +23,13 @@ const app = express();
 // Tell server we are going to handle json format requests and resposes
 app.use(express.json());
 
-// This package must be used to solve the CORS problem
+// Solves CORS problems
 app.use(CORS());
 
-// These are called middlewares that handle our requests (the logic is actually somwhere else)
+// Middlewares to handle requests
 app.use("/table", tableRoutes);
 app.use("/fixtures", fixtureRoutes);
-app.use("/teams", teamsRoutes);
+app.use("/players", playerRoutes);
 
 app.listen(5000, () => {
   console.log(`Server Running on Port: http://localhost:5000`);

@@ -1,18 +1,13 @@
 const express = require("express");
-// const { request } = require("express");
-const { TableModel } = require("../models/models.js");
-const router = express.Router();
 
-// const headers = {
-//   "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-//   "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
-// };
+const { Team } = require("../models/models.js");
+const router = express.Router();
 
 router.get("/", async (req, res) => {
   // res.header(headers);
   try {
-    const theTable = await TableModel.find().sort({ points: -1 });
-    res.send(theTable);
+    const table = await Team.find().sort({ points: -1 });
+    res.send(table);
   } catch (err) {
     res.send({
       error: err,
@@ -23,7 +18,7 @@ router.get("/", async (req, res) => {
 
 router.delete("/:team", async (req, res) => {
   try {
-    const removedTeam = await TableModel.deleteOne(
+    const removedTeam = await Team.deleteOne(
       {
         team: req.params.team,
       },
@@ -36,7 +31,8 @@ router.delete("/:team", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const newTeam = new TableModel({
+  const newTeam = new Team({
+    teamID: req.body.teamID,
     team: req.body.team,
     played: req.body.played,
     points: req.body.points,
@@ -55,7 +51,7 @@ router.post("/", async (req, res) => {
 
 router.patch("/:team", async (req, res) => {
   try {
-    const updatedTeam = await TableModel.updateOne(
+    const updatedTeam = await Team.updateOne(
       {
         team: req.params.team,
       },

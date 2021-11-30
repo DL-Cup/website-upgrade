@@ -1,6 +1,8 @@
 nav {
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  top: 0;
 
   display: flex;
   justify-content: flex-end;
@@ -19,10 +21,8 @@ nav div:not(.selected) {
 }
 
 nav div:not(.selected) a {
-  padding: 0 2rem;
+  padding: 2rem 1rem;
   writing-mode: vertical-lr;
-
-  margin-top: 2rem;
 }
 
 nav div {
@@ -35,21 +35,17 @@ nav div {
 }
 
 nav div:first-child {
-  /* background: #131817; */
-  background-image: url("../images/field.jpg");
-  background-size: cover;
+  background: #160033;
 }
 nav div:nth-child(2) {
-  /* background: #1b503e; */
-  background-image: url("../images/pitch.jpg");
-  background-size: cover;
+  background: #2d1b50;
 }
 nav div:nth-child(3) {
-  background: #77ac9d;
+  background: #8b77ac;
 }
 nav div:last-child {
-  background: #bfdfd0;
-  color: #2d2a16;
+  background: #c5bfdf;
+  color: #1b162d;
 }
 
 nav .selected {

@@ -1,5 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+
+import { getTable } from "../services/services";
+import { ReactComponent as Ball } from "./../images/ball.svg";
+
 import "../css/fixtures.css";
 
 const DisplayFixtures = () => {
@@ -12,7 +16,7 @@ const DisplayFixtures = () => {
         const res = await axios.get(
           `http://localhost:5000/fixtures/${gameweekID}`
         );
-        setFixtures(res.data[0]);
+        setFixtures(res.data);
 
         return;
       } catch (err) {
@@ -23,6 +27,8 @@ const DisplayFixtures = () => {
     fetchData();
   }, [gameweekID]);
 
+  let matchSchedules = {};
+
   return (
     <>
       <select
@@ -30,55 +36,119 @@ const DisplayFixtures = () => {
           setGameweekID(e.target.value);
         }}
       >
-        {[...Array(9)].map((item, index) => {
-          return (
-            <option key={index + 1} value={index + 1}>
-              Gameweek {index + 1}
-            </option>
-          );
-        })}
+        {
+          /* create list dynamically */
+          [...Array(9)].map((item, index) => {
+            return (
+              <option key={index + 1} value={index + 1}>
+                Gameweek {index + 1}
+              </option>
+            );
+          })
+        }
       </select>
-      <section className="fixtures">
-        <div className="gameweek">
-          <h1>Gameweek {fixtures.GWID}</h1>
+      <div className="flex-container">
+        <div className="fixtures">
+          {fixtures.map((match) => {
+            let date = new Date(match.schedule);
+
+            if (matchSchedules[date.toDateString()] === 0) {
+              matchSchedules[date.toDateString()]++;
+            } else {
+              matchSchedules[date.toDateString()] = 0;
+            }
+
+            return (
+              <>
+                {!matchSchedules[date.toDateString()] && (
+                  <h4>{date.toDateString()}</h4>
+                )}
+                <Details key={match.matchID} match={match} />
+              </>
+            );
+          })}
         </div>
-        {fixtures["matches"]?.map((match) => {
-          return <Details key={match.matchID} match={match} />;
-        })}
-      </section>
+        <div className="table-container-mini">
+          <MiniTable />
+        </div>
+      </div>
     </>
   );
 };
 
 function Matches({ match }) {
+  let [team1, team2] = match.teams;
+  let [score1, score2] = match.score.split("-");
+
   return (
-    <div className="match">
+    <div className="fixture">
       <div className="scoreline">
-        <div className="team">{match.teams[0]}</div>
-        <div className="score">{match.score}</div>
-        <div className="team">{match.teams[1]}</div>
+        <span>{team1}</span>
+        <strong>{score1}</strong>
       </div>
-      <div className="schedule">{new Date(match.schedule).toString()}</div>
+      <div className="decoration"></div>
+      <div className="scoreline">
+        <strong>{score2}</strong>
+        <span>{team2}</span>
+      </div>
+      {/* <div className="schedule">{new Date(schedule).toString()}</div> */}
     </div>
   );
 }
 
 function Scorers({ match }) {
+  let [score1] = match.score.split("-");
+
+  // Mapping scorer to number of goals
+  let numberOfGoals = {};
+  match.scorers.forEach((scorer) => {
+    if (numberOfGoals[scorer]) {
+      numberOfGoals[scorer]++;
+      return;
+    }
+
+    numberOfGoals[scorer] = 1;
+  });
+
+  let rightScorers = [];
+  let leftScorers = [];
+
   return (
-    <div className="scorers">
+    <div className="fixture-info">
       <div className="left">
         {/* Splice method will mutate the array so we'll be left with
                  the second group of scorers on the .right side */}
         <ul>
-          {match.scorers.splice(0, match.score[0]).map((scorer, index) => {
-            return <li key={index}>{scorer}</li>;
+          {match.scorers.splice(0, score1).map((scorer, index) => {
+            if (leftScorers.includes(scorer)) return null;
+            leftScorers.push(scorer);
+
+            return (
+              <li key={index}>
+                {[...new Array(numberOfGoals[scorer])].map((goal) => {
+                  return <Ball />;
+                })}
+                {scorer}
+              </li>
+            );
           })}
         </ul>
       </div>
+      <div className="decoration"></div>
       <div className="right">
         <ul>
           {match.scorers.map((scorer, index) => {
-            return <li key={index}>{scorer}</li>;
+            if (rightScorers.includes(scorer)) return null;
+            rightScorers.push(scorer);
+
+            return (
+              <li key={index}>
+                {scorer}
+                {[...new Array(numberOfGoals[scorer])].map((goal) => {
+                  return <Ball />;
+                })}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -87,6 +157,24 @@ function Scorers({ match }) {
 }
 
 function Details({ match }) {
+  useEffect(() => {
+    let detailElems = document.querySelectorAll("details");
+
+    detailElems.forEach((elem) => {
+      elem.addEventListener("toggle", handleClick);
+    });
+
+    function handleClick(e) {
+      if (e.target.open) {
+        detailElems.forEach((elem) => {
+          if (elem !== e.target) elem.open = false;
+        });
+      }
+    }
+
+    return;
+  });
+
   return (
     <details>
       <summary>
@@ -94,6 +182,41 @@ function Details({ match }) {
       </summary>
       <Scorers match={match} />
     </details>
+  );
+}
+
+function MiniTable() {
+  const [TableInfo, setTableInfo] = useState();
+
+  useEffect(() => {
+    getTable().then((res) => setTableInfo(res));
+  });
+
+  return (
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Team</th>
+        <th>MP</th>
+        <th>GD</th>
+        <th>Pts</th>
+      </thead>
+      <tbody>
+        {TableInfo?.map(
+          ({ teamName, played, goalDifference: GD, points }, index) => {
+            return (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{teamName}</td>
+                <td>{played}</td>
+                <td>{GD}</td>
+                <td>{points}</td>
+              </tr>
+            );
+          }
+        )}
+      </tbody>
+    </table>
   );
 }
 

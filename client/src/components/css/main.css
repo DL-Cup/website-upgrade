@@ -3,11 +3,23 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  font-family: sans-serif;
 }
 
 main {
-  top: calc(10vh + 4rem);
+  top: calc(10vh + 2rem);
   left: 2rem;
+  width: calc(100vw - 250px);
 
   position: absolute;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr calc(100% - 770px);
+  grid-gap: 1rem;
 }
