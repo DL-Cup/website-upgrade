@@ -65,7 +65,7 @@ function TeamFixturesAndResults() {
         </>
       </div>
       <div className="remaining-fixtures">
-        <h4>Remaining results</h4>
+        <h4>Remaining fixtures</h4>
         <hr />
         <table>
           <colgroup>

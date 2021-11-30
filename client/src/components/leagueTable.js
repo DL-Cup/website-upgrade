@@ -4,7 +4,7 @@ import { SelectionContext } from "./services/selectionContext";
 
 import "./css/table.css";
 
-function Table({ SelectedTeamContext }) {
+function Table() {
   const [TableInfo, setTableInfo] = useState([]);
   const { setSelectedTeam } = useContext(SelectionContext);
 

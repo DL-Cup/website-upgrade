@@ -2,8 +2,8 @@
   overflow: auto;
 }
 
-.table-container table {
-  border-spacing: 0;
+table {
+  border-collapse: collapse;
   width: 100%;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .table-container .outline {
-  outline: 2px solid #101093;
+  outline: 2px solid #160033;
   outline-offset: -5px;
   background-position-x: 50%;
   background-size: 99% calc(100% - 10px);

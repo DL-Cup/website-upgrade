@@ -1,53 +1,146 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 :root {
-  --pclr: navy;
-  --sclr: aliceblue;
+  --fclr: hsla(266, 100%, 10%, 1);
+  --sclr: hsla(260, 50%, 21%, 1);
+  --tclr: hsla(263, 24%, 57%, 1);
+  --ffclr: hsla(252, 33%, 81%, 1);
+  --fffclr: hsla(254, 35%, 93%, 1);
 }
 
-.fixtures {
-  background: white;
-  padding: 2rem;
+select {
+  outline: none;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
-.fixtures .match {
-  margin-bottom: 1rem;
+.fixtures h4 {
+  color: var(--fffclr);
+  margin-block: 0.8rem;
+}
+
+.fixture,
+.scoreline {
+  display: flex;
+}
+
+summary {
+  display: block;
+}
+
+details {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+details[open] .fixture-info {
+  -webkit-animation: sweep 200ms ease-in-out;
+  animation: sweep 200ms ease-in-out;
+}
+
+@-webkit-keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-top: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-top: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
 }
 
 .scoreline {
-  display: flex;
-  font-size: 1.5rem;
-  background: var(--sclr);
-  color: var(--pclr);
-
-  margin-bottom: 0.8rem;
-}
-
-.scoreline div {
-  padding: 0.5rem 2rem;
-}
-
-.score {
-  background: var(--pclr);
+  padding: 0.8rem 0.5rem;
+  background: var(--ffclr);
   color: var(--sclr);
+  width: 400px;
+  justify-content: space-between;
+  font-size: 2rem;
 }
 
-.team {
-  width: 300px;
-  text-align: center;
+.decoration {
+  width: 30px;
+  background: linear-gradient(
+    90deg,
+    var(--fclr) 10px,
+    var(--sclr) 10px,
+    var(--sclr) 20px,
+    var(--tclr) 20px
+  );
 }
 
-.schedule {
-  text-align: center;
+strong {
+  font-size: 2.2rem;
 }
 
-details > summary {
+ul {
   list-style: none;
+  padding: 0;
 }
 
-.scorers {
+.fixture-info {
   display: flex;
-  justify-content: space-around;
+}
+.fixture-info div:not(.decoration) {
+  width: 400px;
+  padding: 10px 8px;
+}
+.fixture-info .decoration {
+  background: none;
+}
+
+.left {
+  background: white;
+  text-align: right;
+}
+
+.right {
+  background: white;
+}
+
+.fixture-info li {
+  display: flex;
+  align-items: center;
+}
+
+.left svg:last-of-type {
+  margin-right: 3px;
+}
+
+.right svg:first-child {
+  margin-left: 3px;
+}
+
+.left li {
+  justify-content: end;
+}
+
+svg {
+  width: 15px;
+  height: 15px;
+}
+
+.flex-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.flex-container table {
+  background: var(--fffclr);
 }

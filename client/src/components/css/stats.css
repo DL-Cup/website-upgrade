@@ -13,11 +13,7 @@
   flex-wrap: wrap;
 
   height: 300px;
-}
-
-.team-info > div {
-  overflow-y: scroll;
-  height: 100%;
+  overflow-y: hidden;
 }
 
 .recent-results {
@@ -29,10 +25,6 @@
 
 h4 {
   font-weight: 500;
-  position: sticky;
-  top: 0;
-
-  background: inherit;
 }
 
 hr {
