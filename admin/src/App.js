@@ -1,8 +1,7 @@
-
-
+import addMatches from "./components/matches"; 
 function App() {
   return (
-    "Hello"
+    addMatches()
   );
 }
 
