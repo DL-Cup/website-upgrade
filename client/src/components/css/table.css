@@ -33,8 +33,6 @@ table {
 }
 
 .table-container thead {
-  outline: 1px solid black;
-  padding: 10rem;
   color: #eae7f3;
 }
 

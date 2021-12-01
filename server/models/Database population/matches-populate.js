@@ -35,7 +35,7 @@ async function main() {
       teams: ["Biomed", "Electrical B2", "BIO", "EB2"],
       schedule: new Date("November 2, 2021 15:30"),
       score: "6-0",
-      scorers: ["Yonas", "Yoans", "Michael", "Bethel", "Sador", "Yared"],
+      scorers: ["Yonas", "Yonas", "Michael", "Bethel", "Sador", "Yared"],
     }),
     new Match({
       GWID: 2,
@@ -269,7 +269,7 @@ async function main() {
       teams: ["Biomed", "Chemical", "BIO", "CHE"],
       schedule: new Date("November 22, 2021 14:30"),
       score: "2-1",
-      scorers: ["Mikiyas", "Amanuel T"],
+      scorers: ["Mikiyas", "Sador", "Amanuel T"],
     }),
   ];
 

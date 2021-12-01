@@ -31,22 +31,25 @@ const DisplayFixtures = () => {
 
   return (
     <>
-      <select
-        onChange={(e) => {
-          setGameweekID(e.target.value);
-        }}
-      >
-        {
-          /* create list dynamically */
-          [...Array(9)].map((item, index) => {
-            return (
-              <option key={index + 1} value={index + 1}>
-                Gameweek {index + 1}
-              </option>
-            );
-          })
-        }
-      </select>
+      <div className="fixture-options">
+        <select
+          onChange={(e) => {
+            setGameweekID(e.target.value);
+          }}
+        >
+          {
+            /* create list dynamically */
+            [...Array(9)].map((item, index) => {
+              return (
+                <option key={index + 1} value={index + 1}>
+                  Gameweek {index + 1}
+                </option>
+              );
+            })
+          }
+        </select>
+        <button>Playoffs</button>
+      </div>
       <div className="flex-container">
         <div className="fixtures">
           {fixtures.map((match) => {
@@ -68,7 +71,7 @@ const DisplayFixtures = () => {
             );
           })}
         </div>
-        <div className="table-container-mini">
+        <div className="table-container">
           <MiniTable />
         </div>
       </div>
@@ -190,7 +193,7 @@ function MiniTable() {
 
   useEffect(() => {
     getTable().then((res) => setTableInfo(res));
-  });
+  }, []);
 
   return (
     <table>

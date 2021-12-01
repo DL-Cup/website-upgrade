@@ -113,8 +113,11 @@ function TopScorer() {
             <div className="stats-card" key={index}>
               <span>{index + 1}</span>
               <span className="ls__player">{nickname || name}</span>
-              <span className="ls__team ls__right">{teamName}</span>
-              <span className="ls__stat">{goals}</span>
+              <span className="ls__team">{teamName}</span>
+              <span className="ls__position">
+                {position.toLowerCase().slice(0, 3)}
+              </span>
+              <span className="ls__stat ls__right">{goals}</span>
             </div>
           );
         }

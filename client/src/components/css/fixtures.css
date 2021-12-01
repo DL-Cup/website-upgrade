@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  user-select: none;
 }
 
 :root {
@@ -11,12 +12,20 @@
   --fffclr: hsla(254, 35%, 93%, 1);
 }
 
-select {
-  outline: none;
-  border: none;
-  padding: 0.5rem 2rem;
-  font-size: 1.5rem;
+.fixture-options {
+  display: flex;
   margin-bottom: 1.2rem;
+}
+
+.fixture-options > * {
+  border: 1px solid;
+  outline: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.fixture-options button {
+  padding: 0.5rem 2rem;
 }
 
 .fixtures h4 {
@@ -86,7 +95,7 @@ details[open] .fixture-info {
 }
 
 strong {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
 }
 
 ul {
@@ -139,8 +148,4 @@ svg {
 .flex-container {
   display: flex;
   gap: 2rem;
-}
-
-.flex-container table {
-  background: var(--fffclr);
 }

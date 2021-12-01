@@ -107,3 +107,7 @@ hr {
 .ls__right {
   margin-left: auto;
 }
+
+.ls__position {
+  font-variant: small-caps;
+}
