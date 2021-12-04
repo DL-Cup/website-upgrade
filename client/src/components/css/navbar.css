@@ -54,8 +54,9 @@ nav .selected {
   flex-grow: 1;
   order: 0;
 
-  font-size: 4rem;
-  font-weight: bold;
+  /* font-size: 4rem;
+  font-weight: bold; */
+  color: transparent;
   cursor: default;
 
   padding: 1rem 0 0 2rem;

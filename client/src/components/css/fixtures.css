@@ -43,6 +43,9 @@ summary {
 }
 
 details {
+  --scoreline-width: 300px;
+  --scoreline-font-size: 1.5rem;
+
   margin-bottom: 20px;
   cursor: pointer;
 }
@@ -78,9 +81,10 @@ details[open] .fixture-info {
   padding: 0.8rem 0.5rem;
   background: var(--ffclr);
   color: var(--sclr);
-  width: 400px;
+  width: var(--scoreline-width);
   justify-content: space-between;
-  font-size: 2rem;
+  align-items: center;
+  font-size: var(--scoreline-font-size);
 }
 
 .decoration {
@@ -95,7 +99,7 @@ details[open] .fixture-info {
 }
 
 strong {
-  font-size: 2.4rem;
+  font-size: calc(var(--scoreline-font-size) + 0.2rem);
 }
 
 ul {
@@ -107,7 +111,7 @@ ul {
   display: flex;
 }
 .fixture-info div:not(.decoration) {
-  width: 400px;
+  width: var(--scoreline-width);
   padding: 10px 8px;
 }
 .fixture-info .decoration {

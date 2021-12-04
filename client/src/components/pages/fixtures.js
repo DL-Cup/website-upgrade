@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import { getTable } from "../services/services";
-import { ReactComponent as Ball } from "./../images/ball.svg";
+import { ReactComponent as Ball } from "./../images/Ball.svg";
 
 import "../css/fixtures.css";
 
