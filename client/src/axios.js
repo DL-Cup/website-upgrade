@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000";
+const baseUrl = "https://dlcup.herokuapp.com";
 const instance = axios.create({
   baseURL: baseUrl,
   headers: {

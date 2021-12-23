@@ -109,7 +109,7 @@ table {
   background: darkgray;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px), (max-height: 500px) {
   .table-container {
     max-width: 100%;
     overflow: auto;

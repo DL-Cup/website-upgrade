@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../axios";
 import { useState, useEffect } from "react";
 
 // import { getTable } from "../services/services";
@@ -14,9 +14,7 @@ const DisplayFixtures = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/fixtures/${gameweekID}`
-        );
+        const res = await axios.get(`fixtures/${gameweekID}`);
         setFixtures(res.data);
 
         return;

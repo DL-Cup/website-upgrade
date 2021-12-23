@@ -14,6 +14,7 @@ import "./components/css/design_system.css";
 function App() {
   return (
     <>
+      <div className="empty__state__overlay"></div>
       <Router>
         <Navbar />
         <MobileNavbar />

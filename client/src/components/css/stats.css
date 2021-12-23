@@ -112,7 +112,7 @@ hr {
   font-variant: small-caps;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px), (max-height: 500px) {
   .desktop-stats {
     display: none;
   }

@@ -110,7 +110,7 @@ ul {
 
 .fixture-info div:first-child,
 .fixture-info div:last-child {
-  padding: var(--spacing-regular);
+  padding: var(--spacing-regular) var(--spacing-small);
   flex-grow: 1;
   flex-basis: 0;
 }
