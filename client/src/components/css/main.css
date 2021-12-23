@@ -60,6 +60,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .empty__state__overlay {
+    display: none;
+  }
+
   .mobile__navbar {
     display: flex;
   }
