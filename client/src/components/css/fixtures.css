@@ -122,3 +122,17 @@ ul {
 .left {
   text-align: right;
 }
+
+.meme {
+  display: block;
+  max-width: 100%;
+  margin-bottom: var(--spacing-medium);
+  margin-top: var(--spacing-large);
+}
+
+.meme + p {
+  color: var(--wht);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 25ch;
+}

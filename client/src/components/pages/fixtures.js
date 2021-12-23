@@ -88,6 +88,7 @@ const DisplayFixtures = () => {
           );
         })}
       </div>
+      {!fixtures.length && <EmptyGameWeekState />}
       {/* <div className="table-container">
         <MiniTable />
       </div> */}
@@ -206,6 +207,19 @@ function Details({ match }) {
       </summary>
       <Scorers match={match} />
     </details>
+  );
+}
+
+function EmptyGameWeekState() {
+  return (
+    <>
+      <img
+        className="meme"
+        src="https://tenor.com/view/waiting-alone-lonely-quarantine-life-kyriostsahs-sad-gif-17868758.gif"
+        alt=""
+      />
+      <p>No gameweek information to display at this time</p>
+    </>
   );
 }
 

@@ -10,6 +10,29 @@
 }
 
 @media screen and (min-width: 500px) {
+  .empty__state__overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    background: var(--paleV);
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .empty__state__overlay svg {
+    width: 50%;
+  }
+
+  .empty__state__overlay p {
+    font-family: var(--alt-font);
+  }
+
   main {
     /* top: calc(10vh + 2rem); */
     top: var(--spacing-regular);
