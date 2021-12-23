@@ -32,16 +32,26 @@ div.header {
   display: flex;
   flex-direction: column;
 
-  gap: var(--spacing-base);
+  /* gap: var(--spacing-base); */
 }
 
 .standings div {
   display: flex;
   align-items: center;
-  gap: var(--spacing-small);
+  /* gap: var(--spacing-small); */
+
+  margin-bottom: var(--spacing-base);
 
   background: var(--wht);
   padding-left: var(--spacing-regular);
+}
+
+.standings div span {
+  margin-right: var(--spacing-small);
+}
+
+.standings div span:last-child {
+  margin-right: 0;
 }
 
 .standings div span:nth-child(2) {

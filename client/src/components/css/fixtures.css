@@ -43,6 +43,11 @@ h3 {
 
 summary {
   display: block;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }
 
 details {

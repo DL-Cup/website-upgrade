@@ -15,7 +15,7 @@
   /* display: flex; Enabled with media query*/
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-base);
+  /* gap: var(--spacing-base); */
 
   padding: var(--spacing-regular) var(--spacing-small);
 }
@@ -26,12 +26,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-small);
+  /* gap: var(--spacing-small); */
+
+  margin-right: var(--spacing-base);
 
   cursor: pointer;
   text-decoration: none;
+  color: inherit;
 
   transition: all 300ms;
+}
+
+.mobile__navbar a:last-child {
+  margin-right: 0;
+}
+
+.mobile__navbar a svg {
+  margin-right: var(--spacing-small);
 }
 
 .mobile__navbar span:not(.active span) {
