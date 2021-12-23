@@ -47,7 +47,7 @@
 
   main {
     padding: var(--spacing-small) var(--spacing-regular);
-    padding-bottom: var(--spacing-2xlarge);
+    padding-bottom: var(--spacing-3xlarge);
     min-height: 100vh;
   }
 
@@ -57,7 +57,7 @@
     margin-left: 0;
   }
 
-  svg {
+  .mobile__navbar svg {
     width: 15px;
     height: 15px;
   }

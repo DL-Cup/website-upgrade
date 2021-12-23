@@ -1,5 +1,6 @@
 import Tables from "./components/pages/tables";
 import Fixtures from "./components/pages/fixtures";
+import MobileStats from "./components/pages/mobile-stats";
 import Navbar from "./components/Navbar";
 import MobileNavbar from "./components/mobileNavbar";
 
@@ -25,6 +26,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Tables} />
             <Route path="/fixtures" exact component={Fixtures} />
+            <Route path="/stats" exact component={MobileStats} />
           </Switch>
         </main>
       </Router>

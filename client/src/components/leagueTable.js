@@ -46,7 +46,7 @@ function Table() {
         <thead>
           <tr>
             <th>
-              <div>
+              <div className="team__info">
                 <span>#</span>
                 <span>Team</span>
               </div>
@@ -84,7 +84,7 @@ function Table() {
                 className={index === 0 ? "outline" : ""}
               >
                 <td>
-                  <div class="team__info">
+                  <div className="team__info">
                     <span>{index + 1}</span>
                     <span>{teamName}</span>
                   </div>

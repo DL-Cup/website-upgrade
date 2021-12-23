@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import { getTable } from "../services/services";
+// import { getTable } from "../services/services";
 import { ReactComponent as Next } from "./../images/next.svg";
 import { ReactComponent as Prev } from "./../images/prev.svg";
 
@@ -211,39 +211,39 @@ function Details({ match }) {
   );
 }
 
-function MiniTable() {
-  const [TableInfo, setTableInfo] = useState();
+// function MiniTable() {
+//   const [TableInfo, setTableInfo] = useState();
 
-  useEffect(() => {
-    getTable().then((res) => setTableInfo(res));
-  }, []);
+//   useEffect(() => {
+//     getTable().then((res) => setTableInfo(res));
+//   }, []);
 
-  return (
-    <table>
-      <thead>
-        <th>#</th>
-        <th>Team</th>
-        <th>MP</th>
-        <th>GD</th>
-        <th>Pts</th>
-      </thead>
-      <tbody>
-        {TableInfo?.map(
-          ({ teamName, played, goalDifference: GD, points }, index) => {
-            return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{teamName}</td>
-                <td>{played}</td>
-                <td>{GD}</td>
-                <td>{points}</td>
-              </tr>
-            );
-          }
-        )}
-      </tbody>
-    </table>
-  );
-}
+//   return (
+//     <table>
+//       <thead>
+//         <th>#</th>
+//         <th>Team</th>
+//         <th>MP</th>
+//         <th>GD</th>
+//         <th>Pts</th>
+//       </thead>
+//       <tbody>
+//         {TableInfo?.map(
+//           ({ teamName, played, goalDifference: GD, points }, index) => {
+//             return (
+//               <tr>
+//                 <td>{index + 1}</td>
+//                 <td>{teamName}</td>
+//                 <td>{played}</td>
+//                 <td>{GD}</td>
+//                 <td>{points}</td>
+//               </tr>
+//             );
+//           }
+//         )}
+//       </tbody>
+//     </table>
+//   );
+// }
 
 export default DisplayFixtures;

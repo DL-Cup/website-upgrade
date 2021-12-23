@@ -4,9 +4,12 @@ import "./css/stats.css";
 
 import { SelectionContext } from "./services/selectionContext";
 
+import { ReactComponent as StrikerIcon } from "./images/striker.svg";
+// import { ReactComponent as WallIcon } from "./images/wall.svg";
+
 function Stats() {
   return (
-    <div className="stats">
+    <div className="desktop-stats">
       <div className="team-info">
         <TeamFixturesAndResults />
       </div>
@@ -106,22 +109,30 @@ function TopScorer() {
 
   return (
     <div className="top-scorer">
-      <h4 className="ls__heading">Top Goalscorers</h4>
-      {TopScorers?.map(
-        ({ name, position, goals, nickname = "", teamName }, index) => {
-          return (
-            <div className="stats-card" key={index}>
-              <span>{index + 1}</span>
-              <span className="ls__player">{nickname || name}</span>
-              <span className="ls__team">{teamName}</span>
-              <span className="ls__position">
-                {position.toLowerCase().slice(0, 3)}
-              </span>
-              <span className="ls__stat ls__right">{goals}</span>
-            </div>
-          );
-        }
-      ).slice(0, 5)}
+      <div>
+        <h2>
+          TOP
+          <br /> SCORERS
+        </h2>
+        <StrikerIcon />
+      </div>
+      <div>
+        {TopScorers?.map(
+          ({ name, position, goals, nickname = "", teamName }, index) => {
+            return (
+              <div className="stats-card" key={index}>
+                <span>{index + 1}</span>
+                <span className="ls__player">{nickname || name}</span>
+                <span className="ls__team">{teamName}</span>
+                <span className="ls__position">
+                  {position.toLowerCase().slice(0, 3)}
+                </span>
+                <span className="ls__stat ls__right">{goals}</span>
+              </div>
+            );
+          }
+        ).slice(0, 5)}
+      </div>
     </div>
   );
 }
