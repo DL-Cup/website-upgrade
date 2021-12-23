@@ -26,7 +26,7 @@ function Navbar() {
 
   return (
     <>
-      <nav>
+      <nav className="desktop__navbar">
         <div className="selected">
           <Link to="/">Table</Link>
         </div>

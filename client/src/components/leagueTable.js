@@ -45,14 +45,18 @@ function Table() {
       <table>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Team</th>
+            <th>
+              <div>
+                <span>#</span>
+                <span>Team</span>
+              </div>
+            </th>
             <th title="Matches Played">MP</th>
             <th title="Points">Pts</th>
             <th title="Wins">W</th>
             <th title="Draws">D</th>
             <th title="Losses">L</th>
-            <th>Goals</th>
+            <th>GF : GA</th>
             <th title="Goal Difference">GD</th>
             <th>Last 5</th>
           </tr>
@@ -79,8 +83,12 @@ function Table() {
                 id={teamName}
                 className={index === 0 ? "outline" : ""}
               >
-                <td>{index + 1}</td>
-                <td>{teamName}</td>
+                <td>
+                  <div>
+                    <span>{index + 1}</span>
+                    <span>{teamName}</span>
+                  </div>
+                </td>
                 <td>{played}</td>
                 <td>{points}</td>
                 <td>{wins}</td>

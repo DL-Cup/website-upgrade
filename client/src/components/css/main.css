@@ -6,21 +6,55 @@
   font-family: sans-serif;
 }
 
-main {
-  /* top: calc(10vh + 2rem); */
-  top: 2rem;
-  left: 2rem;
-  width: calc(100vw - 250px);
-
-  position: absolute;
-}
-
 ::-webkit-scrollbar {
   width: 0;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr calc(100% - 770px);
-  grid-gap: 1rem;
+@media screen and (min-width: 500px) {
+  main {
+    /* top: calc(10vh + 2rem); */
+    top: 2rem;
+    left: 2rem;
+    width: calc(100vw - 250px);
+
+    position: absolute;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr calc(100% - 770px);
+    grid-gap: 1rem;
+  }
+}
+
+.mobile__navbar {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .mobile__navbar {
+    display: flex;
+  }
+
+  .desktop__navbar {
+    display: none;
+  }
+
+  #root {
+    font-family: var(--main-font);
+    background: url("../images/background.png") no-repeat;
+    background-size: cover;
+  }
+
+  main {
+    padding: var(--spacing-small);
+    padding-bottom: var(--spacing-3xlarge);
+    min-height: 100vh;
+  }
+
+  .logo {
+    width: 75px;
+    margin: var(--spacing-medium) var(--spacing-regular);
+    margin-left: 0;
+  }
 }

@@ -111,3 +111,9 @@ hr {
 .ls__position {
   font-variant: small-caps;
 }
+
+@media screen and (max-width: 500px) {
+  .stats {
+    display: none;
+  }
+}

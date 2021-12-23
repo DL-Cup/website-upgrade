@@ -1,0 +1,48 @@
+.mobile__navbar img {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile__navbar {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  width: 100%;
+
+  height: 75px;
+  background: var(--blk);
+
+  /* display: flex; Enabled with media query*/
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-base);
+
+  padding: var(--spacing-regular) var(--spacing-small);
+}
+
+.mobile__navbar a {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-small);
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 300ms;
+}
+
+.mobile__navbar span:not(.active span) {
+  display: none;
+}
+
+.mobile__navbar .active {
+  padding: var(--spacing-small);
+  border-radius: 20px;
+  color: var(--brightV);
+  border: 3px solid var(--brandG);
+
+  font-family: var(--alt-font);
+}

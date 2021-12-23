@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "MontBlack";
+  src: url("../fonts/Montserrat-Black.otf");
+}
+
+@font-face {
+  font-family: "MontMedium";
+  src: url("../fonts/Montserrat-Medium.otf");
+}
+
+@font-face {
+  font-family: "MontRegular";
+  src: url("../fonts/Montserrat-Regular.otf");
+}
+
+:root {
+  /* Colors */
+  --blk: #000;
+  --wht: #fff;
+  --brandG: #19e5a8;
+  --paleG: #cffcef;
+  --brightV: #9381ff;
+  --paleV: #bbb1f2;
+  --palerV: #a39ad5;
+  --accentR: #e63060;
+  /* --highlightT: #e8d7f8; */
+
+  /* Typography */
+  --main-font: "MontRegular", sans-serif;
+  --alt-font: "MontMedium", sans-serif;
+  --test-font: "MontBlack", sans-serif;
+
+  --text-large: 48px;
+  --text-medium: 30px;
+  --text-regular: 24px;
+  --text-base: 20px;
+  --text-small: 16px;
+  --text-xsmall: 14px;
+  --text-xxsmall: 12px;
+
+  /* Spacing */
+  --spacing-base: 4px;
+  --spacing-small: 8px;
+  --spacing-regular: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 36px;
+  --spacing-xlarge: 48px;
+  --spacing-2xlarge: 72px;
+  --spacing-3xlarge: 96px;
+  --spacing-4xlarge: 144px;
+}
