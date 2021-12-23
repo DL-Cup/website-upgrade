@@ -1,36 +1,35 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  user-select: none;
-}
-
-:root {
-  --fclr: hsla(266, 100%, 10%, 1);
-  --sclr: hsla(260, 50%, 21%, 1);
-  --tclr: hsla(263, 24%, 57%, 1);
-  --ffclr: hsla(252, 33%, 81%, 1);
-  --fffclr: hsla(254, 35%, 93%, 1);
-}
-
 .fixture-options {
   display: flex;
-  margin-bottom: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: var(--spacing-regular);
 }
 
-.fixture-options > * {
-  border: 1px solid;
+.fixture-options select {
+  background: none;
+  border: none;
   outline: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-.fixture-options button {
-  padding: 0.5rem 2rem;
+
+  color: var(--wht);
+  font-size: var(--text-regular);
 }
 
-.fixtures h4 {
-  color: var(--fffclr);
-  margin-block: 0.8rem;
+.fixture-options option {
+  color: var(--blk);
+}
+
+.fixture-options svg {
+  width: 25px;
+  height: 25px;
+}
+
+h3 {
+  font-weight: lighter;
+  font-size: var(--text-small);
+  font-family: var(--main-font);
+  color: var(--wht);
+
+  margin: var(--spacing-large) 0 var(--spacing-regular);
 }
 
 .fixture,
@@ -38,19 +37,23 @@
   display: flex;
 }
 
+.fixture {
+  background: var(--wht);
+}
+
 summary {
   display: block;
 }
 
 details {
-  --scoreline-width: 300px;
-  --scoreline-font-size: 1.5rem;
-
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-small);
   cursor: pointer;
+  font-family: var(--main-font);
 }
 
 details[open] .fixture-info {
+  margin-bottom: var(--spacing-medium);
+  border-bottom: 2px solid var(--wht);
   -webkit-animation: sweep 200ms ease-in-out;
   animation: sweep 200ms ease-in-out;
 }
@@ -78,28 +81,21 @@ details[open] .fixture-info {
 }
 
 .scoreline {
-  padding: 0.8rem 0.5rem;
-  background: var(--ffclr);
-  color: var(--sclr);
-  width: var(--scoreline-width);
+  padding: var(--spacing-regular) var(--spacing-small);
+
   justify-content: space-between;
   align-items: center;
-  font-size: var(--scoreline-font-size);
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 .decoration {
-  width: 30px;
-  background: linear-gradient(
-    90deg,
-    var(--fclr) 10px,
-    var(--sclr) 10px,
-    var(--sclr) 20px,
-    var(--tclr) 20px
-  );
+  width: var(--spacing-medium);
+  background: var(--accentR);
 }
 
 strong {
-  font-size: calc(var(--scoreline-font-size) + 0.2rem);
+  font-size: var(--text-regular);
 }
 
 ul {
@@ -109,47 +105,20 @@ ul {
 
 .fixture-info {
   display: flex;
+  color: var(--wht);
 }
-.fixture-info div:not(.decoration) {
-  width: var(--scoreline-width);
-  padding: 10px 8px;
+
+.fixture-info div:first-child,
+.fixture-info div:last-child {
+  padding: var(--spacing-regular);
+  flex-grow: 1;
+  flex-basis: 0;
 }
+
 .fixture-info .decoration {
   background: none;
 }
 
 .left {
-  background: white;
   text-align: right;
-}
-
-.right {
-  background: white;
-}
-
-.fixture-info li {
-  display: flex;
-  align-items: center;
-}
-
-.left svg:last-of-type {
-  margin-right: 3px;
-}
-
-.right svg:first-child {
-  margin-left: 3px;
-}
-
-.left li {
-  justify-content: end;
-}
-
-svg {
-  width: 15px;
-  height: 15px;
-}
-
-.flex-container {
-  display: flex;
-  gap: 2rem;
 }

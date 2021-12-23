@@ -84,7 +84,7 @@ function Table() {
                 className={index === 0 ? "outline" : ""}
               >
                 <td>
-                  <div>
+                  <div class="team__info">
                     <span>{index + 1}</span>
                     <span>{teamName}</span>
                   </div>

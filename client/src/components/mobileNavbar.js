@@ -1,6 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./css/mobile-navbar.css";
 
@@ -10,35 +9,40 @@ import { ReactComponent as StatsIcon } from "./images/Stats.svg";
 import { ReactComponent as AboutIcon } from "./images/About.svg";
 
 function MobileNavbar() {
-  useEffect(() => {
-    const navItems = document.querySelectorAll("nav a");
-
-    navItems.forEach((item) => item.addEventListener("click", handleClick));
-
-    function handleClick(e) {
-      navItems.forEach((item) => item.classList.remove("active"));
-      e.currentTarget.classList.add("active");
-    }
-  }, []);
-
   return (
     <nav className="mobile__navbar">
-      <Link className="active nav__table" to="/">
+      <NavLink
+        className={(isActive) => "nav__table" + (isActive ? " active" : "")}
+        exact
+        to="/"
+      >
         <TableIcon />
         <span>Table</span>
-      </Link>
-      <Link className="nav__fixtures" to="/fixtures">
+      </NavLink>
+      <NavLink
+        className={(isActive) => "nav__fixtures" + (isActive ? " active" : "")}
+        exact
+        to="/fixtures"
+      >
         <FixturesIcon />
         <span>Fixtures</span>
-      </Link>
-      <Link className="nav__stats" to="/stats">
+      </NavLink>
+      <NavLink
+        className={(isActive) => "nav__stats" + (isActive ? " active" : "")}
+        exact
+        to="/stats"
+      >
         <StatsIcon />
         <span>Stats</span>
-      </Link>
-      <Link className="nav__about" to="/about">
+      </NavLink>
+      <NavLink
+        className={(isActive) => "nav__about" + (isActive ? " active" : "")}
+        exact
+        to="/about"
+      >
         <AboutIcon />
         <span>About</span>
-      </Link>
+      </NavLink>
     </nav>
   );
 }

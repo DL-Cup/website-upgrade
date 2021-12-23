@@ -84,15 +84,20 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  /* gap: 3px;  Unsupported */
 }
 .span-flex span {
   width: var(--spacing-regular);
   height: var(--spacing-regular);
   box-shadow: 1px 1px #8b77ac;
+  margin-right: var(--spacing-base);
 }
 
-/* .W {
+.span-flex span:last-child {
+  margin-right: 0;
+}
+
+.W {
   background: #38e038;
 }
 
@@ -102,7 +107,7 @@ table {
 
 .D {
   background: darkgray;
-} */
+}
 
 @media screen and (max-width: 500px) {
   .table-container {
@@ -182,10 +187,15 @@ table {
     background: var(--wht);
   }
 
-  td > div,
-  th > div {
+  .team__info,
+  .team__info {
     display: flex;
-    gap: var(--spacing-regular);
+    /* gap: var(--spacing-regular); Unsupported */
+  }
+
+  .team__info span:first-child,
+  .team__info span:first-child {
+    margin-right: var(--spacing-regular);
   }
 
   th:first-child {

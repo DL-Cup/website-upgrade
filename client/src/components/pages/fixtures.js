@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import { getTable } from "../services/services";
-import { ReactComponent as Ball } from "./../images/Ball.svg";
+import { ReactComponent as Next } from "./../images/next.svg";
+import { ReactComponent as Prev } from "./../images/prev.svg";
 
 import "../css/fixtures.css";
 
@@ -29,9 +30,19 @@ const DisplayFixtures = () => {
 
   let matchSchedules = {};
 
+  const selectComponenet = document.querySelector("select");
+
   return (
     <>
       <div className="fixture-options">
+        <Prev
+          onClick={() => {
+            if (gameweekID > 1) {
+              setGameweekID(gameweekID - 1);
+              selectComponenet.value = gameweekID - 1;
+            }
+          }}
+        />
         <select
           onChange={(e) => {
             setGameweekID(e.target.value);
@@ -48,33 +59,41 @@ const DisplayFixtures = () => {
             })
           }
         </select>
-        <button>Playoffs</button>
-      </div>
-      <div className="flex-container">
-        <div className="fixtures">
-          {fixtures.map((match) => {
-            let date = new Date(match.schedule);
-
-            if (matchSchedules[date.toDateString()] === 0) {
-              matchSchedules[date.toDateString()]++;
-            } else {
-              matchSchedules[date.toDateString()] = 0;
+        <Next
+          onClick={() => {
+            if (gameweekID < 9) {
+              setGameweekID(gameweekID + 1);
+              selectComponenet.value = gameweekID + 1;
             }
-
-            return (
-              <>
-                {!matchSchedules[date.toDateString()] && (
-                  <h4>{date.toDateString()}</h4>
-                )}
-                <Details key={match.matchID} match={match} />
-              </>
-            );
-          })}
-        </div>
-        <div className="table-container">
-          <MiniTable />
-        </div>
+          }}
+        />
+        {/* <button>Playoffs</button> */}
       </div>
+      {/* <div className="flex-container"> */}
+      <div className="fixtures">
+        {fixtures.map((match) => {
+          let date = new Date(match.schedule);
+
+          if (matchSchedules[date.toDateString()] === 0) {
+            matchSchedules[date.toDateString()]++;
+          } else {
+            matchSchedules[date.toDateString()] = 0;
+          }
+
+          return (
+            <>
+              {!matchSchedules[date.toDateString()] && (
+                <h3>{date.toDateString()}</h3>
+              )}
+              <Details key={match.matchID} match={match} />
+            </>
+          );
+        })}
+      </div>
+      {/* <div className="table-container">
+        <MiniTable />
+      </div> */}
+      {/* </div> */}
     </>
   );
 };
@@ -103,6 +122,8 @@ function Scorers({ match }) {
   let [score1] = match.score.split("-");
 
   // Mapping scorer to number of goals
+
+  // Error: Check for duplicate names
   let numberOfGoals = {};
   match.scorers.forEach((scorer) => {
     if (numberOfGoals[scorer]) {
@@ -128,10 +149,11 @@ function Scorers({ match }) {
 
             return (
               <li key={index}>
-                {[...new Array(numberOfGoals[scorer])].map((goal) => {
+                {/* {[...new Array(numberOfGoals[scorer])].map((goal) => {
                   return <Ball />;
-                })}
-                {scorer}
+                })} */}
+                {scorer}{" "}
+                {numberOfGoals[scorer] > 1 && "x " + numberOfGoals[scorer]}
               </li>
             );
           })}
@@ -146,10 +168,11 @@ function Scorers({ match }) {
 
             return (
               <li key={index}>
-                {scorer}
-                {[...new Array(numberOfGoals[scorer])].map((goal) => {
+                {scorer}{" "}
+                {numberOfGoals[scorer] > 1 && "x " + numberOfGoals[scorer]}
+                {/* {[...new Array(numberOfGoals[scorer])].map((goal) => {
                   return <Ball />;
-                })}
+                })} */}
               </li>
             );
           })}

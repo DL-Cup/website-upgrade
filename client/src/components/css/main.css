@@ -3,7 +3,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -47,8 +46,8 @@
   }
 
   main {
-    padding: var(--spacing-small);
-    padding-bottom: var(--spacing-3xlarge);
+    padding: var(--spacing-small) var(--spacing-regular);
+    padding-bottom: var(--spacing-2xlarge);
     min-height: 100vh;
   }
 
@@ -56,5 +55,10 @@
     width: 75px;
     margin: var(--spacing-medium) var(--spacing-regular);
     margin-left: 0;
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
   }
 }
