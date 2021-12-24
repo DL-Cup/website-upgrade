@@ -45,8 +45,12 @@
   margin-right: var(--spacing-small);
 }
 
-.mobile__navbar span:not(.active span) {
+.mobile__navbar span {
   display: none;
+}
+
+.mobile__navbar .active span {
+  display: initial;
 }
 
 .mobile__navbar .active {

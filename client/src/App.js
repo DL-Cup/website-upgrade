@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./components/css/main.css";
 import "./components/css/design_system.css";
 
-import { ReactComponent as Working } from "./components/images/working.svg";
+import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
 
 // Bug report: Table nav is always selected on page reload even if page is reloaded while on other pages
 
@@ -17,10 +17,10 @@ function App() {
   return (
     <>
       <div className="empty__state__overlay">
-        <Working />
+        <WorkingOnIt />
         <p>
           Working on the desktop site at the moment. Should be ready in a few
-          weeks. Mobile site works tho.
+          weeks. Mobile site works tho...in portrait mode.
         </p>
       </div>
       <Router>

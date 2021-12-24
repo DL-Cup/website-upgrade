@@ -1,0 +1,37 @@
+.loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  width: 75px;
+  height: 75px;
+  display: grid;
+  border: 6px solid #0000;
+  border-radius: 50%;
+  border-right-color: var(--brandG);
+  animation: spin 1s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 3px;
+  border: inherit;
+  border-radius: 50%;
+  animation: spin 2s infinite;
+}
+
+.loader::after {
+  margin: 10px;
+  animation-duration: 3s;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}

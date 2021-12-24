@@ -212,14 +212,10 @@ function Details({ match }) {
 
 function EmptyGameWeekState() {
   return (
-    <>
-      <img
-        className="meme"
-        src="https://tenor.com/view/waiting-alone-lonely-quarantine-life-kyriostsahs-sad-gif-17868758.gif"
-        alt=""
-      />
+    <div class="meme">
+      <img className="meme__img" src="https://i.imgur.com/AnMJIeO.gif" alt="" />
       <p>No gameweek information to display at this time</p>
-    </>
+    </div>
   );
 }
 

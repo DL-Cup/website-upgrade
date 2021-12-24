@@ -18,7 +18,7 @@
     right: 0;
     z-index: 10;
 
-    background: var(--paleV);
+    background: var(--darkerBrandG);
 
     display: grid;
     justify-items: center;
@@ -31,7 +31,7 @@
 
   .empty__state__overlay p {
     font-family: var(--alt-font);
-    width: 40ch;
+    width: 50ch;
     text-align: center;
   }
 

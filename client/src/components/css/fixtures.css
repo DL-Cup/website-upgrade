@@ -44,6 +44,7 @@ h3 {
 summary {
   display: block;
   list-style: none;
+  outline: none;
 }
 
 summary::-webkit-details-marker {
@@ -128,16 +129,18 @@ ul {
   text-align: right;
 }
 
-.meme {
+.meme__img {
   display: block;
   max-width: 100%;
   margin-bottom: var(--spacing-medium);
-  margin-top: var(--spacing-large);
+  margin-top: var(--spacing-2xlarge);
 }
 
-.meme + p {
+.meme p {
   color: var(--wht);
   text-align: center;
   margin: 0 auto;
   max-width: 25ch;
+
+  color: var(--wht);
 }
