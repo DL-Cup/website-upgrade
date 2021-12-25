@@ -5,7 +5,7 @@ function Loader() {
     <>
       <div className="loading">
         <div class="loader"></div>
-        <p>Aza network. Try AAU-AAiT-Staff eski</p>
+        <p>Slow network. Please try again later.</p>
       </div>
     </>
   );

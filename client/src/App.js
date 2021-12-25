@@ -11,8 +11,6 @@ import "./components/css/design_system.css";
 
 import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
 
-// Bug report: Table nav is always selected on page reload even if page is reloaded while on other pages
-
 function App() {
   return (
     <>
