@@ -1,17 +1,24 @@
-.loader {
-  position: absolute;
+.loading {
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  margin: auto;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
   width: 75px;
   height: 75px;
   display: grid;
   border: 6px solid #0000;
   border-radius: 50%;
   border-right-color: var(--brandG);
+
   animation: spin 1s infinite linear;
 }
 
@@ -33,5 +40,22 @@
 @keyframes spin {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+.loading p {
+  margin-top: calc(-1 * var(--spacing-regular));
+  color: var(--wht);
+  opacity: 0;
+  animation: reveal-msg 1s 5s forwards cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes reveal-msg {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    margin-top: var(--spacing-large);
   }
 }

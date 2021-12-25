@@ -42,7 +42,7 @@ function Table() {
 
   return (
     <>
-      {!TableInfo.length && <Loader></Loader>}
+      {!TableInfo.length && <Loader />}
       <div className="table-container">
         <table>
           <thead>

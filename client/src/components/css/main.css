@@ -18,7 +18,7 @@
     right: 0;
     z-index: 10;
 
-    background: var(--darkerBrandG);
+    background-color: var(--brightV);
 
     display: grid;
     justify-items: center;
@@ -37,6 +37,7 @@
 
   main {
     /* top: calc(10vh + 2rem); */
+    display: none;
     top: var(--spacing-regular);
     left: var(--spacing-regular);
     width: calc(100vw - 250px);

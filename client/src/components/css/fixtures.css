@@ -129,14 +129,14 @@ ul {
   text-align: right;
 }
 
-.meme__img {
+.error-msg img {
   display: block;
   max-width: 100%;
   margin-bottom: var(--spacing-medium);
   margin-top: var(--spacing-2xlarge);
 }
 
-.meme p {
+.error-msg p {
   color: var(--wht);
   text-align: center;
   margin: 0 auto;

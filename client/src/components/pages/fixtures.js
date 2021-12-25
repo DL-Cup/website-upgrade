@@ -6,10 +6,13 @@ import { ReactComponent as Next } from "./../images/next.svg";
 import { ReactComponent as Prev } from "./../images/prev.svg";
 
 import "../css/fixtures.css";
+import Loader from "../loader";
 
 const DisplayFixtures = () => {
   const [gameweekID, setGameweekID] = useState(1);
   const [fixtures, setFixtures] = useState([]);
+
+  const [nullGameweek, setNullGameweek] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +20,7 @@ const DisplayFixtures = () => {
         const res = await axios.get(`fixtures/${gameweekID}`);
         setFixtures(res.data);
 
-        return;
+        if (!res.data?.length) setNullGameweek(true);
       } catch (err) {
         console.log(err);
       }
@@ -69,7 +72,7 @@ const DisplayFixtures = () => {
       </div>
       {/* <div className="flex-container"> */}
       <div className="fixtures">
-        {fixtures.map((match) => {
+        {fixtures?.map((match) => {
           let date = new Date(match.schedule);
 
           if (matchSchedules[date.toDateString()] === 0) {
@@ -88,7 +91,8 @@ const DisplayFixtures = () => {
           );
         })}
       </div>
-      {!fixtures.length && <EmptyGameWeekState />}
+      {!fixtures.length && !nullGameweek && <Loader />}
+      {nullGameweek && <EmptyGameWeekState />}
       {/* <div className="table-container">
         <MiniTable />
       </div> */}
@@ -112,7 +116,6 @@ function Matches({ match }) {
         <strong>{score2}</strong>
         <span>{team2}</span>
       </div>
-      {/* <div className="schedule">{new Date(schedule).toString()}</div> */}
     </div>
   );
 }
@@ -212,9 +215,9 @@ function Details({ match }) {
 
 function EmptyGameWeekState() {
   return (
-    <div class="meme">
-      <img className="meme__img" src="https://i.imgur.com/AnMJIeO.gif" alt="" />
-      <p>No gameweek information to display at this time</p>
+    <div class="error-msg">
+      <img src="https://i.imgur.com/AnMJIeO.gif" alt="" />
+      <p>No gameweek information to display at this time.</p>
     </div>
   );
 }
