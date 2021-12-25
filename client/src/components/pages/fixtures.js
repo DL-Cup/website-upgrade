@@ -60,8 +60,8 @@ const DisplayFixtures = () => {
         <Next
           onClick={() => {
             if (gameweekID < 9) {
-              setGameweekID(gameweekID + 1);
-              selectComponenet.value = gameweekID + 1;
+              setGameweekID(+gameweekID + 1);
+              selectComponenet.value = +gameweekID + 1;
             }
           }}
         />
