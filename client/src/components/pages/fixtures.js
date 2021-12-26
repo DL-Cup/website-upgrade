@@ -9,7 +9,9 @@ import "../css/fixtures.css";
 import Loader from "../loader";
 
 const DisplayFixtures = () => {
-  const [gameweekID, setGameweekID] = useState(1);
+  const [gameweekID, setGameweekID] = useState(
+    localStorage.getItem("GWID") ?? 1
+  );
   const [fixtures, setFixtures] = useState([]);
 
   const [nullGameweek, setNullGameweek] = useState(false);
@@ -20,7 +22,9 @@ const DisplayFixtures = () => {
         const res = await axios.get(`fixtures/${gameweekID}`);
         setFixtures(res.data);
 
-        if (!res.data?.length) setNullGameweek(true);
+        localStorage.setItem("GWID", gameweekID);
+
+        !res.data?.length ? setNullGameweek(true) : setNullGameweek(false);
       } catch (err) {
         console.log(err);
       }
@@ -31,8 +35,6 @@ const DisplayFixtures = () => {
 
   let matchSchedules = {};
 
-  const selectComponenet = document.querySelector("select");
-
   return (
     <>
       <div className="fixture-options">
@@ -40,11 +42,11 @@ const DisplayFixtures = () => {
           onClick={() => {
             if (gameweekID > 1) {
               setGameweekID(gameweekID - 1);
-              selectComponenet.value = gameweekID - 1;
             }
           }}
         />
         <select
+          value={gameweekID}
           onChange={(e) => {
             setGameweekID(e.target.value);
           }}
@@ -64,7 +66,6 @@ const DisplayFixtures = () => {
           onClick={() => {
             if (gameweekID < 9) {
               setGameweekID(+gameweekID + 1);
-              selectComponenet.value = +gameweekID + 1;
             }
           }}
         />
