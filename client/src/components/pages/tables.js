@@ -1,5 +1,5 @@
 import Table from "./../leagueTable";
-import Stats from "./../stats";
+// import Stats from "./../stats";
 
 import { SelectionContext } from "../services/selectionContext";
 import { useState } from "react";
@@ -11,7 +11,7 @@ export default function Tables() {
     <div className="grid-container">
       <SelectionContext.Provider value={{ selectedTeam, setSelectedTeam }}>
         <Table />
-        <Stats />
+        {/* <Stats /> */}
       </SelectionContext.Provider>
     </div>
   );

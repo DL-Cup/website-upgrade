@@ -1,5 +1,5 @@
-import TopScorers from "../topscorers";
-import MostCleansheets from "../cleansheets";
+import TopScorers from "../topScorers";
+import MostCleansheets from "../mostCleansheets";
 
 import "../css/mobile-stats.css";
 

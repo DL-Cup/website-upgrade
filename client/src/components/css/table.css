@@ -178,11 +178,6 @@ table {
     left: 0;
   }
 
-  th:first-child {
-    background: var(--blk);
-    color: var(--wht);
-  }
-
   tr:nth-child(n + 6) td:first-child {
     background: var(--wht);
   }

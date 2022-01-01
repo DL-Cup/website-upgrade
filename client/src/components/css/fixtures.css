@@ -1,8 +1,27 @@
+.toggle {
+  display: flex;
+  margin-bottom: var(--spacing-medium);
+}
+
+.toggle button {
+  width: var(--spacing-4xlarge);
+  font-size: var(--text-small);
+  padding: var(--spacing-small);
+  border: 0;
+  outline: none;
+  background-color: var(--paleG);
+
+  transition: background-color 500ms;
+}
+
+.toggle .selected {
+  background-color: var(--brandG);
+}
+
 .fixture-options {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block: var(--spacing-regular);
 }
 
 .fixture-options select {
@@ -29,7 +48,11 @@ h3 {
   font-family: var(--main-font);
   color: var(--wht);
 
-  margin: var(--spacing-large) 0 var(--spacing-regular);
+  margin: var(--spacing-medium) 0 var(--spacing-small);
+}
+
+h3:first-child {
+  margin-top: var(--spacing-medium);
 }
 
 .fixture,
@@ -133,7 +156,7 @@ ul {
   display: block;
   max-width: 100%;
   margin-bottom: var(--spacing-medium);
-  margin-top: var(--spacing-2xlarge);
+  margin-top: var(--spacing-large);
 }
 
 .error-msg p {
@@ -143,4 +166,19 @@ ul {
   max-width: 25ch;
 
   color: var(--wht);
+}
+
+/* Mobile team */
+
+.team-switch {
+  width: 100%;
+  outline: none;
+  padding: var(--spacing-small);
+  font-size: var(--text-regular);
+
+  background: var(--wht);
+}
+
+.remaining-fixtures.standings span:last-child {
+  margin-left: auto;
 }
