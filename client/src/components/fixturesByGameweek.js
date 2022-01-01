@@ -38,6 +38,7 @@ function FixturesByGameweek() {
         <Prev
           onClick={() => {
             if (gameweekID > 1) {
+              setFixtures([]);
               setGameweekID(gameweekID - 1);
             }
           }}
@@ -45,6 +46,7 @@ function FixturesByGameweek() {
         <select
           value={gameweekID}
           onChange={(e) => {
+            setFixtures([]);
             setGameweekID(e.target.value);
           }}
         >
@@ -62,6 +64,7 @@ function FixturesByGameweek() {
         <Next
           onClick={() => {
             if (gameweekID < 9) {
+              setFixtures([]);
               setGameweekID(+gameweekID + 1);
             }
           }}
