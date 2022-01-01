@@ -55,7 +55,6 @@ div.header {
 }
 
 .standings div span:nth-child(2) {
-  font-weight: 600;
   font-size: var(--text-regular);
 }
 

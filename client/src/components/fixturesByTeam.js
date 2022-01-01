@@ -34,24 +34,30 @@ function TeamFixturesAndResults() {
     <>
       {TableInfo?.length && TeamResults?.length && (
         <>
-          <select
-            className="team-switch"
-            value={selectedTeam}
-            onChange={(e) => {
-              setSelectedTeam(e.target.value);
-            }}
-          >
-            {
-              /* create list dynamically */
-              TableInfo?.map(({ teamName }, index) => {
-                return (
-                  <option key={index + 1} value={teamName}>
-                    {teamName}
-                  </option>
-                );
-              })
-            }
-          </select>
+          <div className="select-team">
+            <select
+              className="team-switch"
+              value={selectedTeam}
+              onChange={(e) => {
+                setSelectedTeam(e.target.value);
+              }}
+            >
+              {
+                /* create list dynamically */
+                TableInfo?.map(({ teamName }, index) => {
+                  return (
+                    <option key={index + 1} value={teamName}>
+                      {teamName}
+                    </option>
+                  );
+                })
+              }
+            </select>
+            <div className="select-decoration">
+              <span>▲</span>
+              <span>▼</span>
+            </div>
+          </div>
           <div className="">
             <h3>Recent results</h3>
             {TeamResults?.slice(0, 5).map(({ teams, score, matchID }) => {

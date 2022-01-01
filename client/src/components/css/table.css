@@ -167,6 +167,10 @@ table {
     padding-right: var(--spacing-medium);
   }
 
+  th:first-child {
+    background: var(--blk);
+  }
+
   td:last-child {
     width: 140px;
     display: inline-block;

@@ -176,9 +176,44 @@ ul {
   padding: var(--spacing-small);
   font-size: var(--text-regular);
 
-  background: var(--wht);
+  background: var(--palerV);
 }
 
 .remaining-fixtures.standings span:last-child {
   margin-left: auto;
+}
+
+.select-team {
+  position: relative;
+}
+
+.select-team select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-progress-appearance: none;
+}
+
+.select-decoration {
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 15%;
+
+  background: var(--brightV);
+  color: var(--darkV);
+  font-size: var(--text-regular);
+
+  pointer-events: none;
+}
+
+.select-decoration span:last-child {
+  margin-top: calc(var(--spacing-regular) * -1);
 }
