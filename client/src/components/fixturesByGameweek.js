@@ -51,7 +51,7 @@ function FixturesByGameweek() {
           }}
         >
           {
-            /* create list dynamically */
+            /* todo: create list dynamically */
             [...Array(9)].map((item, index) => {
               return (
                 <option key={index + 1} value={index + 1}>
@@ -69,7 +69,6 @@ function FixturesByGameweek() {
             }
           }}
         />
-        {/* <button>Playoffs</button> */}
       </div>
       {/* <div className="flex-container"> */}
       <div className="fixtures">
@@ -94,10 +93,6 @@ function FixturesByGameweek() {
       </div>
       {!fixtures.length && !nullGameweek && <Loader />}
       {nullGameweek && <EmptyGameWeekState />}
-      {/* <div className="table-container">
-        <MiniTable />
-      </div> */}
-      {/* </div> */}
     </>
   );
 }
@@ -107,7 +102,7 @@ function Matches({ match }) {
   let [score1, score2] = match.score.split("-");
 
   return (
-    <div className="fixture">
+    <div className="fixture" key={match.matchID + match.GWID}>
       <div className="scoreline">
         <span>{team1}</span>
         <strong>{score1}</strong>

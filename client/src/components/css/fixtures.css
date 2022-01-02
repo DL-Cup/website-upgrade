@@ -194,6 +194,10 @@ ul {
   -ms-progress-appearance: none;
 }
 
+.select-team option {
+  background: var(--wht);
+}
+
 .select-decoration {
   top: 0;
   bottom: 0;

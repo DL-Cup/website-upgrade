@@ -4,7 +4,7 @@ function Loader() {
   return (
     <>
       <div className="loading">
-        <div class="loader"></div>
+        <div className="loader"></div>
         <p>Slow network. Please try again later.</p>
       </div>
     </>
