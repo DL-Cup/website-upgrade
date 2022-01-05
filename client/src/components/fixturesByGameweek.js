@@ -70,7 +70,6 @@ function FixturesByGameweek() {
           }}
         />
       </div>
-      {/* <div className="flex-container"> */}
       <div className="fixtures">
         {fixtures?.map((match) => {
           let date = new Date(match.schedule);
@@ -138,18 +137,13 @@ function Scorers({ match }) {
   return (
     <div className="fixture-info">
       <div className="left">
-        {/* Splice method will mutate the array so we'll be left with
-                 the second group of scorers on the .right side */}
         <ul>
-          {match.scorers.splice(0, score1).map((scorer, index) => {
+          {[...match.scorers].slice(0, score1).map((scorer, index) => {
             if (leftScorers.includes(scorer)) return null;
             leftScorers.push(scorer);
 
             return (
               <li key={index}>
-                {/* {[...new Array(numberOfGoals[scorer])].map((goal) => {
-                  return <Ball />;
-                })} */}
                 {scorer}{" "}
                 {numberOfGoals[scorer] > 1 && "x " + numberOfGoals[scorer]}
               </li>
@@ -160,7 +154,7 @@ function Scorers({ match }) {
       <div className="decoration"></div>
       <div className="right">
         <ul>
-          {match.scorers.map((scorer, index) => {
+          {[...match.scorers].slice(score1).map((scorer, index) => {
             if (rightScorers.includes(scorer)) return null;
             rightScorers.push(scorer);
 
@@ -168,9 +162,6 @@ function Scorers({ match }) {
               <li key={index}>
                 {scorer}{" "}
                 {numberOfGoals[scorer] > 1 && "x " + numberOfGoals[scorer]}
-                {/* {[...new Array(numberOfGoals[scorer])].map((goal) => {
-                  return <Ball />;
-                })} */}
               </li>
             );
           })}
