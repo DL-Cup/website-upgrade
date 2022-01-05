@@ -39,6 +39,7 @@ function TeamFixturesAndResults() {
               className="team-switch"
               value={selectedTeam}
               onChange={(e) => {
+                setTeamResults([]);
                 setSelectedTeam(e.target.value);
               }}
             >
@@ -58,33 +59,44 @@ function TeamFixturesAndResults() {
               <span>▼</span>
             </div>
           </div>
-          <div className="">
-            <h3>Recent results</h3>
-            {TeamResults?.slice(0, 5).map(({ teams, score, matchID }) => {
+          <div>
+            <h3>Results</h3>
+            {TeamResults?.map(({ teams, score, matchID }) => {
               let [team1, team2] = teams;
               let [score1, score2] = score.split("-");
 
+              let matchOutcome;
+
+              if (team1 === selectedTeam) {
+                if (score1 > score2) {
+                  matchOutcome = "W";
+                } else if (score1 < score2) {
+                  matchOutcome = "L";
+                } else {
+                  matchOutcome = "D";
+                }
+              } else {
+                if (score2 > score1) {
+                  matchOutcome = "W";
+                } else if (score2 < score1) {
+                  matchOutcome = "L";
+                } else {
+                  matchOutcome = "D";
+                }
+              }
+
               return (
-                <details>
-                  <summary>
-                    <div className="fixture" key={matchID}>
-                      <div className="scoreline">
-                        <span>{team1}</span>
-                        <strong>{score1}</strong>
-                      </div>
-                      <div className="decoration"></div>
-                      <div className="scoreline">
-                        <strong>{score2}</strong>
-                        <span>{team2}</span>
-                      </div>
-                    </div>
-                  </summary>
-                </details>
+                <div className="fixture-summary" key={matchID}>
+                  <span className={"result-decoration " + matchOutcome}></span>
+                  <span>{score1 + " - " + score2}</span>
+                  <span>{team1 !== selectedTeam ? team1 : team2}</span>
+                </div>
               );
             })}
           </div>
           <div className="remaining-fixtures standings">
             <h3>Remaining fixtures</h3>
+            <p>*Numbers represent league positions</p>
 
             {Object.keys(leaguePositions)?.map((team) => {
               if (TeamsPlayed.includes(team) || team === selectedTeam) {
@@ -102,7 +114,7 @@ function TeamFixturesAndResults() {
           </div>
         </>
       )}
-      {!TableInfo?.length && !TeamResults?.length && <Loader />}
+      {(!TableInfo?.length || !TeamResults?.length) && <Loader />}
     </>
   );
 }

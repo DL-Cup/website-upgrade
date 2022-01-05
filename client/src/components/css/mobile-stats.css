@@ -27,8 +27,7 @@ div.header {
 }
 
 .standings {
-  font-size: var(--text-regular);
-
+  font-size: var(--text-base);
   display: flex;
   flex-direction: column;
 

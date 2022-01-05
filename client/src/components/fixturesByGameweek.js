@@ -83,7 +83,7 @@ function FixturesByGameweek() {
           return (
             <>
               {!matchSchedules[date.toDateString()] && (
-                <h3>{date.toDateString()}</h3>
+                <h4>{date.toDateString()}</h4>
               )}
               <Details key={match.matchID} match={match} />
             </>
