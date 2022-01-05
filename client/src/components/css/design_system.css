@@ -1,16 +1,19 @@
 @font-face {
   font-family: "MontBlack";
   src: url("../fonts/Montserrat-Black.otf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "MontMedium";
   src: url("../fonts/Montserrat-Medium.otf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "MontRegular";
   src: url("../fonts/Montserrat-Regular.otf");
+  font-display: swap;
 }
 
 :root {
@@ -28,7 +31,7 @@
   /* Typography */
   --main-font: "MontRegular", sans-serif;
   --alt-font: "MontMedium", sans-serif;
-  --test-font: "MontBlack", sans-serif;
+  --big-font: "MontBlack", sans-serif;
 
   --text-large: 48px;
   --text-medium: 30px;
