@@ -184,7 +184,9 @@ ul {
   padding: var(--spacing-small);
   font-size: var(--text-regular);
 
-  background: var(--palerV);
+  border: 1px solid var(--brightV);
+  background: none;
+  color: var(--wht);
 }
 
 .remaining-fixtures h3 {
@@ -208,6 +210,7 @@ ul {
 
 .select-team option {
   background: var(--wht);
+  color: var(--blk);
 }
 
 .select-decoration {
@@ -224,6 +227,8 @@ ul {
   width: 15%;
 
   background: var(--brightV);
+  border: 1px solid var(--brightV);
+
   color: var(--darkV);
   font-size: var(--text-regular);
 

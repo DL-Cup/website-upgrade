@@ -63,6 +63,10 @@
   margin-left: 0;
 }
 
+button {
+  color: var(--blk);
+}
+
 @media screen and (max-width: 500px) {
   .empty__state__overlay {
     display: none;
