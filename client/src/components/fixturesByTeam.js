@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getFixtures, getTable } from "./services/services";
+import { getFixtures, getTable } from "../services/services";
 
 import Loader from "./loader";
 

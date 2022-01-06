@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPlayers } from "./services/services";
+import { getPlayers } from "../services/services";
 
 import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 

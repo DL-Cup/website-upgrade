@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getTable } from "./services/services";
+import { getTable } from "../services/services";
 
 import { ReactComponent as WallIcon } from "./images/wall.svg";
 

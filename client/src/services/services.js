@@ -1,4 +1,4 @@
-import axios from "./../../axios";
+import axios from "./axios";
 
 function getTable() {
   return axios.get("table").then((res) => res.data);

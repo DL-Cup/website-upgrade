@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getTable } from "./services/services";
-import { SelectionContext } from "./services/selectionContext";
+import { getTable } from "../services/services";
+import { SelectionContext } from "../services/selectionContext";
 
 import Loader from "./loader";
 

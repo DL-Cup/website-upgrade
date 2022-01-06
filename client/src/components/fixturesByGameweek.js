@@ -1,4 +1,4 @@
-import axios from "../axios";
+import axios from "../services/axios";
 import { useState, useEffect } from "react";
 
 import { ReactComponent as Next } from "./images/next.svg";

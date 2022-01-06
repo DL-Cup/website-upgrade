@@ -1,7 +1,7 @@
 import Table from "./../leagueTable";
 // import Stats from "./../stats";
 
-import { SelectionContext } from "../services/selectionContext";
+import { SelectionContext } from "../../services/selectionContext";
 import { useState } from "react";
 
 export default function Tables() {
