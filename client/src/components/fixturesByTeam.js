@@ -83,6 +83,9 @@ function TeamFixturesAndResults() {
                 } else {
                   matchOutcome = "D";
                 }
+
+                // To display the result of selected team on the left side
+                [score1, score2] = [score2, score1];
               }
 
               return (

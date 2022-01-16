@@ -251,13 +251,14 @@ ul {
 
   display: flex;
   align-items: center;
+
+  font-size: var(--text-base);
 }
 
 .fixture-summary span:nth-child(2) {
   text-align: center;
   padding: var(--spacing-small);
   width: var(--spacing-2xlarge);
-  font-size: var(--text-base);
   margin-left: var(--spacing-medium);
 }
 
