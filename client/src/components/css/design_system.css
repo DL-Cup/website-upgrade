@@ -20,6 +20,7 @@
   /* Colors */
   --blk: #000;
   --wht: #fff;
+  --darkG: #0d7354;
   --brandG: #19e6a8;
   --paleG: #cffcef;
   --brightV: #9381ff;
@@ -27,6 +28,7 @@
   --palerV: #e1d9fb;
   --darkV: #100459;
   --accentR: #e63060;
+  --paleR: #fad6df;
 
   /* Typography */
   --main-font: "MontRegular", sans-serif;

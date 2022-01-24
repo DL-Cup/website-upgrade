@@ -247,7 +247,7 @@ ul {
 
 .fixture-summary {
   background: var(--wht);
-  margin-bottom: var(--spacing-base);
+  margin-bottom: var(--spacing-small);
 
   display: flex;
   align-items: center;
@@ -260,6 +260,7 @@ ul {
   padding: var(--spacing-small);
   width: var(--spacing-2xlarge);
   margin-left: var(--spacing-medium);
+  font-family: var(--alt-font);
 }
 
 .fixture-summary span:last-child {

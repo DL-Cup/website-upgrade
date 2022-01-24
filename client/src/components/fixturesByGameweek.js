@@ -71,24 +71,26 @@ function FixturesByGameweek() {
         />
       </div>
       <div className="fixtures">
-        {fixtures?.map((match) => {
-          let date = new Date(match.schedule);
+        {fixtures
+          ?.sort((a, b) => Date.parse(a.schedule) - Date.parse(b.schedule))
+          .map((match) => {
+            let date = new Date(match.schedule);
 
-          if (matchSchedules[date.toDateString()] === 0) {
-            matchSchedules[date.toDateString()]++;
-          } else {
-            matchSchedules[date.toDateString()] = 0;
-          }
+            if (matchSchedules[date.toDateString()] === 0) {
+              matchSchedules[date.toDateString()]++;
+            } else {
+              matchSchedules[date.toDateString()] = 0;
+            }
 
-          return (
-            <>
-              {!matchSchedules[date.toDateString()] && (
-                <h4>{date.toDateString()}</h4>
-              )}
-              <Details key={match.matchID} match={match} />
-            </>
-          );
-        })}
+            return (
+              <>
+                {!matchSchedules[date.toDateString()] && (
+                  <h4>{date.toDateString()}</h4>
+                )}
+                <Details key={match.matchID} match={match} />
+              </>
+            );
+          })}
       </div>
       {!fixtures.length && !nullGameweek && <Loader />}
       {nullGameweek && <EmptyGameWeekState />}
