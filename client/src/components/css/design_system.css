@@ -16,6 +16,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Maison-mono";
+  src: url("../fonts/maisonneuemono.ttf");
+  font-display: swap;
+}
+
 :root {
   /* Colors */
   --blk: #000;
@@ -34,6 +40,7 @@
   --main-font: "MontRegular", sans-serif;
   --alt-font: "MontMedium", sans-serif;
   --big-font: "MontBlack", sans-serif;
+  --mono-font: "Maison-mono", monospace;
 
   --text-large: 48px;
   --text-medium: 30px;

@@ -61,7 +61,7 @@ function TeamFixturesAndResults() {
           </div>
           <div>
             <h3>Results</h3>
-            {TeamResults?.map(({ teams, score, matchID }) => {
+            {TeamResults?.map(({ teams, score, matchID, schedule }) => {
               let [team1, team2] = teams;
               let [score1, score2] = score.split("-");
 
@@ -91,8 +91,17 @@ function TeamFixturesAndResults() {
               return (
                 <div className="fixture-summary" key={matchID}>
                   <span className={"result-decoration " + matchOutcome}></span>
-                  <span>{score1 + " - " + score2}</span>
-                  <span>{team1 !== selectedTeam ? team1 : team2}</span>
+                  <span className="__score">{score1 + " - " + score2}</span>
+                  <div>
+                    <span className="__date">
+                      {new Date(schedule)
+                        .toDateString()
+                        .split(" ")
+                        .slice(1)
+                        .join(" ")}
+                    </span>
+                    <span>{team1 !== selectedTeam ? team1 : team2}</span>
+                  </div>
                 </div>
               );
             })}

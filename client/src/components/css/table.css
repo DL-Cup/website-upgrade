@@ -171,6 +171,12 @@ table {
     background: var(--blk);
   }
 
+  th:nth-child(3)::after {
+    content: "\25bc";
+    color: var(--brightV);
+    margin-left: var(--spacing-base);
+  }
+
   td:last-child {
     width: 140px;
     display: inline-block;

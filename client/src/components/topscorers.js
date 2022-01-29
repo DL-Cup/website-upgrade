@@ -7,6 +7,10 @@ import Loader from "./loader";
 
 function TopScorers() {
   const [TopScorers, setTopScorers] = useState();
+  let gPrev,
+    iPrev,
+    currentIndex,
+    GIstore = [];
 
   useEffect(() => {
     getPlayers().then((res) => setTopScorers(res));
@@ -27,9 +31,19 @@ function TopScorers() {
           <div className="standings">
             {TopScorers?.map(
               ({ name, position, goals, nickname = "", teamName }, index) => {
+                // Destructuring isn't supported in mobile browsers
+                //
+                // [gPrev, iPrev] = GIstore;
+
+                gPrev = GIstore[0];
+                iPrev = GIstore[1];
+
+                currentIndex = +gPrev === goals ? +iPrev : index + 1;
+                GIstore = [goals, currentIndex];
+
                 return (
                   <div key={index}>
-                    <span>{index + 1}</span>
+                    <span>{currentIndex}</span>
                     <span>{nickname || name}</span>
                     <span>{teamName}</span>
                     <span>{position}</span>
@@ -37,7 +51,7 @@ function TopScorers() {
                   </div>
                 );
               }
-            ).slice(0, 5)}
+            ).slice(0, 10)}
           </div>
         </div>
       )}

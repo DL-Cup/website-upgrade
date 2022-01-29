@@ -253,9 +253,11 @@ ul {
   align-items: center;
 
   font-size: var(--text-base);
+  height: var(--spacing-xlarge);
+  padding-right: var(--spacing-regular);
 }
 
-.fixture-summary span:nth-child(2) {
+/* .fixture-summary span:nth-child(2) {
   text-align: center;
   padding: var(--spacing-small);
   width: var(--spacing-2xlarge);
@@ -266,10 +268,27 @@ ul {
 .fixture-summary span:last-child {
   padding: var(--spacing-small);
   margin-left: var(--spacing-regular);
+} */
+
+.fixture-summary div {
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.fixture-summary .__score {
+  font-size: var(--text-regular);
+  margin-left: var(--spacing-medium);
+}
+
+.fixture-summary .__date {
+  font-size: var(--text-xxsmall);
 }
 
 .result-decoration {
-  width: var(--spacing-regular);
+  width: var(--spacing-medium);
   align-self: stretch;
 }
 
