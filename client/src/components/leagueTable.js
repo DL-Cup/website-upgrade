@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useContext } from "react";
 
 import { getTable } from "../services/services";
-import { SelectionContext } from "../services/selectionContext";
 
 import Loader from "./loader";
 
@@ -10,37 +8,10 @@ import "./css/table.css";
 
 function Table() {
   const [TableInfo, setTableInfo] = useState([]);
-  const { setSelectedTeam } = useContext(SelectionContext);
 
   useEffect(() => {
     getTable().then((res) => setTableInfo(res));
   }, []);
-
-  // Sets default recent results list to show results of the team on top of the league
-  useEffect(() => {
-    let lead = document.querySelector(".outline");
-    setSelectedTeam(lead?.id);
-  });
-
-  useEffect(() => {
-    const tableRows = document.querySelectorAll(".table-container tbody tr");
-
-    tableRows.forEach((row) => {
-      row.addEventListener("click", handleRowClick);
-    });
-
-    function handleRowClick(e) {
-      if (e.currentTarget.classList.contains("outline")) {
-        return;
-      }
-
-      tableRows.forEach((item) => item.classList.remove("outline"));
-      e.currentTarget.classList.add("outline");
-
-      //Changes recent results section to selected team
-      setSelectedTeam(e.currentTarget.id);
-    }
-  });
 
   return (
     <>
@@ -106,6 +77,11 @@ function Table() {
                       <td>{goalDifference}</td>
                       <td>
                         <div className="span-flex">
+                          {index === 0 ? (
+                            <div class="tooltip">Most recent</div>
+                          ) : (
+                            ""
+                          )}
                           {[...lastFive].map((result, index) => {
                             return <span key={index} className={result}></span>;
                           })}
@@ -127,6 +103,7 @@ function Table() {
               <span id="table-qualify"></span>
               <p>Qualified for playoffs</p>
             </div>
+            <p></p>
           </div>
         </>
       )}

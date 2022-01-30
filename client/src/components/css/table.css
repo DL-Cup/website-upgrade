@@ -1,85 +1,3 @@
-/* .table-container {
-  overflow: auto;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table-container tbody {
-  background: white;
-}
-
-.table-container .outline {
-  outline: 2px solid #160033;
-  outline-offset: -5px;
-  background-position-x: 50%;
-  background-size: 99% calc(100% - 10px);
-}
-
-.outline td:nth-child(2) {
-  font-weight: bold;
-} */
-
-/* .table-container tbody tr { */
-/* Edit this */
-/* transition: outline, outline-offset, 100ms, background-position-x, */
-/* 300ms ease-in, font-weight 600ms ease-in; */
-/* Transition */
-
-/* background: linear-gradient(90deg, #c5bfdf, #c5bfdf);
-  background-size: 200%;
-  background-position: -99.5% 6px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-} */
-
-/* .table-container thead { 
-  color: #eae7f3;
-}
-
-.table-container th {
-  font-weight: normal;
-}
-
-.table-container th:nth-child(2),
-.table-container td:nth-child(2) {
-  text-align: left;
-  white-space: nowrap;
-}
-
-.table-container td:nth-child(2) {
-  font-size: 2rem;
-  width: 250px;
-}
-
-.table-container tr:nth-child(n + 1):nth-child(-n + 5) td:first-child {
-  padding: 1.2rem;
-  background: #160033;
-  color: #eae7f3;
-}
-
-.table-container td {
-  font-size: 1.2rem;
-}
-
-.table-container td,
-.table-container th {
-  text-align: right;
-  padding: 10px;
-}
-
-.table-container th:nth-child(8),
-.table-container th:last-child,
-.table-container td:nth-child(8),
-.table-container td:last-child,
-.table-container th:first-child,
-.table-container td:first-child {
-  text-align: center;
-  white-space: nowrap;
-} */
-
 .span-flex {
   display: flex;
   justify-content: center;
@@ -95,6 +13,35 @@ table {
 
 .span-flex span:last-child {
   margin-right: 0;
+}
+
+/* Tooltip */
+.span-flex {
+  position: relative;
+}
+
+.span-flex .tooltip {
+  --tooltip-color: var(--brightV);
+
+  position: absolute;
+  top: -26px;
+  right: -24px;
+
+  background: var(--tooltip-color);
+  font-size: var(--text-xxsmall);
+  color: var(--blk);
+  padding: var(--spacing-base);
+  border-radius: var(--spacing-base);
+}
+
+.span-flex .tooltip::after {
+  content: "";
+  border: 5px solid transparent;
+  border-top-color: var(--tooltip-color);
+  position: absolute;
+
+  top: 22px;
+  right: 32px;
 }
 
 .W {
@@ -252,8 +199,4 @@ table {
 
 #table-qualify {
   background: var(--blk);
-}
-
-#table-first + p {
-  /* color: var(--paleG); */
 }
