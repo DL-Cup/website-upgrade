@@ -7,10 +7,6 @@ import Loader from "./loader";
 
 function MostCleansheets() {
   const [TableInfo, setTableInfo] = useState();
-  let cPrev,
-    iPrev,
-    currentIndex,
-    CSstore = [];
 
   useEffect(() => {
     getTable().then((res) => setTableInfo(res));
@@ -32,15 +28,8 @@ function MostCleansheets() {
           <div className="standings--mc standings">
             {TableInfo?.sort((a, b) => b.cleansheets - a.cleansheets).map(
               ({ teamName, cleansheets }, index) => {
-                cPrev = CSstore[0];
-                iPrev = CSstore[1];
-
-                currentIndex = cPrev === cleansheets ? iPrev : index + 1;
-                CSstore = [cleansheets, currentIndex];
-
                 return cleansheets ? (
                   <div key={index}>
-                    <span>{currentIndex}</span>
                     <span>{teamName}</span>
                     <span>{cleansheets}</span>
                   </div>

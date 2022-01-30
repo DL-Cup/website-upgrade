@@ -221,3 +221,39 @@ table {
     color: var(--brandG);
   }
 }
+
+/* 
+  League table information
+*/
+
+.table-information {
+  margin-top: var(--spacing-regular);
+  padding: var(--spacing-small) 0;
+}
+
+.table-information div {
+  margin-bottom: var(--spacing-small);
+  display: flex;
+  align-items: center;
+  color: var(--wht);
+}
+
+.table-information span {
+  width: var(--spacing-medium);
+  height: var(--spacing-medium);
+  margin-right: var(--spacing-small);
+
+  display: inline-block;
+}
+
+#table-first {
+  background: var(--brandG);
+}
+
+#table-qualify {
+  background: var(--blk);
+}
+
+#table-first + p {
+  /* color: var(--paleG); */
+}

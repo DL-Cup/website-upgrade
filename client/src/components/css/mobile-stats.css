@@ -108,3 +108,7 @@ div.header--mc {
   right: 5px;
   top: 10px;
 }
+
+.standings--mc span:last-child {
+  margin-left: auto;
+}
