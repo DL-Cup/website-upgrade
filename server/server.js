@@ -3,8 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const CORS = require("cors");
 
-const bodyParser = require("body-parser");
-
 const mongoose = require("mongoose");
 const Kitten = require("./models/kitten");
 
@@ -19,7 +17,7 @@ main()
 const app = express();
 
 app.use(CORS());
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
