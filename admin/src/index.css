@@ -106,7 +106,7 @@ h3 {
 
 input,
 select {
-  padding: var(--spacing-base) var(--spacing-regular);
+  padding: var(--spacing-base);
   margin-bottom: var(--spacing-small);
 }
 
@@ -124,4 +124,37 @@ input[type="submit"] {
   padding: var(--spacing-regular);
 
   border-top-left-radius: var(--spacing-base);
+}
+
+.preview {
+  margin-bottom: var(--spacing-medium);
+}
+
+.box {
+  border: 1px solid var(--paleV);
+  border-top-left-radius: var(--spacing-base);
+  padding: var(--spacing-regular) var(--spacing-base);
+}
+
+.scoreline {
+  margin-top: var(--spacing-base);
+  display: flex;
+
+  background: var(--wht);
+  color: var(--darkV);
+}
+
+.scoreline * {
+  padding: var(--spacing-base) 0;
+  text-align: center;
+
+  flex-grow: 1;
+  flex-basis: 0;
+  width: 37.5%;
+}
+
+.time {
+  flex-grow: 0;
+  background: var(--paleV);
+  padding: var(--spacing-base) var(--spacing-small);
 }
