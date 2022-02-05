@@ -5,6 +5,7 @@ const CORS = require("cors");
 
 const mongoose = require("mongoose");
 const Kitten = require("./models/kitten");
+const Match = require("./models/matches");
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION);
@@ -23,15 +24,16 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/new-kitten", async (req, res) => {
-  let ifExist = await Kitten.findOne({ name: req.body.name });
+app.post("/addfixture", async (req, res) => {
+  let { GWID, teams, schedule } = req.body;
+  let matchID = 1;
 
-  if (ifExist) {
-    res.send(`${req.body.name} already exists in DB`);
-  } else {
-    await new Kitten({ name: req.body.name }).save();
-    res.send(`${req.body.name} officially a kittens-for-kittens member`);
-  }
+  await Match({ GWID, matchID, teams, schedule })
+    .save()
+    .catch(() => {
+      res.send("Error");
+    });
+  res.send("Fixture added");
 });
 
 app.listen(8000, () => {

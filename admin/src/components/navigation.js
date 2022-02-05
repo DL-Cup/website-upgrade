@@ -3,8 +3,18 @@ import { NavLink } from "react-router-dom";
 export default function Navigation() {
   return (
     <nav>
-      <NavLink to="/match_center">Match Center</NavLink>
-      <NavLink to="/schedule">Schedule</NavLink>
+      <NavLink
+        to="/scores"
+        className={({ isActive }) => (isActive ? "selected" : "")}
+      >
+        Scores
+      </NavLink>
+      <NavLink
+        to="/schedule"
+        className={({ isActive }) => (isActive ? "selected" : "")}
+      >
+        Schedule
+      </NavLink>
     </nav>
   );
 }

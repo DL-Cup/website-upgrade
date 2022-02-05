@@ -11,7 +11,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="match_center" element={<MatchCenter />} />
+        <Route path="scores" element={<MatchCenter />} />
         <Route path="schedule" element={<Schedule />} />
       </Route>
     </Routes>

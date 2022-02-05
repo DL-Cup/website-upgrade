@@ -1,13 +1,127 @@
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  user-select: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+:root {
+  /*  Font size  */
+  --text-large: 30px;
+  --text-medium: 20px;
+  --text-base: 16px;
+
+  /*   Spacing */
+  --spacing-xxsmall: 3px;
+  --spacing-small: 5px;
+  --spacing-base: 10px;
+  --spacing-regular: 20px;
+  --spacing-medium: 30px;
+  --spacing-large: 40px;
+  --spacing-xlarge: 50px;
+  --spacing-2xlarge: 70px;
+  --spacing-3xlarge: 100px;
+
+  /*   Colors */
+  --darkV: #0b004d;
+  --paleV: #d7cfff;
+  --blk: #000;
+  --wht: #fff;
+
+  font-family: sans-serif;
+}
+
+body {
+  background: var(--paleV);
+}
+
+header {
+  background: var(--darkV);
+  color: var(--paleV);
+  padding: var(--spacing-regular);
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  margin: 0 auto;
+  font-size: var(--text-large);
+}
+
+nav {
+  margin-top: var(--spacing-regular);
+  display: flex;
+  padding: 0 var(--spacing-regular);
+}
+
+nav a {
+  background: none;
+
+  border: 1px solid var(--darkV);
+  border-top-left-radius: 10px;
+  border-bottom-color: transparent;
+
+  margin-right: var(--spacing-base);
+  padding: var(--spacing-small) var(--spacing-base);
+  width: var(--spacing-3xlarge);
+
+  text-decoration: none;
+  text-align: center;
+
+  color: var(--darkV);
+}
+
+nav .selected {
+  background: var(--darkV);
+  color: var(--paleV);
+  border: none;
+}
+
+main {
+  max-width: 450px;
+  background: var(--darkV);
+  border-top-left-radius: 15px;
+  color: var(--paleV);
+  padding: var(--spacing-regular);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-regular);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-bottom: var(--spacing-base);
+}
+
+input,
+select {
+  padding: var(--spacing-base) var(--spacing-regular);
+  margin-bottom: var(--spacing-small);
+}
+
+.date-time {
+  display: flex;
+  gap: var(--spacing-base);
+}
+
+.date-time input {
+  flex-grow: 1;
+}
+
+input[type="submit"] {
+  background: var(--paleV);
+  padding: var(--spacing-regular);
+
+  border-top-left-radius: var(--spacing-base);
 }

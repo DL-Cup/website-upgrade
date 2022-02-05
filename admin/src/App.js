@@ -4,14 +4,14 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/header";
 import Navigation from "./components/navigation";
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
       <Navigation />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
-
-export default App;
