@@ -4,7 +4,6 @@ const express = require("express");
 const CORS = require("cors");
 
 const mongoose = require("mongoose");
-const Kitten = require("./models/kitten");
 const Match = require("./models/matches");
 
 async function main() {
@@ -24,15 +23,23 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/addfixture", async (req, res) => {
+app.post("/addfixture", async function (req, res) {
   let { GWID, teams, schedule } = req.body;
-  let matchID = 1;
+  let matchID;
+
+  async function getNumberOfMatches() {
+    let numberOfMatches = await Match.find();
+    return numberOfMatches.length;
+  }
+
+  await getNumberOfMatches().then((res) => {
+    matchID = res + 1;
+  });
 
   await Match({ GWID, matchID, teams, schedule })
     .save()
-    .catch(() => {
-      res.send("Error");
-    });
+    .catch((err) => res.status(400).send("An error has occurred. Try again!"));
+
   res.send("Fixture added");
 });
 

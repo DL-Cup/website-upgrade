@@ -74,8 +74,24 @@ export default function Schedule() {
       <div className="form-group">
         <h3>Set schedule</h3>
         <div className="date-time">
-          <input type="date" name="date" id="" />
-          <input type="time" name="time" id="" />
+          <input
+            type="date"
+            name="date"
+            id=""
+            onChange={(e) => {
+              preview.splice(0, 1, new Date(e.target.value).toDateString());
+              setPreview([...preview]);
+            }}
+          />
+          <input
+            type="time"
+            name="time"
+            id=""
+            onChange={(e) => {
+              preview.splice(3, 1, e.target.value);
+              setPreview([...preview]);
+            }}
+          />
         </div>
 
         <select name="GWID" id="">

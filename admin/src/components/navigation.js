@@ -10,7 +10,7 @@ export default function Navigation() {
         Scores
       </NavLink>
       <NavLink
-        to="/schedule"
+        to="/"
         className={({ isActive }) => (isActive ? "selected" : "")}
       >
         Schedule

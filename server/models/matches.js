@@ -7,7 +7,7 @@ const matchesSchema = mongoose.Schema({
   teams: { type: [String], required: true },
   schedule: { type: Date, required: true },
   score: { type: String, default: null },
-  scorers: { type: [String], default: null },
+  scorers: { type: [String], default: [null] },
 });
 
 const Match = mongoose.model("Match", matchesSchema);
