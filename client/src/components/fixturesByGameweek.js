@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ReactComponent as Next } from "./images/next.svg";
 import { ReactComponent as Prev } from "./images/prev.svg";
 
+import EmptyGameWeekState from "./emptyGameweekState";
 import Loader from "./loader";
 
 function FixturesByGameweek() {
@@ -87,7 +88,11 @@ function FixturesByGameweek() {
                 {!matchSchedules[date.toDateString()] && (
                   <h4>{date.toDateString()}</h4>
                 )}
-                <Details key={match.matchID} match={match} />
+                {match.state === "FT" ? (
+                  <Details key={match.matchID} match={match} />
+                ) : (
+                  <Scheduled match={match} />
+                )}
               </>
             );
           })}
@@ -98,7 +103,7 @@ function FixturesByGameweek() {
   );
 }
 
-function Matches({ match }) {
+function Results({ match }) {
   let [team1, team2] = match.teams;
   let [score1, score2] = match.score.split("-");
 
@@ -121,7 +126,6 @@ function Scorers({ match }) {
   let [score1] = match.score.split("-");
 
   // Mapping scorer to number of goals
-
   // Error: Check for duplicate names
   let numberOfGoals = {};
   match.scorers.forEach((scorer) => {
@@ -173,6 +177,21 @@ function Scorers({ match }) {
   );
 }
 
+function Scheduled({ match }) {
+  let [team1, team2] = match.teams;
+  let time = new Date(Date.parse(match.schedule)).toLocaleTimeString("en-GB", {
+    timeStyle: "short",
+  });
+
+  return (
+    <div className="fixture fixture--scheduled">
+      <span>{team1}</span>
+      <span className="time">{time}</span>
+      <span>{team2}</span>
+    </div>
+  );
+}
+
 function Details({ match }) {
   useEffect(() => {
     let detailElems = document.querySelectorAll("details");
@@ -188,26 +207,15 @@ function Details({ match }) {
         });
       }
     }
-
-    return;
   });
 
   return (
     <details>
       <summary>
-        <Matches match={match} />
+        <Results match={match} />
       </summary>
       <Scorers match={match} />
     </details>
-  );
-}
-
-function EmptyGameWeekState() {
-  return (
-    <div className="error-msg">
-      <img src="https://i.imgur.com/AnMJIeO.gif" alt="" />
-      <p>No gameweek information to display at this time.</p>
-    </div>
   );
 }
 

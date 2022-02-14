@@ -172,8 +172,6 @@ ul {
   text-align: center;
   margin: 0 auto;
   max-width: 25ch;
-
-  color: var(--wht);
 }
 
 /* Mobile team */
@@ -302,4 +300,28 @@ ul {
 
 .result-decoration.D {
   background: #bfbfbf;
+}
+
+/* Scheduled games */
+.fixture--scheduled {
+  margin-bottom: var(--spacing-small);
+  padding: 0 var(--spacing-small);
+
+  display: flex;
+  align-items: center;
+}
+
+.fixture--scheduled span {
+  padding: var(--spacing-regular) 0;
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: center;
+}
+
+.fixture--scheduled .time {
+  flex-grow: 0;
+  padding-right: var(--spacing-small);
+  padding-left: var(--spacing-small);
+
+  background: var(--paleV);
 }

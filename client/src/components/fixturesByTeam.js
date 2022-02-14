@@ -61,7 +61,9 @@ function TeamFixturesAndResults() {
           </div>
           <div>
             <h3>Results</h3>
-            {TeamResults?.map(({ teams, score, matchID, schedule }) => {
+            {TeamResults?.map(({ state, teams, score, matchID, schedule }) => {
+              if (state !== "FT") return "";
+
               let [team1, team2] = teams;
               let [score1, score2] = score.split("-");
 

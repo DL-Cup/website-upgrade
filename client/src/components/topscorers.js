@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getPlayers } from "../services/services";
 
+// import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 
 import Loader from "./loader";
@@ -38,7 +39,7 @@ function TopScorers() {
                 gPrev = GIstore[0];
                 iPrev = GIstore[1];
 
-                currentIndex = +gPrev === goals ? +iPrev : index + 1;
+                currentIndex = gPrev === goals ? iPrev : index + 1;
                 GIstore = [goals, currentIndex];
 
                 return (

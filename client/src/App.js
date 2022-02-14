@@ -1,6 +1,6 @@
-import Tables from "./components/pages/tables";
-import Fixtures from "./components/pages/fixtures";
-import MobileStats from "./components/pages/mobileStats";
+import Tables from "./pages/tables";
+import Fixtures from "./pages/fixtures";
+import MobileStats from "./pages/mobileStats";
 // import Navbar from "./components/Navbar";
 import MobileNavbar from "./components/mobileNavbar";
 
