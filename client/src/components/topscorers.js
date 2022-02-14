@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { getPlayers } from "../services/services";
 
+import { useHistory } from "react-router-dom";
+
 // import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 
@@ -16,6 +18,8 @@ function TopScorers() {
   useEffect(() => {
     getPlayers().then((res) => setTopScorers(res));
   }, []);
+
+  const history = useHistory();
 
   return (
     <>
@@ -52,8 +56,15 @@ function TopScorers() {
                   </div>
                 );
               }
-            ).slice(0, 10)}
+            ).slice(0, 5)}
           </div>
+          <button
+            onClick={() => {
+              history.push("/stats/scorers");
+            }}
+          >
+            More
+          </button>
         </div>
       )}
     </>

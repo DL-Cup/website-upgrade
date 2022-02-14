@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ReactComponent as Next } from "./images/next.svg";
 import { ReactComponent as Prev } from "./images/prev.svg";
 
-import EmptyGameWeekState from "./emptyGameweekState";
+import EmptyState from "./emptyState";
 import Loader from "./loader";
 
 function FixturesByGameweek() {
@@ -98,7 +98,9 @@ function FixturesByGameweek() {
           })}
       </div>
       {!fixtures.length && !nullGameweek && <Loader />}
-      {nullGameweek && <EmptyGameWeekState />}
+      {nullGameweek && (
+        <EmptyState message="No gameweek information to display at this time." />
+      )}
     </>
   );
 }

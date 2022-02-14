@@ -24,6 +24,8 @@ div.header {
   background: var(--brandG);
   padding: var(--spacing-small);
   padding-bottom: var(--spacing-xlarge);
+
+  position: relative;
 }
 
 .standings {
@@ -66,14 +68,47 @@ div.header {
 }
 
 .top_scorer .standings div span:nth-child(3),
-.top_scorer .standings div span:nth-child(4) {
+.top_scorer .standings div span:nth-child(4),
+.standings--all div span:nth-child(3),
+.standings--all div span:nth-child(4) {
   margin-right: 0;
   font-size: var(--text-small);
 }
 
-.top_scorer .standings div span:nth-child(4) {
+.top_scorer .standings div span:nth-child(4),
+.standings--all div span:nth-child(4) {
   font-family: "Maison-mono", monospace;
   margin: 0 var(--spacing-small);
+}
+
+.top_scorer button {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  transform: translateY(-50%);
+
+  width: 100%;
+  height: var(--spacing-2xlarge);
+
+  border: none;
+  border-radius: 0 0 15px 15px;
+
+  background: var(--blk);
+  color: var(--brandG);
+  font-size: var(--text-base);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top_scorer button::after {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjMTllNWE4OwogICAgICAgIGZpbGwtcnVsZTogZXZlbm9kZDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggaWQ9Im5vdW4tbmV4dC0xNDQyOTIwIiBjbGFzcz0iY2xzLTEiIGQ9Ik0xNi4wMjMsMTIuNzg0LDEwLjg2OCwxNy45YTEuMDM0LDEuMDM0LDAsMCwxLTEuNTMzLDAsMS4wOTMsMS4wOTMsMCwwLDEsMC0xLjUzM2w0LjM4OS00LjM1NEw5LjMzNSw3LjYyOUExLjA4NCwxLjA4NCwwLDEsMSwxMC44NjgsNi4xbDUuMTU1LDUuMTIxQTEuMTM2LDEuMTM2LDAsMCwxLDE2LjAyMywxMi43ODRaTTAsMTIuMDE4YTExLjk1MywxMS45NTMsMCwwLDAsMy41MTgsOC40NjRBMTEuODMxLDExLjgzMSwwLDAsMCwxMi4wMTgsMjQsMTIuMDEyLDEyLjAxMiwwLDAsMCwyNCwxMi4wMThhMTEuODMxLDExLjgzMSwwLDAsMC0zLjUxOC04LjVBMTIsMTIsMCwwLDAsMCwxMi4wMThaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNCAyNCkgcm90YXRlKC0xODApIi8+Cjwvc3ZnPg==");
+  display: inline-block;
+  margin-left: 8px;
+
+  transform: rotate(-90deg);
 }
 
 .standings div span:last-child {
@@ -87,7 +122,7 @@ div.header {
 }
 
 .most_cleansheets {
-  margin-top: var(--spacing-xlarge);
+  margin-top: var(--spacing-2xlarge);
   background: var(--brightV);
   padding: var(--spacing-small);
   padding-bottom: var(--spacing-medium);
@@ -111,4 +146,114 @@ div.header--mc {
 
 .standings--mc span:last-child {
   margin-left: auto;
+}
+
+/* All scorers */
+
+.all_scorers {
+  position: fixed;
+  z-index: 10;
+  min-height: 100vh;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  right: 0;
+  left: 0;
+  background: var(--brightV);
+
+  padding-bottom: var(--spacing-large);
+}
+
+.header.header--all {
+  padding-top: var(--spacing-3xlarge);
+  padding-left: var(--spacing-small);
+  margin-bottom: var(--spacing-regular);
+}
+
+.header.header--all h2 {
+  font-size: 40px;
+}
+
+.header.header--all svg {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  right: 0;
+}
+
+button.return {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: var(--spacing-xlarge);
+  height: var(--spacing-xlarge);
+
+  background: var(--accentR);
+  border: none;
+
+  font-size: var(--text-base);
+  color: var(--wht);
+
+  z-index: 11;
+}
+
+.standings--all {
+  padding: 0 var(--spacing-small);
+}
+
+.filter-options {
+  padding: 0 var(--spacing-small) var(--spacing-small);
+  display: flex;
+}
+
+.filter-options select {
+  border-radius: 30px;
+  border: none;
+  outline: none;
+
+  padding: var(--spacing-base) var(--spacing-small);
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 0 var(--spacing-base);
+  font-size: var(--text-xxsmall);
+
+  background: var(--paleG);
+}
+
+.filter-options select:focus {
+  box-shadow: 0 3px var(--darkV);
+}
+
+.filter-options select:first-child {
+  margin-left: 0;
+}
+
+.filter-options button {
+  margin-left: auto;
+  border: none;
+  background: none;
+
+  color: #012b1c;
+  font-weight: bold;
+
+  flex-grow: 1;
+  text-align: right;
+}
+
+.standings--all .error-msg {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+
+.standings--all .error-msg img {
+  margin-top: var(--spacing-base);
+}
+
+.standings--all .error-msg p {
+  background: var(--blk);
+  color: var(--wht);
 }
