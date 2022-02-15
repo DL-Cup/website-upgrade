@@ -29,11 +29,6 @@ function AllScorers() {
   ];
   const positions = ["GK", "DF", "MD", "ST"];
 
-  let gPrev,
-    iPrev,
-    currentIndex,
-    GIstore = [];
-
   const history = useHistory();
 
   useEffect(() => {
@@ -72,6 +67,7 @@ function AllScorers() {
                   ({ teamName }) => teamName === e.target.value
                 )
               );
+              filterByPos.current.value = "";
             }}
           >
             <option value="" disabled selected hidden>
@@ -91,6 +87,7 @@ function AllScorers() {
                   ({ position }) => position === e.target.value
                 )
               );
+              filterByTeam.current.value = "";
             }}
           >
             <option value="" disabled selected hidden>
@@ -110,10 +107,12 @@ function AllScorers() {
             Clear
           </button>
         </div>
+        {/* While loading */}
         {!initialScorers?.length && <Loader />}
         {initialScorers?.length && (
           <>
             <div className="standings standings--all">
+              {/* While filtering */}
               {!scorers?.length && <EmptyState message="No goals to show." />}
               {scorers?.length
                 ? scorers
@@ -123,19 +122,8 @@ function AllScorers() {
                         { name, position, goals, nickname = "", teamName },
                         index
                       ) => {
-                        // Destructuring isn't supported in mobile browsers
-                        //
-                        // [gPrev, iPrev] = GIstore;
-
-                        gPrev = GIstore[0];
-                        iPrev = GIstore[1];
-
-                        currentIndex = gPrev === goals ? iPrev : index + 1;
-                        GIstore = [goals, currentIndex];
-
                         return (
                           <div key={index}>
-                            <span>{currentIndex}</span>
                             <span>{nickname || name}</span>
                             <span>{teamName}</span>
                             <span>{position}</span>

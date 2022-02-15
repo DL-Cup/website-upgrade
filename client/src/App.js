@@ -7,13 +7,27 @@ import AllScorers from "./components/allScorers";
 import MobileNavbar from "./components/mobileNavbar";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
+import ReactGA from "react-ga";
 
 import "./components/css/main.css";
 import "./components/css/design_system.css";
 
 import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
 
+import { useEffect } from "react";
+
+const history = createHistory();
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
 function App() {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <>
       <div className="empty__state__overlay">
@@ -23,7 +37,7 @@ function App() {
           weeks. Mobile site works tho...in portrait mode.
         </p>
       </div>
-      <Router>
+      <Router history={history}>
         {/* <Navbar /> */}
         <MobileNavbar />
         <main>

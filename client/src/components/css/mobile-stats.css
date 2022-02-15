@@ -68,15 +68,12 @@ div.header {
 }
 
 .top_scorer .standings div span:nth-child(3),
-.top_scorer .standings div span:nth-child(4),
-.standings--all div span:nth-child(3),
-.standings--all div span:nth-child(4) {
+.top_scorer .standings div span:nth-child(4) {
   margin-right: 0;
   font-size: var(--text-small);
 }
 
-.top_scorer .standings div span:nth-child(4),
-.standings--all div span:nth-child(4) {
+.top_scorer .standings div span:nth-child(4) {
   font-family: "Maison-mono", monospace;
   margin: 0 var(--spacing-small);
 }
@@ -256,4 +253,19 @@ button.return {
 .standings--all .error-msg p {
   background: var(--blk);
   color: var(--wht);
+}
+
+.standings--all div span:nth-child(2) {
+  margin-left: auto;
+}
+
+.standings--all div span:nth-child(2),
+.standings--all div span:nth-child(3) {
+  margin-right: 0;
+  font-size: var(--text-small);
+}
+
+.standings--all div span:nth-child(3) {
+  font-family: "Maison-mono", monospace;
+  margin: 0 var(--spacing-small);
 }
