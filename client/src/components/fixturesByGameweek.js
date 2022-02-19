@@ -86,7 +86,12 @@ function FixturesByGameweek() {
             return (
               <>
                 {!matchSchedules[date.toDateString()] && (
-                  <h4>{date.toDateString()}</h4>
+                  <div className="schedule-info">
+                    <h4>{date.toDateString()}</h4>
+                    {match.state === "postponed" && (
+                      <p className="__postponed">Postponed</p>
+                    )}
+                  </div>
                 )}
                 {match.state === "FT" ? (
                   <Details key={match.matchID} match={match} />
@@ -181,8 +186,11 @@ function Scorers({ match }) {
 
 function Scheduled({ match }) {
   let [team1, team2] = match.teams;
-  let time = new Date(Date.parse(match.schedule)).toLocaleTimeString("en-GB", {
-    timeStyle: "short",
+  let time = new Date(Date.parse(match.schedule)).toLocaleTimeString([], {
+    hour12: false,
+    hourCycle: "h23",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 
   return (
