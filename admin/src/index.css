@@ -31,6 +31,8 @@
   --paleV: #d7cfff;
   --blk: #000;
   --wht: #fff;
+  --brandG: #19e6a8;
+  --paleG: #cffcef;
 
   font-family: sans-serif;
 }
@@ -43,13 +45,19 @@ header {
   background: var(--darkV);
   color: var(--paleV);
   padding: var(--spacing-regular);
+
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
-  margin: 0 auto;
   font-size: var(--text-large);
+}
+
+header a {
+  color: var(--paleG);
+  text-decoration: none;
 }
 
 nav {
@@ -89,6 +97,59 @@ main {
   padding: var(--spacing-regular);
 }
 
+/*
+************
+************ 
+  Login 
+************
+************
+*/
+
+main#login {
+  position: relative;
+  top: 50vh;
+
+  transform: translateY(-50%);
+}
+
+main#login img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: 5px solid var(--paleV);
+  outline-offset: -2px;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(1.2);
+}
+
+main#login h2 {
+  text-align: right;
+}
+
+main#login form {
+  margin-top: var(--spacing-2xlarge);
+  display: flex;
+  flex-direction: column;
+}
+
+main#login label {
+  margin-bottom: var(--spacing-small);
+}
+
+main#login input[type="submit"] {
+  background: var(--brandG);
+  margin-top: var(--spacing-base);
+  font-size: var(--text-base);
+}
+
+/*
+************
+************ 
+  Schedule 
+************
+************
+*/
+
 .form-group {
   margin-bottom: var(--spacing-regular);
 
@@ -119,7 +180,7 @@ select {
   flex-grow: 1;
 }
 
-input[type="submit"] {
+.form-group input[type="submit"] {
   background: var(--paleV);
   padding: var(--spacing-regular);
 

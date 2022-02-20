@@ -4,10 +4,11 @@ const express = require("express");
 const CORS = require("cors");
 
 const mongoose = require("mongoose");
+const Auth = require("./models/auth");
 const Match = require("./models/matches");
 
 async function main() {
-  await mongoose.connect(process.env.DB_CONNECTION);
+  await mongoose.connect(process.env.LOCAL_DB_CONNECTION);
 }
 
 main()
@@ -19,8 +20,20 @@ const app = express();
 app.use(CORS());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.post("/authenticate", async function (req, res) {
+  const getPassword = async () => await Auth.find();
+
+  let result;
+
+  await getPassword().then((res) => {
+    result = res[0].password;
+  });
+
+  if (req.body.password === result) {
+    res.send(true);
+  } else {
+    res.send(false);
+  }
 });
 
 app.post("/addfixture", async function (req, res) {
@@ -31,6 +44,9 @@ app.post("/addfixture", async function (req, res) {
     let numberOfMatches = await Match.find();
     return numberOfMatches.length;
   }
+
+  // sort alphabetically
+  teams.sort();
 
   await getNumberOfMatches().then((res) => {
     matchID = res + 1;

@@ -4,13 +4,13 @@ export default function Navigation() {
   return (
     <nav>
       <NavLink
-        to="/scores"
+        to="/api/scores"
         className={({ isActive }) => (isActive ? "selected" : "")}
       >
         Scores
       </NavLink>
       <NavLink
-        to="/"
+        to="/api/schedule"
         className={({ isActive }) => (isActive ? "selected" : "")}
       >
         Schedule

@@ -1,5 +1,5 @@
-import { useState } from "react";
 import axios from "../services/axios";
+import { useState, useEffect, useRef } from "react";
 
 export default function Schedule() {
   const [preview, setPreview] = useState([
@@ -8,6 +8,8 @@ export default function Schedule() {
     "Team 2",
     "Time",
   ]);
+
+  const timeValue = useRef(null);
 
   const addFixture = function (e) {
     e.preventDefault();
@@ -25,6 +27,21 @@ export default function Schedule() {
       });
   };
 
+  useEffect(() => {
+    let today = new Date().toISOString().slice(0, 10);
+
+    // Max seven days after today
+    // let getMax = function () {
+    //   let temp = today.split("-");
+    //   temp[2] = +temp[2] + 7;
+
+    //   return temp.join("-");
+    // };
+
+    timeValue.current.min = today;
+    // timeValue.current.max = getMax();
+  }, []);
+
   return (
     <form onSubmit={addFixture} method="post">
       <div className="form-group">
@@ -32,12 +49,15 @@ export default function Schedule() {
         <select
           name="team1"
           id=""
+          defaultValue=""
           onChange={(e) => {
             preview.splice(1, 1, e.target.value);
             setPreview([...preview]);
           }}
         >
-          <option value="">--Select team 1--</option>
+          <option value="" disabled hidden>
+            --Select team 1--
+          </option>
           <option value="IT">IT</option>
           <option value="Chemical">Chemical</option>
           <option value="Electrical C">Electrical C</option>
@@ -52,12 +72,15 @@ export default function Schedule() {
         <select
           name="team2"
           id=""
+          defaultValue=""
           onChange={(e) => {
             preview.splice(2, 1, e.target.value);
             setPreview([...preview]);
           }}
         >
-          <option value="">--Select team 2--</option>
+          <option value="" disabled hidden>
+            --Select team 2--
+          </option>
           <option value="IT">IT</option>
           <option value="Chemical">Chemical</option>
           <option value="Electrical C">Electrical C</option>
@@ -75,6 +98,7 @@ export default function Schedule() {
         <h3>Set schedule</h3>
         <div className="date-time">
           <input
+            ref={timeValue}
             type="date"
             name="date"
             id=""
@@ -82,15 +106,19 @@ export default function Schedule() {
               preview.splice(0, 1, new Date(e.target.value).toDateString());
               setPreview([...preview]);
             }}
+            required
           />
           <input
             type="time"
             name="time"
             id=""
+            min="9:00"
+            max="19:00"
             onChange={(e) => {
               preview.splice(3, 1, e.target.value);
               setPreview([...preview]);
             }}
+            required
           />
         </div>
 
