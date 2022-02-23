@@ -25,9 +25,13 @@ function TeamFixturesAndResults() {
 
   let TeamsPlayed = [];
 
-  TeamResults?.forEach(({ teams }) => {
-    let [team1, team2] = teams;
-    team1 === selectedTeam ? TeamsPlayed.push(team2) : TeamsPlayed.push(team1);
+  TeamResults?.forEach(({ state, teams }) => {
+    if (state === "FT") {
+      let [team1, team2] = teams;
+      team1 === selectedTeam
+        ? TeamsPlayed.push(team2)
+        : TeamsPlayed.push(team1);
+    }
   });
 
   return (
