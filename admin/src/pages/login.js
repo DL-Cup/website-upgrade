@@ -1,9 +1,12 @@
 import React from "react";
 import { useState, useRef } from "react";
-
 import { NavLink, useNavigate } from "react-router-dom";
 
 import axios from "../services/axios";
+
+import Header from "../components/header";
+
+import "./css/login.css";
 
 export default function Login({ authIn }) {
   const navigate = useNavigate();
@@ -19,44 +22,36 @@ export default function Login({ authIn }) {
           navigate("/api/scores");
         }
       });
-
-    // if (valid) {
-    //   authIn();
-    //   navigate("/api/scores");
-    // }
   }
 
   return (
     <>
       <main id="login">
-        <img src={"../../images/Logo.png"} alt="" />
-
-        <h2>Dlcup Admin</h2>
-        <form onSubmit={authenticate}>
-          <div
-            className="label-group"
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
+        <div id="grid-container">
+          <Header />
+          {/* <img src={"../../images/Logo.png"} alt="" /> */}
+          <form onSubmit={authenticate}>
             <label htmlFor="password">Password</label>
-            <span
-              style={{ color: "var(--brandG)" }}
-              onClick={(e) => {
-                if (passowrdInput.current.type === "text") {
-                  passowrdInput.current.type = "password";
-                  e.target.innerHTML = "show";
-                } else {
-                  passowrdInput.current.type = "text";
-                  e.target.innerHTML = "hide";
-                }
-              }}
-            >
-              show
-            </span>
-          </div>
-          <input type="password" name="password" ref={passowrdInput} />
+            <div>
+              <input type="password" name="password" ref={passowrdInput} />
+              <span
+                onClick={(e) => {
+                  if (passowrdInput.current.type === "text") {
+                    passowrdInput.current.type = "password";
+                    e.target.innerHTML = "show";
+                  } else {
+                    passowrdInput.current.type = "text";
+                    e.target.innerHTML = "hide";
+                  }
+                }}
+              >
+                Show
+              </span>
+            </div>
 
-          <input type="submit" value="Login" />
-        </form>
+            <input type="submit" value="Login" />
+          </form>
+        </div>
       </main>
     </>
   );

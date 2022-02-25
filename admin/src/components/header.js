@@ -11,7 +11,7 @@ export default function Header({ authOut, user }) {
             authOut();
           }}
         >
-          Logout
+          Log out
         </NavLink>
       )}
     </header>

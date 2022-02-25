@@ -13,7 +13,6 @@ import Schedule from "./components/schedule";
 export default function App() {
   const [user, setUser] = useState(sessionStorage.getItem("auth") ?? false);
 
-  console.log(user);
   return (
     <>
       {user && (

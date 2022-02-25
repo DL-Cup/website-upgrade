@@ -1,0 +1,145 @@
+body {
+  background: var(--bg-dark-50);
+}
+
+header {
+  background: var(--bg-dark-100);
+  color: var(--clr-violet-300);
+  padding: var(--spacing-regular);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: var(--text-large);
+}
+
+header a {
+  color: var(--clr-violet-500);
+  text-decoration: none;
+}
+
+nav,
+main {
+  max-width: 450px;
+  margin: auto;
+}
+
+nav {
+  margin-top: var(--spacing-medium);
+  display: flex;
+  padding: 0 var(--spacing-regular);
+
+  position: relative;
+  top: 1px;
+}
+
+nav a {
+  border-top-left-radius: 10px;
+  border-bottom-color: transparent;
+
+  margin-right: var(--spacing-base);
+  padding: var(--spacing-base);
+  width: var(--spacing-3xlarge);
+
+  text-decoration: none;
+  text-align: center;
+
+  color: var(--clr-violet-500);
+}
+
+nav .selected {
+  background: var(--bg-dark-100);
+  border: 1px solid var(--clr-violet-300);
+  border-bottom: none;
+  color: var(--clr-violet-300);
+}
+
+main {
+  background: var(--bg-dark-100);
+  border-top-left-radius: 15px;
+  border-top: 1px solid var(--clr-violet-300);
+
+  color: var(--clr-violet-300);
+  padding: var(--spacing-regular);
+}
+
+/*
+************
+************ 
+  Schedule 
+************
+************
+*/
+
+.form-group {
+  margin-bottom: var(--spacing-regular);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-bottom: var(--spacing-base);
+}
+
+input,
+select {
+  padding: var(--spacing-base);
+  margin-bottom: var(--spacing-small);
+}
+
+.date-time {
+  display: flex;
+  gap: var(--spacing-base);
+}
+
+.date-time input {
+  flex-grow: 1;
+}
+
+.form-group input[type="submit"] {
+  background: var(--clr-violet-300);
+  padding: var(--spacing-regular);
+
+  border-top-left-radius: var(--spacing-base);
+}
+
+.preview {
+  margin-bottom: var(--spacing-medium);
+}
+
+.box {
+  border: 1px solid var(--clr-violet-300);
+  border-top-left-radius: var(--spacing-base);
+  padding: var(--spacing-regular) var(--spacing-base);
+}
+
+.scoreline {
+  margin-top: var(--spacing-base);
+  display: flex;
+
+  background: var(--clr-violet-0);
+  color: var(--bg-dark-90);
+}
+
+.scoreline * {
+  padding: var(--spacing-base) 0;
+  text-align: center;
+
+  flex-grow: 1;
+  flex-basis: 0;
+  width: 37.5%;
+}
+
+.time {
+  flex-grow: 0;
+  background: var(--clr-violet-300);
+  padding: var(--spacing-base) var(--spacing-small);
+}
