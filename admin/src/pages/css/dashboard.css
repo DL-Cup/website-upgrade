@@ -143,3 +143,119 @@ select {
   background: var(--clr-violet-300);
   padding: var(--spacing-base) var(--spacing-small);
 }
+
+/*
+************
+************ 
+  Scores 
+************
+************
+*/
+
+.__current-gw {
+  display: flex;
+  align-items: center;
+
+  margin-top: var(--spacing-small);
+}
+
+#set-active {
+  padding: var(--spacing-small) var(--spacing-regular);
+  /* border: 1px solid var(--clr-violet-300); */
+  border-top-left-radius: var(--spacing-base);
+
+  background: var(--bg-dark-50);
+  color: var(--clr-violet-300);
+}
+
+#set-active-tooltip {
+  visibility: hidden;
+
+  position: relative;
+  top: calc(-1 * var(--spacing-small));
+
+  margin-left: auto;
+  margin-right: var(--spacing-xsmall);
+  background: var(--clr-violet-500);
+  color: var(--bg-dark-100);
+  padding: var(--spacing-small);
+  border-radius: var(--spacing-small);
+
+  font-size: var(--text-xsmall);
+}
+
+#set-active-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 99%;
+
+  transform: rotate(15deg);
+
+  border: var(--spacing-small) solid transparent;
+  border-left-color: var(--clr-violet-500);
+}
+
+.__current-gw svg {
+  width: var(--spacing-regular);
+  height: var(--spacing-regular);
+  fill: var(--clr-violet-500);
+
+  margin-right: var(--spacing-base);
+}
+
+/*
+************
+************ 
+  Confirmation Modal 
+************
+************
+*/
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  display: grid;
+  place-items: center;
+}
+
+.modal {
+  background: var(--bg-dark-50);
+  background: rgba(10, 20, 25);
+  padding: var(--spacing-medium);
+
+  max-width: 450px;
+  width: 90vw;
+
+  color: var(--clr-violet-0);
+  color: hsl(220, 25%, 60%);
+}
+
+.__highlight {
+  color: var(--clr-brand-400);
+}
+
+.modal-actions {
+  margin-top: var(--spacing-medium);
+  margin-left: auto;
+  width: max-content;
+}
+
+.modal-actions button {
+  padding: var(--spacing-small) var(--spacing-base);
+}
+
+.__confirm {
+  background: var(--clr-violet-300);
+}
+
+.__cancel {
+  background: none;
+  color: var(--clr-violet-500);
+}

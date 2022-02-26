@@ -9,6 +9,7 @@ export default function Schedule() {
     "Team 1",
     "Team 2",
     "Time",
+    "GW",
   ]);
 
   const [TeamResults, setTeamResults] = useState([]);
@@ -63,7 +64,7 @@ export default function Schedule() {
   return (
     <form onSubmit={addFixture} method="post">
       <div className="form-group">
-        <h3>Select teams</h3>
+        <h3>Teams</h3>
         <select
           name="team1"
           id=""
@@ -114,7 +115,7 @@ export default function Schedule() {
       </div>
 
       <div className="form-group">
-        <h3>Set schedule</h3>
+        <h3>Schedule</h3>
         <div className="date-time">
           <input
             ref={timeValue}
@@ -141,7 +142,14 @@ export default function Schedule() {
           />
         </div>
 
-        <select name="GWID" id="">
+        <select
+          name="GWID"
+          id=""
+          onChange={(e) => {
+            preview.splice(4, 1, e.target.value);
+            setPreview([...preview]);
+          }}
+        >
           {[...new Array(9)].map((item, index) => {
             return (
               <option key={"GW" + index} value={index + 1}>
@@ -160,7 +168,10 @@ export default function Schedule() {
               <option value="">Gameweek 1</option>
             </select>
           </div> */}
-          <p className="schedule">{preview[0]}</p>
+          <p className="schedule">
+            Gameweek <span className="__highlight">{preview[4]}</span>,{" "}
+            {preview[0]}
+          </p>
           <div className="scoreline">
             <div className="team1">{preview[1]}</div>
             <p className="time">{preview[3]}</p>
