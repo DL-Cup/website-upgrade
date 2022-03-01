@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// const baseUrl = "https://dlcup.herokuapp.com";
-const baseUrl = "http://192.168.1.2:5000"; //local
+const baseURL = "https://dlcup.herokuapp.com";
+// const baseURL = "http://localhost:5000"; //local
 const instance = axios.create({
-  baseURL: baseUrl,
+  baseURL,
   headers: {
     Accept: "application/json",
   },

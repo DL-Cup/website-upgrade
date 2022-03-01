@@ -40,6 +40,7 @@ function TopScorers() {
                 //
                 // [gPrev, iPrev] = GIstore;
 
+                // TODO: Review necessity
                 gPrev = GIstore[0];
                 iPrev = GIstore[1];
 
@@ -48,7 +49,7 @@ function TopScorers() {
 
                 return (
                   <div key={index}>
-                    <span>{currentIndex}</span>
+                    {/* <span>{currentIndex}</span> */}
                     <span>{nickname || name}</span>
                     <span>{teamName}</span>
                     <span>{position}</span>

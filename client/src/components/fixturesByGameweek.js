@@ -37,6 +37,11 @@ function FixturesByGameweek() {
     <>
       <div className="fixture-options">
         <Prev
+          style={
+            +gameweekID === 1
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
           onClick={() => {
             if (gameweekID > 1) {
               setFixtures([]);
@@ -63,6 +68,11 @@ function FixturesByGameweek() {
           }
         </select>
         <Next
+          style={
+            +gameweekID === 9
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
           onClick={() => {
             if (gameweekID < 9) {
               setFixtures([]);
