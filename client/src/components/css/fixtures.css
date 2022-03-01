@@ -44,7 +44,7 @@
 
 .schedule-info {
   display: flex;
-  align-itmes: center;
+  align-items: center;
   margin: var(--spacing-medium) 0 var(--spacing-small);
 }
 

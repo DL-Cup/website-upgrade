@@ -185,6 +185,7 @@ button.return {
   background: var(--accentR);
   border: none;
 
+  font-family: var(--alt-font);
   font-size: var(--text-base);
   color: var(--wht);
 
@@ -196,6 +197,7 @@ button.return {
 }
 
 .filter-options {
+  /* margin-bottom: var(--spacing-regular); */
   padding: 0 var(--spacing-small) var(--spacing-small);
   display: flex;
 }
