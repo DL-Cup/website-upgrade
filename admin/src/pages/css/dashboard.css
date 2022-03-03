@@ -1,9 +1,9 @@
 body {
-  background: var(--bg-dark-50);
+  background: var(--clr-violet-700);
 }
 
 header {
-  background: var(--bg-dark-100);
+  background: var(--clr-violet-900);
   color: var(--clr-violet-300);
   padding: var(--spacing-regular);
 
@@ -51,19 +51,31 @@ nav a {
 }
 
 nav .selected {
-  background: var(--bg-dark-100);
+  background: var(--clr-violet-900);
   border: 1px solid var(--clr-violet-300);
   border-bottom: none;
   color: var(--clr-violet-300);
 }
 
+nav .set-current {
+  padding: var(--spacing-small) var(--spacing-base);
+  background: var(--clr-violet-300);
+
+  align-self: center;
+  margin-left: auto;
+}
+
 main {
-  background: var(--bg-dark-100);
+  background: var(--clr-violet-900);
   border-top-left-radius: 15px;
   border-top: 1px solid var(--clr-violet-300);
 
   color: var(--clr-violet-300);
   padding: var(--spacing-regular);
+}
+
+button {
+  cursor: pointer;
 }
 
 /*
@@ -125,8 +137,8 @@ select {
   margin-top: var(--spacing-base);
   display: flex;
 
-  background: var(--clr-violet-0);
-  color: var(--bg-dark-90);
+  background: var(--clr-violet-100);
+  color: var(--clr-violet-900);
 }
 
 .scoreline * {
@@ -152,62 +164,58 @@ select {
 ************
 */
 
-.__current-gw {
+.match-center-select {
+  width: 100%;
+  margin-top: var(--spacing-base);
+}
+
+.fixtures-list {
+  margin-top: var(--spacing-regular);
+}
+
+.fixture-gw {
   display: flex;
   align-items: center;
+  padding: var(--spacing-regular);
+  padding-right: var(--spacing-base);
 
-  margin-top: var(--spacing-small);
+  background: var(--clr-violet-700);
+  border: 1px solid var(--clr-violet-300);
+
+  margin-bottom: var(--spacing-base);
 }
 
-#set-active {
-  padding: var(--spacing-small) var(--spacing-regular);
-  /* border: 1px solid var(--clr-violet-300); */
-  border-top-left-radius: var(--spacing-base);
-
-  background: var(--bg-dark-50);
-  color: var(--clr-violet-300);
-}
-
-#set-active-tooltip {
-  visibility: hidden;
-
-  position: relative;
-  top: calc(-1 * var(--spacing-small));
-
+.__score {
   margin-left: auto;
-  margin-right: var(--spacing-xsmall);
-  background: var(--clr-violet-500);
-  color: var(--bg-dark-100);
-  padding: var(--spacing-small);
-  border-radius: var(--spacing-small);
+  margin-right: var(--spacing-base);
 
+  padding-right: var(--spacing-base);
+
+  border-right: 1px solid var(--clr-violet-300);
+}
+
+.fixture-gw p {
+  margin-top: var(--spacing-small);
+  color: var(--clr-violet-100);
+}
+
+.__info {
+  width: var(--spacing-2xlarge);
+}
+
+.__info p:first-child {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.__info p:last-child {
+  color: var(--clr-violet-300);
   font-size: var(--text-xsmall);
 }
-
-#set-active-tooltip::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 99%;
-
-  transform: rotate(15deg);
-
-  border: var(--spacing-small) solid transparent;
-  border-left-color: var(--clr-violet-500);
-}
-
-.__current-gw svg {
-  width: var(--spacing-regular);
-  height: var(--spacing-regular);
-  fill: var(--clr-violet-500);
-
-  margin-right: var(--spacing-base);
-}
-
 /*
 ************
 ************ 
-  Confirmation Modal 
+ Modal 
 ************
 ************
 */
@@ -219,22 +227,31 @@ select {
   left: 0;
   right: 0;
 
-  background: rgba(0, 0, 0, 0.7);
-
   display: grid;
-  place-items: center;
+}
+
+.modal-container::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+
+  background: var(--clr-violet-900);
+  opacity: 0.3;
 }
 
 .modal {
-  background: var(--bg-dark-50);
-  background: rgba(10, 20, 25);
-  padding: var(--spacing-medium);
+  background: var(--clr-violet-700);
+  padding: var(--spacing-medium) var(--spacing-regular) var(--spacing-2xlarge);
 
   max-width: 450px;
-  width: 90vw;
+  width: 100vw;
 
-  color: var(--clr-violet-0);
-  color: hsl(220, 25%, 60%);
+  color: var(--clr-violet-300);
+  align-self: flex-end;
+
+  border-top: 1px solid var(--clr-brand-400);
 }
 
 .__highlight {
@@ -242,20 +259,21 @@ select {
 }
 
 .modal-actions {
-  margin-top: var(--spacing-medium);
+  margin-top: var(--spacing-regular);
   margin-left: auto;
   width: max-content;
 }
 
 .modal-actions button {
   padding: var(--spacing-small) var(--spacing-base);
+  width: var(--spacing-2xlarge);
 }
 
 .__confirm {
-  background: var(--clr-violet-300);
+  background: var(--clr-brand-400);
 }
 
 .__cancel {
   background: none;
-  color: var(--clr-violet-500);
+  color: var(--clr-violet-400);
 }

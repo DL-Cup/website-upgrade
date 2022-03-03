@@ -1,5 +1,5 @@
 #login {
-  background: var(--bg-dark-100);
+  background: var(--clr-violet-900);
   border-radius: 0;
 
   position: absolute;
@@ -30,7 +30,7 @@
 }
 
 #login label {
-  color: var(--clr-violet-0);
+  color: var(--clr-violet-100);
   margin-bottom: var(--spacing-small);
 }
 
@@ -40,7 +40,7 @@
 
 #login form div span {
   font-size: var(--text-xsmall);
-  background: var(--bg-dark-50);
+  background: var(--clr-violet-700);
   padding: var(--spacing-xsmall);
 
   position: absolute;
@@ -50,14 +50,14 @@
 }
 
 #login input {
-  background: var(--bg-dark-50);
+  background: var(--clr-violet-700);
   width: 100%;
-  color: var(--clr-violet-0);
+  color: var(--clr-violet-100);
   font-size: var(--text-base);
 }
 
 #login input[type="submit"] {
-  background: var(--bg-dark-50);
+  background: var(--clr-violet-700);
   border: 1px solid var(--clr-violet-300);
   color: var(--clr-violet-300);
   font-size: var(--text-base);

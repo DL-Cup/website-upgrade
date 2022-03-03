@@ -29,13 +29,13 @@
   --spacing-3xlarge: 100px;
 
   /*   Colors */
-  --bg-dark-100: #010039;
-  --bg-dark-90: #0b004d;
-  --bg-dark-50: #23224a;
-  --clr-violet-0: #fff;
-  --clr-violet-300: #d7cfff;
+  --clr-violet-900: #010039;
+  --clr-violet-800: #0b004d;
+  --clr-violet-700: #23224a;
   --clr-violet-500: #9791b3;
-  --clr-violet-900: #000;
+  --clr-violet-300: #d7cfff;
+  --clr-violet-100: #fff;
+
   --clr-brand-400: #19e6a8;
   --clr-brand-200: #cffcef;
 

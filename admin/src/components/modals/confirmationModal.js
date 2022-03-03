@@ -1,16 +1,8 @@
-export default function ConfirmationModal({
-  messageStart = "",
-  messageEnd = "",
-  highlight = "",
-  cancelFunc,
-}) {
+export default function ConfirmationModal({ message = "", cancelFunc }) {
   return (
     <div className="modal-container">
       <div className="modal">
-        <p>
-          {messageStart} <span className="__highlight">{highlight}</span>{" "}
-          {messageEnd}
-        </p>
+        <p>{message}</p>
         <div className="modal-actions">
           <button className="__confirm">Confirm</button>
           <button className="__cancel" onClick={() => cancelFunc()}>

@@ -16,6 +16,7 @@ export default function Schedule() {
   const [TableInfo, setTableInfo] = useState();
   const [selectedTeam, setSelectedTeam] = useState("");
 
+  const initialRender = useRef(true);
   const timeValue = useRef(null);
 
   let TeamsPlayed = [];
@@ -40,16 +41,20 @@ export default function Schedule() {
   });
 
   useEffect(() => {
-    axiosClient
-      .get(`fixtures/team/${selectedTeam}`)
-      .then((res) => setTeamResults(res.data));
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      axiosClient
+        .get(`fixtures/team/${selectedTeam}`)
+        .then((res) => setTeamResults(res.data));
+    }
   }, [selectedTeam]);
 
   const addFixture = function (e) {
     e.preventDefault();
 
     axios
-      .post("/addfixture", {
+      .post("/api/addfixture", {
         GWID: e.target.GWID.value,
         teams: [e.target.team1.value, e.target.team2.value],
         schedule: new Date(
@@ -69,7 +74,7 @@ export default function Schedule() {
           name="team1"
           id=""
           defaultValue=""
-          value={selectedTeam}
+          // value={selectedTeam}
           onChange={(e) => {
             preview.splice(1, 1, e.target.value);
             setPreview([...preview]);
@@ -108,7 +113,11 @@ export default function Schedule() {
             if (TeamsPlayed.includes(teamName) || teamName === selectedTeam) {
               return null;
             } else {
-              return <option value={teamName}>{teamName}</option>;
+              return (
+                <option key={teamName} value={teamName}>
+                  {teamName}
+                </option>
+              );
             }
           })}
         </select>

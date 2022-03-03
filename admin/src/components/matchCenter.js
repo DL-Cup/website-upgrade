@@ -1,67 +1,73 @@
-import { useState, useRef } from "react";
-
-import { ReactComponent as HelpIcon } from "./assets/help-icon.svg";
-import ConfirmationModal from "./confirmationModal";
+import axiosClient from "../services/axios-client";
+import { useState, useEffect, useRef } from "react";
 
 export default function MatchCenter() {
-  const [selectedGW, setSelectedGW] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [fixtures, setFixtures] = useState();
+  const [gameweek, setGameweek] = useState();
 
-  const tooltip = useRef(null);
+  const initialRender = useRef(true);
+
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      axiosClient
+        .get(`/fixtures/${gameweek}`)
+        .then((res) => setFixtures(res.data));
+    }
+  }, [gameweek]);
 
   return (
     <>
-      <form action="">
-        <div className="form-group">
-          <select
-            name="CGWID"
-            id="CGWID"
-            value={selectedGW}
-            defaultValue=""
-            onChange={(e) => {
-              setSelectedGW(e.target.value);
-            }}
-          >
-            <option value="" selected hidden>
-              -- Select gameweek --
+      <select
+        className="match-center-select"
+        name="GWID"
+        id="GWID"
+        defaultValue=""
+        onChange={(e) => {
+          setGameweek(e.target.value);
+        }}
+      >
+        <option value="" disabled hidden>
+          --Select Gameweek--
+        </option>
+        {[...new Array(9)].map((item, index) => {
+          return (
+            <option key={index} value={index + 1}>
+              Gameweek {index + 1}
             </option>
-            {[...new Array(9)].map((item, index) => {
-              return <option value={index + 1}>Gameweek {index + 1}</option>;
-            })}
-          </select>
-          <div className="__current-gw">
-            <span id="set-active-tooltip" ref={tooltip}>
-              Set current active gameweek
-            </span>
-            <HelpIcon
-              onClick={() => {
-                tooltip.current.style.visibility = "visible";
+          );
+        })}
+      </select>
 
-                setTimeout(() => {
-                  tooltip.current.style.visibility = "hidden";
-                }, 3000);
-              }}
-            />
-            <button
-              id="set-active"
-              onClick={(e) => {
-                e.preventDefault();
-                if (selectedGW) setShowModal(true);
-              }}
-            >
-              Active GW
-            </button>
-          </div>
-        </div>
-      </form>
-      {showModal && (
-        <ConfirmationModal
-          messageStart={"Do you want to set"}
-          messageEnd={" as the active Gameweek?"}
-          highlight={"Gameweek " + selectedGW}
-          cancelFunc={() => setShowModal(false)}
-        />
-      )}
+      <div className="fixtures-list">
+        {fixtures?.map(({ teams, score, schedule, state }, index) => {
+          score = score ?? ["-", "-"];
+
+          return (
+            <div className="fixture-gw" key={index}>
+              <div className="__teams">
+                <p>{teams[0]}</p>
+                <p>{teams[1]}</p>
+              </div>
+              <div className="__score">
+                <p>{score[0]}</p>
+                <p>{score[2]}</p>
+              </div>
+              <div className="__info">
+                <p>{state}</p>
+                <p>
+                  {new Date(schedule).toLocaleDateString([], {
+                    weekday: "short",
+                    month: "short",
+                    day: "2-digit",
+                  })}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
