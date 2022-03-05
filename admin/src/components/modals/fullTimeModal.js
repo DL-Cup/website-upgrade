@@ -15,9 +15,6 @@ export default function FullTimeModal({
 
   return (
     <div className="modal-container">
-      <button className="modal__close" onClick={closeFunc}>
-        Back
-      </button>
       <div className="modal modal--ft" ref={modal}>
         <h3>Full-Time</h3>
         <div className="ft__scoreline">
@@ -42,7 +39,12 @@ export default function FullTimeModal({
             })}
           </div>
         </div>
-        <button className="ft__edit">Edit</button>
+        <div className="modal-actions">
+          <button className="__confirm __confirm--ft">Edit</button>
+          <button className="__cancel" onClick={closeFunc}>
+            Back
+          </button>
+        </div>
       </div>
     </div>
   );

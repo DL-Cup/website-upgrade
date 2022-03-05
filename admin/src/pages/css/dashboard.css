@@ -261,12 +261,12 @@ select {
   width: 100%;
 
   background: var(--clr-violet-900);
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .modal {
   background: var(--clr-violet-700);
-  padding: var(--spacing-medium) var(--spacing-regular) var(--spacing-2xlarge);
+  padding: var(--spacing-medium) var(--spacing-regular) var(--spacing-xlarge);
 
   max-width: 450px;
   width: 100vw;
@@ -303,21 +303,6 @@ select {
   color: var(--clr-violet-400);
 }
 
-.modal__close {
-  position: fixed;
-  right: var(--spacing-base);
-  bottom: 0;
-
-  border: 2px solid var(--clr-brand-400);
-  background: var(--clr-violet-700);
-  color: var(--clr-violet-100);
-  border-radius: 50%;
-  height: var(--spacing-xlarge);
-  width: var(--spacing-xlarge);
-
-  font-size: var(--text-xsmall);
-}
-
 /* Fulltime modal */
 .modal--ft {
   background: var(--clr-violet-700);
@@ -344,8 +329,12 @@ select {
   flex-basis: 0;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
+
+.modal--ft .ft__scoreline > div {
+  justify-content: space-between;
 }
 
 .ft__score {
@@ -394,12 +383,43 @@ select {
   margin-bottom: var(--spacing-regular);
 }
 
-.ft__edit {
+.modal--ft .__confirm--ft {
   background: var(--clr-violet-600);
   color: var(--clr-violet-100);
 
   margin-top: var(--spacing-regular);
-  padding: var(--spacing-base) var(--spacing-large);
+  padding: var(--spacing-base) var(--spacing-xlarge);
+  width: unset;
 
   font-size: var(--text-base);
+  text-align: center;
+}
+
+/* Start game modal */
+.modal--sc {
+  align-self: center;
+  border-top-left-radius: var(--spacing-regular);
+}
+
+.modal--sc h3 {
+  text-align: center;
+  font-size: var(--text-small);
+  color: var(--clr-violet-400);
+}
+
+.ft__schedule {
+  height: var(--spacing-xlarge);
+  background: var(--clr-violet-300);
+  color: var(--clr-violet-900);
+
+  font-size: var(--text-large);
+}
+
+.modal--sc .modal-actions {
+  margin-top: var(--spacing-medium);
+}
+
+.modal--sc .modal-actions button {
+  width: var(--spacing-3xlarge);
+  padding: var(--spacing-base);
 }

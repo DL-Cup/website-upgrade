@@ -1,14 +1,13 @@
 import axiosClient from "../services/axios-client";
 import { useState, useEffect, useRef } from "react";
 
-import FullTimeModal from "./modals/fullTimeModal";
+import ModalCallHandler from "./modals/modalCallHandler";
 
 export default function MatchCenter() {
   const [fixtures, setFixtures] = useState();
   const [gameweek, setGameweek] = useState();
 
-  const [showFullTimeModal, setShowFullTimeModal] = useState(false);
-  const [activeModal, setActiveModal] = useState([]);
+  const [activeModal, setActiveModal] = useState(null);
 
   const initialRender = useRef(true);
 
@@ -56,10 +55,7 @@ export default function MatchCenter() {
                 className="fixture-gw"
                 key={index}
                 onClick={() => {
-                  if (state === "FT") {
-                    setActiveModal(fixtures[index]);
-                    setShowFullTimeModal(true);
-                  }
+                  setActiveModal(fixtures[index]);
                 }}
               >
                 <div className="__teams">
@@ -84,12 +80,11 @@ export default function MatchCenter() {
             );
           })}
       </div>
-      {showFullTimeModal && (
-        <FullTimeModal
+      {activeModal && (
+        <ModalCallHandler
           {...activeModal}
           closeFunc={() => {
-            setShowFullTimeModal(false);
-            setActiveModal([]);
+            setActiveModal(null);
           }}
         />
       )}
