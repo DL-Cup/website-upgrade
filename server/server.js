@@ -70,6 +70,15 @@ app.post("/api/addfixture", async function (req, res) {
   }
 });
 
+app.get("/api/GWID", async function (req, res) {
+  try {
+    let globals = await Globals.findOne();
+    res.send(globals.GWID);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.post("/api/setGameweek", async function (req, res) {
   try {
     let { GWID } = req.body;
@@ -87,6 +96,15 @@ app.post("/api/setGameweek", async function (req, res) {
     }
 
     res.status(400).send("Invalid request");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/api/live", async function (req, res) {
+  try {
+    let globals = await Globals.findOne();
+    res.send(globals.Live);
   } catch (err) {
     console.log(err);
   }

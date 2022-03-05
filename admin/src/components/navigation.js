@@ -1,17 +1,31 @@
-import { useState } from "react";
+import axios from "../services/axios";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import SetActiveGWModal from "./modals/setActiveGWModal";
 
 export default function Navigation() {
   const [showModal, setShowModal] = useState(false);
+  const [live, setLive] = useState(false);
+
+  useEffect(() => {
+    const checkLive = setInterval(() => {
+      axios.get("/api/live").then((res) => setLive(res.data));
+    }, 30000);
+
+    return () => {
+      clearInterval(checkLive);
+    };
+  });
 
   return (
     <>
       <nav>
         <NavLink
           to="/api/scores"
-          className={({ isActive }) => (isActive ? "selected" : "")}
+          className={({ isActive }) =>
+            `${isActive ? "selected " : ""}${live ? "gw-live" : ""}`
+          }
         >
           Scores
         </NavLink>
