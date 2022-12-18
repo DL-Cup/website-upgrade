@@ -42,21 +42,24 @@ npm run start
 
 :arrow_right: Repeat the same process inside the server folder, to launch the api
 
-### Api loading screen
+## Screenshots
+
+### Mobile View
+#### Api loading screen
 <p class="float">
   <img src="./screenshots/1.%20loading.jpg" alt="loading landing page" width="300"/>
 </p>
 
 ---
 
-### Table
+#### Table
 <p class="float">
   <img src="./screenshots/2.%20table.jpg" alt="table" width="300"/>
 </p>
 
 ---
 
-### Matches
+#### Matches
 <p class="float">
   <img src="./screenshots/3.%20matches.jpg" alt="list of fixtures" width="300"/>
   <img src="./screenshots/4.%20matches-with-match-expanded.jpg" alt="Match details expanded" width="300"/>
@@ -65,7 +68,7 @@ npm run start
 
 ---
 
-### Stats
+#### Stats
 <p class="float">
   <img src="./screenshots/6.%20stats.jpg" alt="stats page" width="300"/>
   <img src="./screenshots/7.%20stats-1.jpg" alt="stats page" width="300"/>
@@ -75,7 +78,7 @@ npm run start
 
 ---
 
-### Empty state
+#### Empty state
 Probably my favorite component😅
 
 <p class="float">
