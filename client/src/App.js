@@ -6,7 +6,6 @@ import MobileStats from "./pages/mobileStats";
 import MobileNavbar from "./components/mobileNavbar";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
 import ReactGA from "react-ga";
 
 import "./components/css/main.css";
@@ -15,12 +14,6 @@ import "./components/css/design_system.css";
 import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
 
 import { useEffect } from "react";
-
-const history = createHistory();
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
 
 function App() {
   useEffect(() => {
@@ -36,7 +29,7 @@ function App() {
           weeks. Mobile site works tho...in portrait mode.
         </p>
       </div>
-      <Router history={history}>
+      <Router>
         {/* <Navbar /> */}
         <MobileNavbar />
         <main>

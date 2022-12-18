@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import "./css/mobile-navbar.css";
 
-import { ReactComponent as TableIcon } from "./images/Table.svg";
-import { ReactComponent as FixturesIcon } from "./images/Fixtures.svg";
-import { ReactComponent as StatsIcon } from "./images/Stats.svg";
-import { ReactComponent as AboutIcon } from "./images/About.svg";
+import { ReactComponent as TableIcon } from "./images/table.svg";
+import { ReactComponent as FixturesIcon } from "./images/fixtures.svg";
+import { ReactComponent as StatsIcon } from "./images/stats.svg";
+import { ReactComponent as AboutIcon } from "./images/about.svg";
 
 function MobileNavbar() {
   return (

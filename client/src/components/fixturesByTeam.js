@@ -116,17 +116,15 @@ function TeamFixturesAndResults() {
             <h3>Remaining fixtures</h3>
             <p>*Numbers represent league positions</p>
 
-            {Object.keys(leaguePositions)?.map((team) => {
+            {Object.keys(leaguePositions)?.map((team, index) => {
               if (TeamsPlayed.includes(team) || team === selectedTeam) {
                 return null;
               } else
                 return (
-                  <>
-                    <div>
-                      <span>{team}</span>
-                      <span>{leaguePositions[team]}</span>
-                    </div>
-                  </>
+                  <div key={index}>
+                    <span>{team}</span>
+                    <span>{leaguePositions[team]}</span>
+                  </div>
                 );
             })}
           </div>

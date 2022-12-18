@@ -94,7 +94,7 @@ function FixturesByGameweek() {
             }
 
             return (
-              <>
+              <div key={match.matchID}>
                 {!matchSchedules[date.toDateString()] && (
                   <div className="schedule-info">
                     <h4>{date.toDateString()}</h4>
@@ -104,11 +104,11 @@ function FixturesByGameweek() {
                   </div>
                 )}
                 {match.state === "FT" ? (
-                  <Details key={match.matchID} match={match} />
+                  <Details key={"FT" + match.matchID} match={match} />
                 ) : (
-                  <Scheduled match={match} />
+                  <Scheduled match={match} key={"SC" + match.matchID} />
                 )}
-              </>
+              </div>
             );
           })}
       </div>
