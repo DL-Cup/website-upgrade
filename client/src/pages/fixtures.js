@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import FixturesByGameweek from "../fixturesByGameweek";
-import TeamFixturesAndResults from "../fixturesByTeam";
+import FixturesByGameweek from "../components/fixturesByGameweek";
+import TeamFixturesAndResults from "../components/fixturesByTeam";
 
-import "../css/fixtures.css";
+import "../components/css/fixtures.css";
 
 function Fixtures() {
   const [toggle, setToggle] = useState(true);

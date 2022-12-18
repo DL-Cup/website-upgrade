@@ -4,13 +4,11 @@ import { getPlayers } from "../services/services";
 import { ReactComponent as StrikerIcon } from "./images/striker.svg";
 
 import Loader from "./loader";
+import AllScorers from "./allScorersModal";
 
 function TopScorers() {
   const [TopScorers, setTopScorers] = useState();
-  let gPrev,
-    iPrev,
-    currentIndex,
-    GIstore = [];
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     getPlayers().then((res) => setTopScorers(res));
@@ -31,19 +29,9 @@ function TopScorers() {
           <div className="standings">
             {TopScorers?.map(
               ({ name, position, goals, nickname = "", teamName }, index) => {
-                // Destructuring isn't supported in mobile browsers
-                //
-                // [gPrev, iPrev] = GIstore;
-
-                gPrev = GIstore[0];
-                iPrev = GIstore[1];
-
-                currentIndex = +gPrev === goals ? +iPrev : index + 1;
-                GIstore = [goals, currentIndex];
-
                 return (
                   <div key={index}>
-                    <span>{currentIndex}</span>
+                    {/* <span>{currentIndex}</span> */}
                     <span>{nickname || name}</span>
                     <span>{teamName}</span>
                     <span>{position}</span>
@@ -51,9 +39,22 @@ function TopScorers() {
                   </div>
                 );
               }
-            ).slice(0, 10)}
+            ).slice(0, 5)}
           </div>
+          <button
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            More
+          </button>
         </div>
+      )}
+      {showModal && (
+        <AllScorers
+          TopScorers={TopScorers}
+          cancelFunc={() => setShowModal(false)}
+        />
       )}
     </>
   );

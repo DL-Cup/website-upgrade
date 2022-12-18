@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ReactComponent as Next } from "./images/next.svg";
 import { ReactComponent as Prev } from "./images/prev.svg";
 
+import EmptyState from "./emptyState";
 import Loader from "./loader";
 
 function FixturesByGameweek() {
@@ -36,6 +37,11 @@ function FixturesByGameweek() {
     <>
       <div className="fixture-options">
         <Prev
+          style={
+            +gameweekID === 1
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
           onClick={() => {
             if (gameweekID > 1) {
               setFixtures([]);
@@ -62,6 +68,11 @@ function FixturesByGameweek() {
           }
         </select>
         <Next
+          style={
+            +gameweekID === 9
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
           onClick={() => {
             if (gameweekID < 9) {
               setFixtures([]);
@@ -85,20 +96,31 @@ function FixturesByGameweek() {
             return (
               <>
                 {!matchSchedules[date.toDateString()] && (
-                  <h4>{date.toDateString()}</h4>
+                  <div className="schedule-info">
+                    <h4>{date.toDateString()}</h4>
+                    {match.state === "postponed" && (
+                      <p className="__postponed">Postponed</p>
+                    )}
+                  </div>
                 )}
-                <Details key={match.matchID} match={match} />
+                {match.state === "FT" ? (
+                  <Details key={match.matchID} match={match} />
+                ) : (
+                  <Scheduled match={match} />
+                )}
               </>
             );
           })}
       </div>
       {!fixtures.length && !nullGameweek && <Loader />}
-      {nullGameweek && <EmptyGameWeekState />}
+      {nullGameweek && (
+        <EmptyState message="No gameweek information to display at this time." />
+      )}
     </>
   );
 }
 
-function Matches({ match }) {
+function Results({ match }) {
   let [team1, team2] = match.teams;
   let [score1, score2] = match.score.split("-");
 
@@ -121,7 +143,6 @@ function Scorers({ match }) {
   let [score1] = match.score.split("-");
 
   // Mapping scorer to number of goals
-
   // Error: Check for duplicate names
   let numberOfGoals = {};
   match.scorers.forEach((scorer) => {
@@ -173,6 +194,24 @@ function Scorers({ match }) {
   );
 }
 
+function Scheduled({ match }) {
+  let [team1, team2] = match.teams;
+  let time = new Date(Date.parse(match.schedule)).toLocaleTimeString([], {
+    hour12: false,
+    hourCycle: "h23",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  return (
+    <div className="fixture fixture--scheduled">
+      <span>{team1}</span>
+      <span className="time">{time}</span>
+      <span>{team2}</span>
+    </div>
+  );
+}
+
 function Details({ match }) {
   useEffect(() => {
     let detailElems = document.querySelectorAll("details");
@@ -188,26 +227,15 @@ function Details({ match }) {
         });
       }
     }
-
-    return;
   });
 
   return (
     <details>
       <summary>
-        <Matches match={match} />
+        <Results match={match} />
       </summary>
       <Scorers match={match} />
     </details>
-  );
-}
-
-function EmptyGameWeekState() {
-  return (
-    <div className="error-msg">
-      <img src="https://i.imgur.com/AnMJIeO.gif" alt="" />
-      <p>No gameweek information to display at this time.</p>
-    </div>
   );
 }
 

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const baseUrl = "https://dlcup-server.onrender.com/";
+const baseURL = "https://dlcup-server.onrender.com/";
 const instance = axios.create({
-  baseURL: baseUrl,
+  baseURL,
   headers: {
     Accept: "application/json",
   },

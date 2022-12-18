@@ -42,25 +42,37 @@
   height: 25px;
 }
 
+.schedule-info {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing-medium) 0 var(--spacing-small);
+}
+
+.schedule-info .__postponed {
+  margin-left: auto;
+  padding: var(--spacing-base) var(--spacing-medium);
+  font-size: var(--text-xxsmall);
+  font-family: var(--alt-font);
+  color: var(--darkR);
+  background: var(--paleR);
+  border-radius: var(--spacing-regular);
+  box-shadow: inset 0 -2px var(--darkR);
+}
+
 h3,
 h4 {
   font-weight: lighter;
   font-family: var(--main-font);
   color: var(--wht);
-
-  margin: var(--spacing-medium) 0 var(--spacing-small);
 }
 
 h3 {
   font-size: var(--text-base);
+  margin: var(--spacing-medium) 0 var(--spacing-small);
 }
 
 h4 {
   font-size: var(--text-small);
-}
-
-h4:first-child {
-  margin-top: var(--spacing-medium);
 }
 
 .fixture,
@@ -172,8 +184,6 @@ ul {
   text-align: center;
   margin: 0 auto;
   max-width: 25ch;
-
-  color: var(--wht);
 }
 
 /* Mobile team */
@@ -302,4 +312,28 @@ ul {
 
 .result-decoration.D {
   background: #bfbfbf;
+}
+
+/* Scheduled games */
+.fixture--scheduled {
+  margin-bottom: var(--spacing-small);
+  padding: 0 var(--spacing-small);
+
+  display: flex;
+  align-items: center;
+}
+
+.fixture--scheduled span {
+  padding: var(--spacing-regular) 0;
+  flex-grow: 1;
+  flex-basis: 0;
+  text-align: center;
+}
+
+.fixture--scheduled .time {
+  flex-grow: 0;
+  padding-right: var(--spacing-small);
+  padding-left: var(--spacing-small);
+
+  background: var(--paleV);
 }

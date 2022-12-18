@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const matchesSchema = mongoose.Schema({
+  state: { type: String, default: "Scheduled" },
   GWID: { type: Number, required: true },
   matchID: { type: Number, required: true },
   teams: { type: [String], required: true },

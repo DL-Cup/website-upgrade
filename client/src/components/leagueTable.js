@@ -78,7 +78,7 @@ function Table() {
                       <td>
                         <div className="span-flex">
                           {index === 0 ? (
-                            <div class="tooltip">Most recent</div>
+                            <div className="tooltip">Most recent</div>
                           ) : (
                             ""
                           )}
