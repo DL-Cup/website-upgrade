@@ -47,7 +47,7 @@
   margin-top: calc(-1 * var(--spacing-regular));
   color: var(--wht);
   opacity: 0;
-  animation: reveal-msg 1s 5s forwards cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  animation: reveal-msg 1s 2s forwards cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 @keyframes reveal-msg {
