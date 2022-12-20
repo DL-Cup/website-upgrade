@@ -1,49 +1,31 @@
-import Tables from "./pages/tables";
-import Fixtures from "./pages/fixtures";
-import MobileStats from "./pages/mobileStats";
-
-// import Navbar from "./components/Navbar";
-import MobileNavbar from "./components/mobileNavbar";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ReactGA from "react-ga";
+import { useState, useEffect } from "react";
 
 import "./components/css/main.css";
 import "./components/css/design_system.css";
 
-import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
-import logo from "./components/images/logo-dl.png";
-
-import { useEffect } from "react";
+import MobileView from "./views/mobileView";
+import DesktopView from "./views/desktopView";
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const isDesktop = () => window.matchMedia("(min-width: 25cm)").matches;
+
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+
+    return function cleanup() {
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
+    };
   }, []);
 
-  return (
-    <>
-      <div className="empty__state__overlay">
-        <WorkingOnIt />
-        <p>
-          Working on the desktop site at the moment. Should be ready in a few
-          weeks. Mobile site works tho...in portrait mode.
-        </p>
-      </div>
-      <Router>
-        {/* <Navbar /> */}
-        <MobileNavbar />
-        <main>
-          <img src={logo} className="logo" alt="" />
-          <Switch>
-            <Route path="/" exact component={Tables} />
-            <Route path="/fixtures" exact component={Fixtures} />
-            <Route path="/stats" exact component={MobileStats} />
-          </Switch>
-        </main>
-      </Router>
-    </>
-  );
+  if (windowWidth > 768 && isDesktop()) {
+    return <DesktopView />;
+  } else {
+    return <MobileView />;
+  }
 }
 
 export default App;
