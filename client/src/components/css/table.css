@@ -1,9 +1,9 @@
 .table-container {
-  max-width: 100%;
   overflow: auto;
 }
 
 table {
+  width: 100%;
   border-spacing: 0;
   font-family: var(--main-font);
 }
@@ -172,19 +172,19 @@ tr:nth-child(n + 2):nth-child(-n + 5) td:first-child {
   League table information
 */
 
-.table-information {
+.table-legend {
   margin-top: var(--spacing-regular);
   padding: var(--spacing-small) 0;
 }
 
-.table-information div {
+.table-legend div {
   margin-bottom: var(--spacing-small);
   display: flex;
   align-items: center;
   color: var(--wht);
 }
 
-.table-information span {
+.table-legend span {
   width: var(--spacing-medium);
   height: var(--spacing-medium);
   margin-right: var(--spacing-small);

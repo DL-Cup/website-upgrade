@@ -11,14 +11,17 @@ import logo from "../components/images/logo-dl.png";
 function MobileView() {
   return (
     <Router>
-      {/* <Navbar /> */}
       <MobileNavbar />
       <main>
-        <img src={logo} className="logo" alt="" />
+        <header>
+          <img src={logo} className="logo" alt="" />
+        </header>
         <Switch>
           <Route path="/" exact component={Tables} />
-          <Route path="/fixtures" exact component={Fixtures} />
-          <Route path="/stats" exact component={MobileStats} />
+          <div className="wrapper">
+            <Route path="/fixtures" exact component={Fixtures} />
+            <Route path="/stats" exact component={MobileStats} />
+          </div>
         </Switch>
       </main>
     </Router>

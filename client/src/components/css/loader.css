@@ -49,7 +49,7 @@
   opacity: 0;
   animation: reveal-msg 1s 2s forwards cubic-bezier(0.68, -0.6, 0.32, 1.6);
   text-align: center;
-  width: 45ch;
+  width: 32ch;
 }
 
 @keyframes reveal-msg {

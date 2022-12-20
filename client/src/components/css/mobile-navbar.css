@@ -8,16 +8,26 @@
   z-index: 3;
   bottom: 0;
   width: 100%;
+  max-width: 450px;
 
   height: 75px;
   background: var(--blk);
 
-  /* display: flex; Enabled with media query*/
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* gap: var(--spacing-base); */
 
   padding: var(--spacing-regular) var(--spacing-small);
+}
+
+@media (min-width: 450px) {
+  .mobile__navbar {
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+
+    border-radius: 20px;
+  }
 }
 
 .mobile__navbar a {
@@ -43,6 +53,8 @@
 
 .mobile__navbar a svg {
   margin-right: var(--spacing-small);
+  width: 15px;
+  height: 15px;
 }
 
 .mobile__navbar span {

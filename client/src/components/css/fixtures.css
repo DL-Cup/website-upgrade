@@ -130,7 +130,7 @@ details[open] .fixture-info {
 }
 
 .scoreline {
-  padding: var(--spacing-regular) var(--spacing-small);
+  padding: var(--spacing-small);
 
   justify-content: space-between;
   align-items: center;
@@ -139,7 +139,7 @@ details[open] .fixture-info {
 }
 
 .decoration {
-  width: var(--spacing-medium);
+  width: var(--spacing-regular);
   background: var(--accentR);
 }
 

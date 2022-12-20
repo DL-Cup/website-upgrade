@@ -15,8 +15,8 @@ function Table() {
 
   return (
     <>
-      {!TableInfo?.length && <Loader />}
-      {TableInfo?.length && (
+      {!TableInfo?.length > 0 && <Loader />}
+      {TableInfo?.length > 0 && (
         <>
           <div className="table-container">
             <table>
@@ -94,7 +94,7 @@ function Table() {
               <tfoot></tfoot>
             </table>
           </div>
-          <div className="table-information">
+          <div className="table-legend">
             <div>
               <span id="table-first"></span>
               <p>Straight to the final</p>
