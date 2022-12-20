@@ -12,6 +12,7 @@ import "./components/css/main.css";
 import "./components/css/design_system.css";
 
 import { ReactComponent as WorkingOnIt } from "./components/images/working.svg";
+import logo from "./components/images/logo-dl.png";
 
 import { useEffect } from "react";
 
@@ -33,11 +34,7 @@ function App() {
         {/* <Navbar /> */}
         <MobileNavbar />
         <main>
-          <img
-            src="https://i.ibb.co/HpXJt0v/logo-dl.png"
-            className="logo"
-            alt=""
-          />
+          <img src={logo} className="logo" alt="" />
           <Switch>
             <Route path="/" exact component={Tables} />
             <Route path="/fixtures" exact component={Fixtures} />
