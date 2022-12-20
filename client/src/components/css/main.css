@@ -7,7 +7,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  /* width: 15px; */
 }
 
 .logo {
@@ -33,12 +33,20 @@ main .wrapper {
   margin: 0 auto;
 }
 
-.desktop-view {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
+main.desktop-view {
+  max-width: 1300px;
+  margin: auto;
   height: 100vh;
-  background: red;
+  overflow-y: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  grid-column-gap: var(--spacing-regular);
+  padding: var(--spacing-large);
+}
+
+main.desktop-view aside {
+  overflow: auto;
 }
 
 header {

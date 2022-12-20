@@ -1,21 +1,18 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Header from "../components/header";
+import MobileNavbar from "../components/mobileNavbar";
+
 import Tables from "../pages/tables";
 import Fixtures from "../pages/fixtures";
 import MobileStats from "../pages/mobileStats";
-
-import MobileNavbar from "../components/mobileNavbar";
-
-import logo from "../components/images/logo-dl.png";
 
 function MobileView() {
   return (
     <Router>
       <MobileNavbar />
       <main>
-        <header>
-          <img src={logo} className="logo" alt="" />
-        </header>
+        <Header />
         <Switch>
           <Route path="/" exact component={Tables} />
           <div className="wrapper">

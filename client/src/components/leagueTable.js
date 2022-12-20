@@ -17,7 +17,7 @@ function Table() {
     <>
       {!TableInfo?.length > 0 && <Loader />}
       {TableInfo?.length > 0 && (
-        <>
+        <div class="table-wrapper">
           <div className="table-container">
             <table>
               <thead>
@@ -105,7 +105,7 @@ function Table() {
             </div>
             <p></p>
           </div>
-        </>
+        </div>
       )}
     </>
   );
