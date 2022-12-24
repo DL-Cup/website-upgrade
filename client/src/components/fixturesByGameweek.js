@@ -1,5 +1,5 @@
-import axios from "../services/axios";
 import { useState, useEffect } from "react";
+import { getFixturesByGameWeek } from "../services/services";
 
 import { ReactComponent as Next } from "./images/next.svg";
 import { ReactComponent as Prev } from "./images/prev.svg";
@@ -15,20 +15,13 @@ function FixturesByGameweek() {
   const [nullGameweek, setNullGameweek] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await axios.get(`fixtures/${gameweekID}`);
-        setFixtures(res.data);
+    getFixturesByGameWeek(gameweekID).then((res) => {
+      setFixtures(res);
 
-        localStorage.setItem("GWID", gameweekID);
+      localStorage.setItem("GWID", gameweekID);
 
-        !res.data?.length ? setNullGameweek(true) : setNullGameweek(false);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    fetchData();
+      !res?.length ? setNullGameweek(true) : setNullGameweek(false);
+    });
   }, [gameweekID]);
 
   let matchSchedules = {};

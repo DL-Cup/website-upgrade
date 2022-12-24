@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FixturesByGameweek from "../components/fixturesByGameweek";
-import TeamFixturesAndResults from "../components/fixturesByTeam";
+import FixturesByTeam from "../components/fixturesByTeam";
 
 import "../components/css/fixtures.css";
 
@@ -32,7 +32,7 @@ function Fixtures() {
         <button onClick={() => setToggle(false)}>Team</button>
       </div>
       {toggle && <FixturesByGameweek />}
-      {!toggle && <TeamFixturesAndResults />}
+      {!toggle && <FixturesByTeam />}
     </>
   );
 }

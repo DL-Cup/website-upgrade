@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { getFixtures, getTable } from "../services/services";
+import { getFixturesByTeamName, getTable } from "../services/services";
 
 import Loader from "./loader";
 
-function TeamFixturesAndResults() {
-  // make leading team selected team by default
+function FixturesByTeam() {
+  //TODO: make leading team selected team by default
   const [TeamResults, setTeamResults] = useState();
   const [TableInfo, setTableInfo] = useState();
   const [selectedTeam, setSelectedTeam] = useState("IT");
 
   useEffect(() => {
-    getFixtures(selectedTeam).then((res) => setTeamResults(res));
+    getFixturesByTeamName(selectedTeam).then((res) => setTeamResults(res));
   }, [selectedTeam]);
 
   useEffect(() => {
@@ -135,4 +135,4 @@ function TeamFixturesAndResults() {
   );
 }
 
-export default TeamFixturesAndResults;
+export default FixturesByTeam;

@@ -24,8 +24,26 @@ function getPlayers() {
   return websiteDataCacheMap.get("players");
 }
 
-function getFixtures(teamName) {
-  return axios.get(`fixtures/team/${teamName}`).then((res) => res.data);
+function getFixturesByGameWeek(gameweekID) {
+  if (!websiteDataCacheMap.has(`fixtures/${gameweekID}`)) {
+    websiteDataCacheMap.set(
+      `fixtures/${gameweekID}`,
+      axios.get(`fixtures/${gameweekID}`).then((res) => res.data)
+    );
+  }
+
+  return websiteDataCacheMap.get(`fixtures/${gameweekID}`);
 }
 
-export { getTable, getPlayers, getFixtures };
+function getFixturesByTeamName(teamName) {
+  if (!websiteDataCacheMap.has(`fixtures/team/${teamName}`)) {
+    websiteDataCacheMap.set(
+      `fixtures/team/${teamName}`,
+      axios.get(`fixtures/team/${teamName}`).then((res) => res.data)
+    );
+  }
+
+  return websiteDataCacheMap.get(`fixtures/team/${teamName}`);
+}
+
+export { getTable, getPlayers, getFixturesByGameWeek, getFixturesByTeamName };
