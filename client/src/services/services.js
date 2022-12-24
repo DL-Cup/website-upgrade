@@ -1,11 +1,27 @@
 import axios from "./axios";
 
+const websiteDataCacheMap = new Map();
+
 function getTable() {
-  return axios.get("table").then((res) => res.data);
+  if (!websiteDataCacheMap.has("table")) {
+    websiteDataCacheMap.set(
+      "table",
+      axios.get("table").then((res) => res.data)
+    );
+  }
+
+  return websiteDataCacheMap.get("table");
 }
 
 function getPlayers() {
-  return axios.get("players").then((res) => res.data);
+  if (!websiteDataCacheMap.has("players")) {
+    websiteDataCacheMap.set(
+      "players",
+      axios.get("players").then((res) => res.data)
+    );
+  }
+
+  return websiteDataCacheMap.get("players");
 }
 
 function getFixtures(teamName) {
