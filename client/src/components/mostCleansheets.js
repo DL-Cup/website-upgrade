@@ -26,16 +26,16 @@ function MostCleansheets() {
             <WallIcon className="header__icon header--mc__icon" />
           </div>
           <div className="standings--mc standings">
-            {TableInfo?.sort((a, b) => b.cleansheets - a.cleansheets).map(
-              ({ teamName, cleansheets }, index) => {
+            {[...TableInfo]
+              ?.sort((a, b) => b.cleansheets - a.cleansheets)
+              .map(({ teamName, cleansheets }, index) => {
                 return cleansheets ? (
                   <div key={index}>
                     <span>{teamName}</span>
                     <span>{cleansheets}</span>
                   </div>
                 ) : null;
-              }
-            )}
+              })}
           </div>
         </div>
       )}
