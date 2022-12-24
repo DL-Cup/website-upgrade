@@ -2,7 +2,6 @@ import LeagueTable from "../components/leagueTable";
 import TopScorers from "../components/topScorers";
 import Fixtures from "../pages/fixtures";
 import MostCleansheets from "../components/mostCleansheets";
-import Header from "../components/header";
 
 function DesktopView() {
   return (

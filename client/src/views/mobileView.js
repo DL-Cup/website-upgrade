@@ -6,6 +6,7 @@ import MobileNavbar from "../components/mobileNavbar";
 import Tables from "../pages/tables";
 import Fixtures from "../pages/fixtures";
 import MobileStats from "../pages/mobileStats";
+import About from "../pages/about";
 
 function MobileView() {
   return (
@@ -18,6 +19,7 @@ function MobileView() {
           <div className="wrapper">
             <Route path="/fixtures" exact component={Fixtures} />
             <Route path="/stats" exact component={MobileStats} />
+            <Route path="/about" exact component={About} />
           </div>
         </Switch>
       </main>

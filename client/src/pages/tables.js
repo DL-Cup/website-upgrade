@@ -1,5 +1,5 @@
-import Table from "../components/leagueTable";
+import LeagueTable from "../components/leagueTable";
 
 export default function Tables() {
-  return <Table />;
+  return <LeagueTable />;
 }
