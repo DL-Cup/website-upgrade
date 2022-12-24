@@ -8,10 +8,10 @@ function DesktopView() {
     <>
       {/* <Header /> */}
       <main className="desktop-view">
-        <LeagueTable />
-        <section>
+        <aside>
           <Fixtures />
-        </section>
+        </aside>
+        <LeagueTable />
         <aside>
           <TopScorers />
           <MostCleansheets />

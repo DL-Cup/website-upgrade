@@ -40,7 +40,7 @@ main.desktop-view {
   overflow-y: hidden;
 
   display: grid;
-  grid-template-columns: 1fr 375px 375px;
+  grid-template-columns: 375px 1fr 375px;
   grid-column-gap: var(--spacing-medium);
   padding: var(--spacing-large);
 }
