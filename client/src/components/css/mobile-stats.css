@@ -144,7 +144,7 @@ div.header--mc {
 /* All scorers */
 
 .all_scorers {
-  position: fixed;
+  position: absolute;
   z-index: 10;
   min-height: 100vh;
   top: 0;
@@ -155,6 +155,10 @@ div.header--mc {
   background: var(--brightV);
 
   padding-bottom: var(--spacing-large);
+}
+
+.all_scorers::-webkit-scrollbar {
+  width: 0;
 }
 
 .header.header--all {
@@ -175,7 +179,7 @@ div.header--mc {
 }
 
 button.return {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
 
