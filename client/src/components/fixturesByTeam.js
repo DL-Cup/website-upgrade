@@ -36,33 +36,33 @@ function FixturesByTeam() {
 
   return (
     <>
+      <div className="select-team">
+        <select
+          className="team-switch"
+          value={selectedTeam}
+          onChange={(e) => {
+            setTeamResults([]);
+            setSelectedTeam(e.target.value);
+          }}
+        >
+          {
+            /* create list dynamically */
+            TableInfo?.map(({ teamName }, index) => {
+              return (
+                <option key={index + 1} value={teamName}>
+                  {teamName}
+                </option>
+              );
+            })
+          }
+        </select>
+        <div className="select-decoration">
+          <span>▲</span>
+          <span>▼</span>
+        </div>
+      </div>
       {TableInfo?.length && TeamResults?.length && (
         <>
-          <div className="select-team">
-            <select
-              className="team-switch"
-              value={selectedTeam}
-              onChange={(e) => {
-                setTeamResults([]);
-                setSelectedTeam(e.target.value);
-              }}
-            >
-              {
-                /* create list dynamically */
-                TableInfo?.map(({ teamName }, index) => {
-                  return (
-                    <option key={index + 1} value={teamName}>
-                      {teamName}
-                    </option>
-                  );
-                })
-              }
-            </select>
-            <div className="select-decoration">
-              <span>▲</span>
-              <span>▼</span>
-            </div>
-          </div>
           <div>
             <h3>Results</h3>
             {TeamResults?.map(({ state, teams, score, matchID, schedule }) => {
