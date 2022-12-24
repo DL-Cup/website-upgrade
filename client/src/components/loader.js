@@ -5,7 +5,7 @@ function Loader() {
     <>
       <div className="loading">
         <div className="loader"></div>
-        <p>Server is probably asleep. Give it a few more seconds.</p>
+        <p>Server is probably asleep. Give it a few more seconds...</p>
       </div>
     </>
   );

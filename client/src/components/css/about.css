@@ -36,3 +36,13 @@ li a {
   display: flex;
   align-items: center;
 }
+
+.notice {
+  border: 2px solid currentColor;
+  color: #202b03;
+  border-radius: 4px;
+  padding: var(--spacing-small);
+  margin-bottom: var(--spacing-regular);
+  background: #edf2c4;
+  font-weight: bold;
+}

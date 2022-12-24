@@ -5,6 +5,7 @@ import { ReactComponent as Telegram } from "../components/images/telegram.svg";
 function About() {
   return (
     <>
+      <div className="notice">League has been discontinued!</div>
       <h1 id="#overview">Overview</h1>
       <p>
         Dl cup is an inter-department football league for the classes of 2022
