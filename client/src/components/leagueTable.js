@@ -6,7 +6,7 @@ import Loader from "./loader";
 
 import "./css/table.css";
 
-function Table() {
+function LeagueTable() {
   const [TableInfo, setTableInfo] = useState([]);
 
   useEffect(() => {
@@ -111,4 +111,4 @@ function Table() {
   );
 }
 
-export default Table;
+export default LeagueTable;

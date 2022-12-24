@@ -28,7 +28,7 @@ function About() {
           </a>
         </li>
         <li>
-          <a href="https://t.me/ItsTheDLCup">
+          <a href="https://t.me/DLCupmemes">
             <Telegram />
             Memes Channel
           </a>
