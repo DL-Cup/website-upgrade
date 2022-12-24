@@ -42,7 +42,7 @@ main.desktop-view {
   display: grid;
   grid-template-columns: 375px 1fr 375px;
   grid-column-gap: var(--spacing-medium);
-  padding: var(--spacing-large);
+  padding: var(--spacing-large) 0;
 }
 
 main.desktop-view aside {

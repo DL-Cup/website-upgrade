@@ -6,7 +6,6 @@ import MostCleansheets from "../components/mostCleansheets";
 function DesktopView() {
   return (
     <>
-      {/* <Header /> */}
       <main className="desktop-view">
         <aside>
           <Fixtures />
