@@ -106,7 +106,7 @@ function AllScorers({ TopScorers, cancelFunc }) {
         </div>
         <>
           <div className="standings standings--all">
-            {!scorers?.length && <EmptyState message="No goals to show." />}
+            {!scorers?.length && <EmptyState message="No goals to show" />}
             {scorers?.length
               ? scorers
                   ?.filter((scorer) => scorer.goals)

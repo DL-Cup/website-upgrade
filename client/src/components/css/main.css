@@ -26,6 +26,8 @@ main {
   padding: var(--spacing-small) var(--spacing-regular);
   padding-bottom: var(--spacing-3xlarge);
   min-height: 100vh;
+
+  position: relative;
 }
 
 main .wrapper {

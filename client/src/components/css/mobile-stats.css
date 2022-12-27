@@ -253,8 +253,8 @@ button.return {
 }
 
 .standings--all .error-msg p {
-  background: var(--blk);
-  color: var(--wht);
+  color: var(--darkV);
+  font-family: var(--alt-font);
 }
 
 .standings--all div span:nth-child(2) {

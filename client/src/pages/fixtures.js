@@ -1,38 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FixturesByGameweek from "../components/fixturesByGameweek";
 import FixturesByTeam from "../components/fixturesByTeam";
 
 import "../components/css/fixtures.css";
 
 function Fixtures() {
-  const [toggle, setToggle] = useState(true);
-
-  useEffect(() => {
-    const switches = document.querySelectorAll("button");
-
-    switches.forEach((button) => {
-      button.addEventListener("click", handleClick);
-    });
-
-    function handleClick(e) {
-      switches.forEach((button) => {
-        button.classList.remove("selected");
-      });
-
-      e.target.classList.add("selected");
-    }
-  }, []);
+  const [activeTab, setActiveTab] = useState("fixturesByGameweek");
 
   return (
     <>
       <div className="toggle">
-        <button className="selected" onClick={() => setToggle(true)}>
+        <button
+          className={`${activeTab === "fixturesByGameweek" ? "selected" : ""}`}
+          onClick={() => {
+            setActiveTab("fixturesByGameweek");
+          }}
+        >
           All
         </button>
-        <button onClick={() => setToggle(false)}>Team</button>
+        <button
+          className={`${activeTab === "fixturesByTeam" ? "selected" : ""}`}
+          onClick={() => {
+            setActiveTab("fixturesByTeam");
+          }}
+        >
+          Team
+        </button>
       </div>
-      {toggle && <FixturesByGameweek />}
-      {!toggle && <FixturesByTeam />}
+      {activeTab === "fixturesByGameweek" && <FixturesByGameweek />}
+      {activeTab === "fixturesByTeam" && <FixturesByTeam />}
     </>
   );
 }
