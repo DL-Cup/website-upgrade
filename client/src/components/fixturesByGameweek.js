@@ -27,91 +27,89 @@ function FixturesByGameweek() {
   let matchSchedules = {};
 
   return (
-    fixtures.length > 0 && (
-      <>
-        <div className="fixture-options">
-          <Prev
-            style={
-              +gameweekID === 1
-                ? { visibility: "hidden" }
-                : { visibility: "visible" }
-            }
-            onClick={() => {
-              if (gameweekID > 1) {
-                setFixtures([]);
-                setGameweekID(gameweekID - 1);
-              }
-            }}
-          />
-          <select
-            value={gameweekID}
-            onChange={(e) => {
+    <>
+      <div className="fixture-options">
+        <Prev
+          style={
+            +gameweekID === 1
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          onClick={() => {
+            if (gameweekID > 1) {
               setFixtures([]);
-              setGameweekID(e.target.value);
-            }}
-          >
-            {
-              /* todo: create list dynamically */
-              [...Array(9)].map((item, index) => {
-                return (
-                  <option key={index + 1} value={index + 1}>
-                    Gameweek {index + 1}
-                  </option>
-                );
-              })
+              setGameweekID(gameweekID - 1);
             }
-          </select>
-          <Next
-            style={
-              +gameweekID === 9
-                ? { visibility: "hidden" }
-                : { visibility: "visible" }
-            }
-            onClick={() => {
-              if (gameweekID < 9) {
-                setFixtures([]);
-                setGameweekID(+gameweekID + 1);
-              }
-            }}
-          />
-        </div>
-        <div className="fixtures">
-          {fixtures
-            ?.sort((a, b) => Date.parse(a.schedule) - Date.parse(b.schedule))
-            .map((match) => {
-              let date = new Date(match.schedule);
-
-              if (matchSchedules[date.toDateString()] === 0) {
-                matchSchedules[date.toDateString()]++;
-              } else {
-                matchSchedules[date.toDateString()] = 0;
-              }
-
+          }}
+        />
+        <select
+          value={gameweekID}
+          onChange={(e) => {
+            setFixtures([]);
+            setGameweekID(e.target.value);
+          }}
+        >
+          {
+            /* todo: create list dynamically */
+            [...Array(9)].map((item, index) => {
               return (
-                <div key={match.matchID}>
-                  {!matchSchedules[date.toDateString()] && (
-                    <div className="schedule-info">
-                      <h4>{date.toDateString()}</h4>
-                      {match.state === "postponed" && (
-                        <p className="__postponed">Postponed</p>
-                      )}
-                    </div>
-                  )}
-                  {match.state === "FT" ? (
-                    <Details key={"FT" + match.matchID} match={match} />
-                  ) : (
-                    <Scheduled match={match} key={"SC" + match.matchID} />
-                  )}
-                </div>
+                <option key={index + 1} value={index + 1}>
+                  Gameweek {index + 1}
+                </option>
               );
-            })}
-        </div>
-        {!fixtures.length && !nullGameweek && <Loader />}
-        {nullGameweek && (
-          <EmptyState message="No gameweek information to display at this time." />
-        )}
-      </>
-    )
+            })
+          }
+        </select>
+        <Next
+          style={
+            +gameweekID === 9
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          onClick={() => {
+            if (gameweekID < 9) {
+              setFixtures([]);
+              setGameweekID(+gameweekID + 1);
+            }
+          }}
+        />
+      </div>
+      <div className="fixtures">
+        {fixtures
+          ?.sort((a, b) => Date.parse(a.schedule) - Date.parse(b.schedule))
+          .map((match) => {
+            let date = new Date(match.schedule);
+
+            if (matchSchedules[date.toDateString()] === 0) {
+              matchSchedules[date.toDateString()]++;
+            } else {
+              matchSchedules[date.toDateString()] = 0;
+            }
+
+            return (
+              <div key={match.matchID}>
+                {!matchSchedules[date.toDateString()] && (
+                  <div className="schedule-info">
+                    <h4>{date.toDateString()}</h4>
+                    {match.state === "postponed" && (
+                      <p className="__postponed">Postponed</p>
+                    )}
+                  </div>
+                )}
+                {match.state === "FT" ? (
+                  <Details key={"FT" + match.matchID} match={match} />
+                ) : (
+                  <Scheduled match={match} key={"SC" + match.matchID} />
+                )}
+              </div>
+            );
+          })}
+      </div>
+      {!fixtures.length && !nullGameweek && <Loader />}
+      {nullGameweek && (
+        <EmptyState message="No gameweek information to display at this time." />
+      )}
+    </>
   );
 }
 
