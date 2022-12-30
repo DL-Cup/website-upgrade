@@ -16,11 +16,9 @@ function MobileView() {
         <Header />
         <Switch>
           <Route path="/" exact component={Tables} />
-          <div className="wrapper">
-            <Route path="/fixtures" exact component={Fixtures} />
-            <Route path="/stats" exact component={MobileStats} />
-            <Route path="/about" exact component={About} />
-          </div>
+          <Route path="/fixtures" exact component={Fixtures} />
+          <Route path="/stats" exact component={MobileStats} />
+          <Route path="/about" exact component={About} />
         </Switch>
       </main>
     </Router>

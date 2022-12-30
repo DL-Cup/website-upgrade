@@ -17,7 +17,7 @@ function LeagueTable() {
     <>
       {!TableInfo?.length > 0 && <Loader />}
       {TableInfo?.length > 0 && (
-        <div class="table-wrapper">
+        <div className="table-wrapper">
           <div className="table-container">
             <table>
               <thead>

@@ -8,7 +8,7 @@ function Fixtures() {
   const [activeTab, setActiveTab] = useState("fixturesByGameweek");
 
   return (
-    <>
+    <div className="wrapper">
       <div className="toggle">
         <button
           className={`${activeTab === "fixturesByGameweek" ? "selected" : ""}`}
@@ -29,7 +29,7 @@ function Fixtures() {
       </div>
       {activeTab === "fixturesByGameweek" && <FixturesByGameweek />}
       {activeTab === "fixturesByTeam" && <FixturesByTeam />}
-    </>
+    </div>
   );
 }
 

@@ -5,9 +5,9 @@ import "../components/css/mobile-stats.css";
 
 export default function MobileStats() {
   return (
-    <>
+    <div className="wrapper">
       <TopScorers></TopScorers>
       <MostCleansheets></MostCleansheets>
-    </>
+    </div>
   );
 }

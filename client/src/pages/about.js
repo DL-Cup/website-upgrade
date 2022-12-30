@@ -4,7 +4,7 @@ import { ReactComponent as Telegram } from "../components/images/telegram.svg";
 
 function About() {
   return (
-    <>
+    <div className="wrapper">
       <div className="notice">League has been discontinued!</div>
       <h1 id="#overview">Overview</h1>
       <p>
@@ -35,7 +35,7 @@ function About() {
           </a>
         </li>
       </ul>
-    </>
+    </div>
   );
 }
 
