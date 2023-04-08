@@ -4,6 +4,7 @@
 - [Folder structure](#folder-structure)
   - [Client](#client)
   - [Screenshots](#screenshots)
+  - [Dlcup-Admin](#dlcup-admin)
   - [Server](#server)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -17,11 +18,15 @@ Dl cup is a website for a University football tournament that includes table sta
 
 ## Folder structure
 
-On the top level, there are three folders - "client", "screenshots", and "server".
+On the top level, there are four folders - "client", "dlcup-admin", "screenshots", and "server".
 
 ### Client
 
-This is where all the frontend code is. I've setup netlify to update on new commits to this folder. The main folder structure is from the create-react-app template so it's very basic. I plan to migrate to typescript very soon. I also plan on making the website responsive for desktop. When I first built it, I was very busy with school and couldn't come up with a design I was happy with. I will try to get back to that task ASAP.
+This is where all the frontend code is. I've setup netlify to update on new commits to this folder. The main folder structure is from the create-react-app template so it's very basic. I plan to migrate to typescript very soon.
+
+### Dlcup-Admin
+
+This is a separate MERN stack admin app. The league was discontinued before I could finish this app but I've implemented some of the features. Inside this folder there are two subfolders called "admin" and "server". The "admin" folder holds the frontend code while the "server" folder holds the backend.
 
 ### Screenshots
 
@@ -51,6 +56,8 @@ npm run start
 ```
 
 :arrow_right: Repeat the same process inside the server folder, to launch the api
+
+:arrow_right: Same process for launching the admin app too!
 
 ## Screenshots
 
@@ -99,4 +106,12 @@ Probably my favorite component😅
 
 <p class="float">
   <img src="./screenshots/10.%20empty-state.jpg" alt="empty state component" width="300"/>
+</p>
+
+---
+
+#### Admin app
+
+<p class="float">
+  <img src="./screenshots/11.%20Admin%20app.png" alt="loading landing page" />
 </p>

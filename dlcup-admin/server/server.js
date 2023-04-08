@@ -9,7 +9,7 @@ const Match = require("./models/matches");
 const Globals = require("./models/globals");
 
 async function main() {
-  await mongoose.connect(process.env.LOCAL_DB_CONNECTION);
+  mongoose.connect(process.env.LOCAL_DB_CONNECTION);
 }
 
 main()

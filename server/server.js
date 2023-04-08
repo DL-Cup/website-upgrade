@@ -13,7 +13,7 @@ mongoose.connect(
   process.env.DB_CONNECTION, // this part is machine dependent as the local host varies from device to device
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
-    console.log("connected to db");
+    console.log("Database connected");
   }
 );
 

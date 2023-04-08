@@ -38,7 +38,7 @@ export default function Schedule() {
 
   useEffect(() => {
     axiosClient.get("table").then((res) => setTableInfo(res.data));
-  });
+  }, []);
 
   useEffect(() => {
     if (initialRender.current) {
