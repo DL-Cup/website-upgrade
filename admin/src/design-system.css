@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  user-select: none;
+}
+
+:root {
+  /*  Font size  */
+  --text-large: 30px;
+  --text-medium: 20px;
+  --text-base: 16px;
+  --text-small: 14px;
+  --text-xsmall: 12px;
+
+  /*   Spacing */
+  --spacing-xsmall: 3px;
+  --spacing-small: 5px;
+  --spacing-base: 10px;
+  --spacing-regular: 20px;
+  --spacing-medium: 30px;
+  --spacing-large: 40px;
+  --spacing-xlarge: 50px;
+  --spacing-2xlarge: 70px;
+  --spacing-3xlarge: 100px;
+
+  /*   Colors */
+  --clr-violet-900: #010039;
+  --clr-violet-800: #0b004d;
+  --clr-violet-700: #23224a;
+  --clr-violet-600: #685bb4;
+  --clr-violet-500: #9791b3;
+  --clr-violet-400: #bbb1f2;
+  --clr-violet-300: #d7cfff;
+  --clr-violet-100: #fff;
+
+  --clr-brand-400: #19e6a8;
+  --clr-brand-200: #cffcef;
+
+  font-family: sans-serif;
+}
